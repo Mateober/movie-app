@@ -1,17 +1,11 @@
 .container-topmovies {
-    /*     display: flex;
-    flex-direction: column;
-    width: 20%;
-    background-color: #1d2c4d;
-    margin-top: 20px; */
-    /* align-items: center; */
     background: #1d2c4d;
     display: flex;
     flex-direction: column;
-    /* margin-top: 0; */
-    /* width: 20%; */
+    min-width: 200px;
+    max-width: 400px;
     .topmovies-title {
-        background-color: #032541;
+        background-color: #021e34;
         color: #74a2c4;
         font-size: 18px;
         font-weight: 600;
@@ -24,21 +18,32 @@
         display: flex;
         flex-direction: row;
         margin: 10px;
+        padding: 0 20px;
         .topmovie__image {
             img {
-                width: 100px;
+                width: 110px;
                 border-radius: 5px;
                 margin-right: 10px;
             }
         }
         .topmovie__info {
-            color: white;
-            .date{
-                color: #8DA0BC;
+            .title {
+                color: white;
             }
-            .vote{
-                color: #EDB709;
+            .date {
+                color: #8da0bc;
+            }
+            .vote {
+                color: #edb709;
             }
         }
+    }
+}
+
+@media (max-width: 810px) {
+    .container-topmovies {
+        margin: 0 auto;
+        margin-top: 30px;
+        min-width: 80%;
     }
 }

@@ -28,7 +28,7 @@ const MovieCard = ({ movie }) => {
     }
 
     return (
-        <div className="movie__card">
+        <div className="movie__card animate__animated animate__fadeIn">
             <div className="movie__image">
                 {movie.poster_path ? (
                     <img

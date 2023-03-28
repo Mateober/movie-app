@@ -14,7 +14,9 @@ export const MoviesPopularPage = () => {
             setMovies(results);
             setLoading(false);
         };
-        getMovies();
+        setTimeout(() => {
+            getMovies();
+        }, 1000);
     }, []);
 
     if (loading) {
@@ -25,9 +27,8 @@ export const MoviesPopularPage = () => {
         <>
             <div className="container-popular-top">
                 <MoviesList movies={movies} />
-                <TopMoviesList/>
+                <TopMoviesList category={"movie"}/>
             </div>
-            
         </>
     );
 };

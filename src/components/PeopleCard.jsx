@@ -5,7 +5,7 @@ export const PeopleCard = ({ person }) => {
     const imageBaseUrl = "https://image.tmdb.org/t/p/w500/";
 
     return (
-        <div className="people-card">
+        <div className="people-card animate__animated animate__fadeIn">
             <div className="people-image">
                 {person.profile_path ? (
                     <img

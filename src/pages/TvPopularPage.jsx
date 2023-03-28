@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getMoviesByCategory } from "../api/api";
 import { MoviesList } from "../components/MoviesList";
+import { TopMoviesList } from "../components/TopMoviesList";
 import { Loading } from "../ui/Loading/Loading";
 
 export const TvPopularPage = () => {
@@ -13,12 +14,22 @@ export const TvPopularPage = () => {
             setMovies(results);
             setLoading(false);
         };
-        getTV();
+        setTimeout(() => {
+            getTV();
+        }, 1000);
     }, []);
 
     if (loading) {
         return <Loading />;
     }
 
-    return <MoviesList movies={movies} />;
+    return (
+        <>
+            <div className="container-popular-top">
+                {" "}
+                <MoviesList movies={movies} />
+                <TopMoviesList category={"tv"} />
+            </div>
+        </>
+    );
 };

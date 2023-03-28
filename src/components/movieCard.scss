@@ -10,18 +10,12 @@
 }
 
 .container-movies {
-    /*     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 20px;
-    height: auto; */
-    //grid-gap: 2em;
-    //align-items: center;
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, 185px);
+    justify-content: center;
     justify-items: center;
-    width: 72% !important;
+    width: 70% !important;
 }
 
 .movie__card {
@@ -122,5 +116,18 @@
     }
     .container-movies {
         width: 100% !important;
+    }
+}
+
+@media (max-width: 440px) {
+    .container-movies {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .movie__card {
+        width: 166px;
+        .movie__image {
+            height: 250px;
+        }
     }
 }
