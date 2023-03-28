@@ -1,0 +1,44 @@
+.container-topmovies {
+    /*     display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: #1d2c4d;
+    margin-top: 20px; */
+    /* align-items: center; */
+    background: #1d2c4d;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 0; */
+    /* width: 20%; */
+    .topmovies-title {
+        background-color: #032541;
+        color: #74a2c4;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 15px 0;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    .topmovie__card {
+        display: flex;
+        flex-direction: row;
+        margin: 10px;
+        .topmovie__image {
+            img {
+                width: 100px;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+        }
+        .topmovie__info {
+            color: white;
+            .date{
+                color: #8DA0BC;
+            }
+            .vote{
+                color: #EDB709;
+            }
+        }
+    }
+}

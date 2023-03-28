@@ -1,0 +1,126 @@
+.container-popular-top {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 91%;
+    gap: 20px;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.container-movies {
+    /*     display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    height: auto; */
+    //grid-gap: 2em;
+    //align-items: center;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    justify-items: center;
+    width: 72% !important;
+}
+
+.movie__card {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e3e3e3;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 185px;
+    height: 100%;
+
+    .movie__image {
+        height: 273px;
+        img {
+            height: 100%;
+            width: 100%;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+        }
+    }
+    .movie__info {
+        padding: 25px 10px 10px 10px;
+        /*         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 98px;  */
+
+        &-title {
+            h2 {
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+        &-date {
+            p {
+                padding-top: 0px;
+                font-size: 16px;
+                font-weight: 400;
+                color: #8a8787;
+            }
+        }
+    }
+}
+
+.circulo1 {
+    background-color: #081c22;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(20%, -55%);
+}
+
+.circulo2 {
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo3 {
+    background-color: #081c22;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        .porciento {
+            font-size: 10px;
+            font-weight: 600;
+        }
+    }
+}
+
+.noImageDiv {
+    background-color: #dbdbdb;
+    height: 100%;
+    img {
+        transform: scale(0.5);
+    }
+}
+
+@media (max-width: 810px) {
+    .container-popular-top {
+        flex-direction: column;
+    }
+    .container-movies {
+        width: 100% !important;
+    }
+}
