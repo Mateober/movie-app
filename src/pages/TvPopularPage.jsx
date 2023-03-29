@@ -25,8 +25,15 @@ export const TvPopularPage = () => {
 
     return (
         <>
+            <div className="div-title-page">
+                <h1 className="title-page">POPULAR TV SHOWS</h1>
+            </div>
+
             <div className="container-popular-top">
-                <MoviesList movies={movies} />
+                <div className="container-movies">
+                    <MoviesList movies={movies} />
+                </div>
+
                 <TopMoviesList category={"tv"} />
             </div>
         </>

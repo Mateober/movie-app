@@ -19,6 +19,11 @@
         flex-direction: row;
         margin: 10px;
         padding: 0 20px;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
         .topmovie__image {
             img {
                 width: 110px;

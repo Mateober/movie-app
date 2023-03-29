@@ -21,12 +21,18 @@ export const PeoplePage = () => {
     }
 
     return (
-        <div className="divdiv">
-            <div className="container-people">
-                {people.map((person) => (
-                    <PeopleCard key={person.id} person={person} />
-                ))}
+        <>
+            <div className="div-title-page">
+                <h1 className="title-page">FAMOUS PEOPLE</h1>
             </div>
-        </div>
+
+            <div className="divdiv">
+                <div className="container-people">
+                    {people.map((person) => (
+                        <PeopleCard key={person.id} person={person} />
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };

@@ -25,9 +25,16 @@ export const MoviesPopularPage = () => {
 
     return (
         <>
+            <div className="div-title-page">
+                <h1 className="title-page">POPULAR MOVIES</h1>
+            </div>
+
             <div className="container-popular-top">
-                <MoviesList movies={movies} />
-                <TopMoviesList category={"movie"}/>
+                <div className="container-movies">
+                    <MoviesList movies={movies} />
+                </div>
+
+                <TopMoviesList category={"movie"} />
             </div>
         </>
     );
