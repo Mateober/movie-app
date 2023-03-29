@@ -11,7 +11,7 @@ export const AppRouter = () => {
         <>
             <Navbar />
             <Routes>
-                <Route path="/" element={<TvPopularPage />} />
+                <Route path="/" element={<MoviesPopularPage />} />
                 <Route path="movies" element={<MoviesPopularPage />} />
                 <Route path="tv" element={<TvPopularPage />} />
                 <Route path="people" element={<PeoplePage />} />

@@ -26,7 +26,6 @@ export const TvPopularPage = () => {
     return (
         <>
             <div className="container-popular-top">
-                {" "}
                 <MoviesList movies={movies} />
                 <TopMoviesList category={"tv"} />
             </div>

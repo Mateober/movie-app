@@ -11,10 +11,12 @@ export const SearchPage = () => {
 
     useEffect(() => {
         const search = async () => {
+            setLoading(true);
             const results = await searchMovies(searchTerm);
             setMovies(results);
             setLoading(false);
         };
+
         search();
     }, [searchTerm]);
 
