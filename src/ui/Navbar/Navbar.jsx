@@ -14,12 +14,23 @@ const Navbar = () => {
         setShowMenu(!showMenu);
     };
 
-    const navigate = useNavigate();
-    const { fetchMoviesByCategory } = useMoviesStore();
+    const { fetchMoviesByCategory, useSetCategoryType } = useMoviesStore();
+    const [categoryType, setCategoryType] = useState();
 
-    const handleNavLinkClick = (category) => {
-        fetchMoviesByCategory(category);
+    const handleCategoryTypeClick = (categoryType) => {
+        setCategoryType(categoryType);
+        useSetCategoryType(categoryType);
     };
+
+    const [initialRender, setInitialRender] = useState(false);
+
+    useEffect(() => {
+        if (initialRender) {
+            fetchMoviesByCategory();
+        } else {
+            setInitialRender(true);
+        }
+    }, [categoryType]);
 
     return (
         <nav className="navbar">
@@ -33,13 +44,17 @@ const Navbar = () => {
                 <ul className={`menu ${showMenu ? "show-menu" : ""}`}>
                     <NavLink
                         to={`/popular/movie`}
-                        onClick={() => handleNavLinkClick("movie")}
+                        onClick={() => {
+                            handleCategoryTypeClick("movie");
+                        }}
                     >
                         Movies
                     </NavLink>
                     <NavLink
                         to={`/popular/tv`}
-                        onClick={() => handleNavLinkClick("tv")}
+                        onClick={() => {
+                            handleCategoryTypeClick("tv");
+                        }}
                     >
                         TV Shows
                     </NavLink>

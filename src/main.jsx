@@ -4,7 +4,7 @@ import { MovieApp } from "./MovieApp";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <React.StrictMode>
+    //<React.StrictMode>
         <MovieApp />
-    </React.StrictMode>
+    //</React.StrictMode>
 );

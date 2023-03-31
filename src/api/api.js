@@ -14,9 +14,29 @@ const apiRequest = async (url) => {
     }
 };
 
-export const getMoviesByCategory = async (category = "movie") => {
-    const url = `${apiUrl}/${category}/popular?api_key=${apiKey}&language=${language}`;
-    return apiRequest(url).then((data) => data.results);
+export const getMoviesByCategory = async (
+    category = "movie",
+    sortby = "popularity.desc",
+    genre = ""
+) => {
+    let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}`;
+    if (genre !== "") {
+        url += `&with_genres=${genre}`;
+    }
+    const data = await apiRequest(url);
+    console.log(url);
+    return data.results;
+};
+
+export const getGenres = async (category = "movie") => {
+    try {
+        const response = await axios.get(
+            `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`
+        );
+        return response.data.genres;
+    } catch (error) {
+        console.log("Error fetch genres:", error);
+    }
 };
 
 export const searchMovies = async (searchTerm) => {

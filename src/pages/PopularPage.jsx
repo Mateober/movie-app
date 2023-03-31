@@ -7,7 +7,7 @@ import { useMoviesStore } from "../hooks/useMoviesStore";
 import { Loading } from "../ui/Loading/Loading";
 
 export const PopularPage = () => {
-    const { movies, topMovies ,isLoading, movieClass } = useSelector(
+    const { movies, topMovies, isLoading, movieClass } = useSelector(
         (state) => state.movies
     );
     const { fetchMoviesByCategory } = useMoviesStore();
@@ -23,7 +23,6 @@ export const PopularPage = () => {
     const categoryTitles = {
         movie: "MOVIES",
         tv: "TV SHOWS",
-        // Agrega aquí nuevas categorías y títulos si es necesario
     };
 
     const title = categoryTitles[movieClass];

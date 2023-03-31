@@ -4,33 +4,44 @@ import {
     setTopMovies,
     setLoading,
     setError,
-    setMovieClass,
+    setCategoryType,
+    setFilters,
 } from "../store/movies/moviesSlice";
 import { getMoviesByCategory, getTopRatedMovies } from "../api/api";
 
 export const useMoviesStore = () => {
     const dispatch = useDispatch();
-    const { movies, isLoading, error, movieClass, topMovies } = useSelector(
-        (state) => state.movies
-    );
+    const { movies, isLoading, error, categoryType, topMovies, filters } =
+        useSelector((state) => state.movies);
 
-    const fetchMoviesByCategory = async (category) => {
+    const fetchMoviesByCategory = async () => {
         try {
             dispatch(setLoading(true));
-            dispatch(setMovieClass(category));
-
-            const data = await getMoviesByCategory(category);
-            const data2 = await getTopRatedMovies(category);
+            
+            const data = await getMoviesByCategory(
+                categoryType,
+                filters.sort,
+                filters.genre
+            );
+            const data2 = await getTopRatedMovies(categoryType);
 
             setTimeout(() => {
                 dispatch(setMovies(data));
                 dispatch(setTopMovies(data2));
-                dispatch(setLoading(false));
+                //dispatch(setLoading(false));
             }, 1000);
         } catch (error) {
             dispatch(setError(error));
-            dispatch(setLoading(false));
+            //dispatch(setLoading(false));
         }
+    };
+
+    const useSetCategoryType = (categoryType) => {
+        dispatch(setCategoryType(categoryType));
+    };
+
+    const useSetFilters = (sortby, genre) => {
+        dispatch(setFilters({ sort: sortby, genre: genre }));
     };
 
     return {
@@ -38,7 +49,9 @@ export const useMoviesStore = () => {
         topMovies,
         isLoading,
         error,
-        movieClass,
+        categoryType,
         fetchMoviesByCategory,
+        useSetFilters,
+        useSetCategoryType,
     };
 };

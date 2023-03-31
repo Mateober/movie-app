@@ -5,13 +5,18 @@ export const moviesSlice = createSlice({
     initialState: {
         movies: [],
         topMovies: [],
-        movieClass: "movie",
-        isLoading: false,
+        categoryType: "movie",
+        isLoading: true,
         error: null,
+        filters: {
+            sort: "popularity.desc",
+            genre: "",
+        },
     },
     reducers: {
         setMovies: (state, { payload }) => {
             state.movies = payload;
+            state.isLoading = false;
         },
         setTopMovies: (state, { payload }) => {
             state.topMovies = payload;
@@ -22,11 +27,20 @@ export const moviesSlice = createSlice({
         setError: (state, { payload }) => {
             state.error = payload;
         },
-        setMovieClass: (state, { payload }) => {
-            state.movieClass = payload;
+        setCategoryType: (state, { payload }) => {
+            state.categoryType = payload;
+        },
+        setFilters: (state, { payload }) => {
+            state.filters = payload;
         },
     },
 });
 
-// Action creators are generated for each case reducer function
-export const { setMovies, setTopMovies, setLoading, setError, setMovieClass } = moviesSlice.actions;
+export const {
+    setMovies,
+    setTopMovies,
+    setLoading,
+    setError,
+    setCategoryType,
+    setFilters,
+} = moviesSlice.actions;
