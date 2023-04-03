@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
                 <ul className={`menu ${showMenu ? "show-menu" : ""}`}>
                     <NavLink
-                        to={`/popular/movie`}
+                        to={`/movie`}
                         onClick={() => {
                             handleCategoryTypeClick("movie");
                         }}
@@ -51,7 +51,7 @@ const Navbar = () => {
                         Movies
                     </NavLink>
                     <NavLink
-                        to={`/popular/tv`}
+                        to={`/tv`}
                         onClick={() => {
                             handleCategoryTypeClick("tv");
                         }}

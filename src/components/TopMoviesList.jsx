@@ -3,7 +3,7 @@ import { TopMovieCard } from "./TopMovieCard";
 
 export const TopMoviesList = ({ movies }) => {
 
-
+    console.log("TopMovieList")
     return (
         <div className="container-topmovies animate__animated animate__fadeIn">
             <p className="topmovies-title">TOP PREMIERES</p>

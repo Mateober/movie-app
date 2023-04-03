@@ -1,47 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useMoviesStore } from "../hooks/useMoviesStore";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { getGenres } from "../api/api";
+import { useMoviesStore } from "../hooks/useMoviesStore";
+import { getFilterOptions } from "../helpers/getFilterOptions";
+import "./filter.scss";
 
 export const Filter = () => {
-    const [sortby, setSortby] = useState("popularity.desc");
-    const [genre, setGenre] = useState("");
+    console.log("Filter")
+    const { categoryType } = useSelector((state) => state.movies);
     const { useSetFilters, fetchMoviesByCategory } = useMoviesStore();
+
     const [initialRender, setInitialRender] = useState(false);
 
-    const { categoryType } = useSelector((state) => state.movies);
+    const [sortby, setSortby] = useState("popularity.desc");
+    const [genre, setGenre] = useState("");
     const [options, setOptions] = useState({ sort: [], genres: [] });
 
     useEffect(() => {
         const fetchOptions = async () => {
-            const genres = await getGenres(categoryType);
-
-            const optionss = {
-                sort: [
-                    { value: "popularity.asc", label: "Popularity Ascending" },
-                    { value: "popularity.desc", label: "Popularity Descending" },
-                    { value: "vote_average.asc", label: "Rating Ascending" },
-                    { value: "vote_average.desc", label: "Rating Descending" },
-                    { value: "release_date.asc", label: "Release Date Ascending" },
-                    { value: "release_date.desc", label: "Release Date Descending" },
-                    { value: "original_title.asc", label: "Title (A-Z)" },
-                    { value: "original_title.desc", label: "Title (Z-A)" },
-                ],
-                genres: [
-                    { value: "", label: "Select a genre" },
-                    ...genres.map((genre) => ({
-                        value: genre.id.toString(),
-                        label: genre.name,
-                    })),
-                ],
-            };
-
-            setOptions(optionss);
+            const filterOptions = await getFilterOptions(categoryType);
+            setOptions(filterOptions);
         };
 
         fetchOptions();
     }, [categoryType]);
-
 
     useEffect(() => {
         if (initialRender) {
@@ -52,13 +33,15 @@ export const Filter = () => {
     }, [sortby, genre]);
 
     const handleSortByChange = (event) => {
-        setSortby(event.target.value);
-        useSetFilters(event.target.value, genre);
+        const sortByValue = event.target.value;
+        setSortby(sortByValue);
+        useSetFilters(sortByValue, genre);
     };
 
     const handleGenreChange = (event) => {
-        setGenre(event.target.value);
-        useSetFilters(sortby, event.target.value);
+        const genreValue = event.target.value;
+        setGenre(genreValue);
+        useSetFilters(sortby, genreValue);
     };
 
     const handleResetFilters = () => {
@@ -67,39 +50,77 @@ export const Filter = () => {
         useSetFilters("popularity.desc", "");
     };
 
+/*     const [selectedGenres, setSelectedGenres] = useState([]);
+
+    const handleGenreSelect = (event) => {
+      const selectedValue = event.target.getAttribute("data-value");
+      if (selectedGenres.includes(selectedValue)) {
+        setSelectedGenres(selectedGenres.filter((value) => value !== selectedValue));
+      } else {
+        setSelectedGenres([...selectedGenres, selectedValue]);
+      }
+    }; */
+
     return (
         <div>
             <div>
-                <label htmlFor="sort-by">Sort by:</label>
+                <label htmlFor="sort-by">Ordenar por:</label>
                 <select
                     name="sort-by"
                     id="sort-by"
                     value={sortby}
                     onChange={handleSortByChange}
+                    className="filterSelect"
                 >
-                    {options.sort.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
+                    {options.sort.map(({ value, label }) => (
+                        <option
+                            key={value}
+                            value={value}
+                            className="filterOption"
+                        >
+                            {label}
                         </option>
                     ))}
                 </select>
             </div>
-            <div>
-                <label htmlFor="genre">Genre:</label>
+{/*             <div>
+                <h3>Géneros</h3>
+                <ul>
+                    {options.genres.map(({ value, label }) => (
+                        <li
+                            key={value}
+                            data-value={value}
+                            className={`filterOption ${
+                                selectedGenres.includes(value) ? "selected" : ""
+                            }`}
+                            onClick={handleGenreSelect}
+                        >
+                            {label}
+                        </li>
+                    ))}
+                </ul>
+            </div> */}
+                        <div>
+                <label htmlFor="genre">Género:</label>
                 <select
                     name="genre"
                     id="genre"
                     value={genre}
                     onChange={handleGenreChange}
+                    className="filterSelect"
                 >
-                    {options.genres.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
+                    {options.genres.map(({ value, label }) => (
+                        <option
+                            key={value}
+                            value={value}
+                            className="filterOption"
+                        >
+                            {label}
                         </option>
                     ))}
                 </select>
             </div>
-            <button onClick={handleResetFilters}>Reset</button>
+            <button onClick={handleResetFilters}>Restablecer</button>
         </div>
     );
 };

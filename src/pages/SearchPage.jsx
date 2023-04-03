@@ -5,6 +5,7 @@ import { Loading } from "../ui/Loading/Loading";
 import { MoviesList } from "../components/MoviesList";
 
 export const SearchPage = () => {
+    console.log("SearchPage")
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const { searchTerm } = useParams();

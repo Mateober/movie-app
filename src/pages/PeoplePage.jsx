@@ -4,6 +4,7 @@ import { PeopleCard } from "../components/PeopleCard";
 import { Loading } from "../ui/Loading/Loading";
 
 export const PeoplePage = () => {
+    console.log("peoplePage")
     const [people, setPeople] = useState([]);
     const [loading, setLoading] = useState(true);
 
