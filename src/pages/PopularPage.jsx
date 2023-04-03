@@ -9,7 +9,7 @@ import { Filter } from "../components/Filter";
 
 export const PopularPage = () => {
     console.log("PopularPage");
-    const { movies, topMovies, isLoading, movieClass } = useSelector(
+    const { movies, topMovies, isLoading, categoryType } = useSelector(
         (state) => state.movies
     );
     const { fetchMoviesByCategory } = useMoviesStore();
@@ -18,31 +18,30 @@ export const PopularPage = () => {
         fetchMoviesByCategory("movie");
     }, []);
 
-    if (isLoading) {
-        return <Loading />;
-    }
-
     const categoryTitles = {
         movie: "MOVIES",
         tv: "TV SHOWS",
     };
 
-    const title = categoryTitles[movieClass];
-
+    const title = categoryTitles[categoryType];
+    
     return (
         <>
             <Filter />
             <div className="div-title-page">
                 <h1 className="title-page">POPULAR {title}</h1>
             </div>
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <div className="container-popular-top">
+                    <div className="container-movies">
+                        <MoviesList movies={movies} />
+                    </div>
 
-            <div className="container-popular-top">
-                <div className="container-movies">
-                    <MoviesList movies={movies} />
+                    <TopMoviesList movies={topMovies} />
                 </div>
-
-                <TopMoviesList movies={topMovies} />
-            </div>
+            )}
         </>
     );
 };
