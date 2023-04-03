@@ -15,7 +15,6 @@ export const getFilterOptions = async (categoryType) => {
       ];
 
     const genreOptions = [
-        { value: null, label: "Seleccionar género" },
         ...genres.map((genre) => ({
             value: genre.id,
             label: genre.name,

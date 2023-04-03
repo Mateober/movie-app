@@ -5,62 +5,51 @@ import { getFilterOptions } from "../helpers/getFilterOptions";
 import "./filter.scss";
 
 export const Filter = () => {
-    console.log("Filter")
-    const { categoryType } = useSelector((state) => state.movies);
+    // Redux
+    const { categoryType, filters } = useSelector((state) => state.movies);
+    const { sort, genre } = filters;
     const { useSetFilters, fetchMoviesByCategory } = useMoviesStore();
 
-    const [initialRender, setInitialRender] = useState(false);
-
-    const [sortby, setSortby] = useState("popularity.desc");
-    const [genre, setGenre] = useState("");
+    // Fetch options
     const [options, setOptions] = useState({ sort: [], genres: [] });
-
     useEffect(() => {
         const fetchOptions = async () => {
             const filterOptions = await getFilterOptions(categoryType);
             setOptions(filterOptions);
         };
-
         fetchOptions();
     }, [categoryType]);
 
+    // Fetch movies by filters
     useEffect(() => {
         if (initialRender) {
             fetchMoviesByCategory();
         } else {
             setInitialRender(true);
         }
-    }, [sortby, genre]);
+    }, [sort, genre]);
+    const [initialRender, setInitialRender] = useState(false);
 
-    const handleSortByChange = (event) => {
-        const sortByValue = event.target.value;
-        setSortby(sortByValue);
-        useSetFilters(sortByValue, genre);
-    };
-
-    const handleGenreChange = (event) => {
-        const genreValue = event.target.value;
-        setGenre(genreValue);
-        useSetFilters(sortby, genreValue);
-    };
-
-    const handleResetFilters = () => {
-        setSortby("popularity.desc");
-        setGenre("");
-        useSetFilters("popularity.desc", "");
-    };
-
-/*     const [selectedGenres, setSelectedGenres] = useState([]);
-
+    // Handle genre select
     const handleGenreSelect = (event) => {
-      const selectedValue = event.target.getAttribute("data-value");
-      if (selectedGenres.includes(selectedValue)) {
-        setSelectedGenres(selectedGenres.filter((value) => value !== selectedValue));
-      } else {
-        setSelectedGenres([...selectedGenres, selectedValue]);
-      }
-    }; */
+        const selectedValue = parseInt(event.target.dataset.value);
+        const newGenre = genre.includes(selectedValue)
+            ? genre.filter((value) => value !== selectedValue)
+            : [...genre, selectedValue];
+        useSetFilters(sort, newGenre);
+    };
 
+    // Handle sort by change
+    const handleSortByChange = (event) => {
+        useSetFilters(event.target.value, genre);
+    };
+
+    // Handle reset filters
+    const handleResetFilters = () => {
+        useSetFilters("popularity.desc", []);
+    };
+    console.log("hola")
+    // Render
     return (
         <div>
             <div>
@@ -68,7 +57,7 @@ export const Filter = () => {
                 <select
                     name="sort-by"
                     id="sort-by"
-                    value={sortby}
+                    value={sort}
                     onChange={handleSortByChange}
                     className="filterSelect"
                 >
@@ -83,42 +72,24 @@ export const Filter = () => {
                     ))}
                 </select>
             </div>
-{/*             <div>
-                <h3>Géneros</h3>
-                <ul>
-                    {options.genres.map(({ value, label }) => (
-                        <li
-                            key={value}
-                            data-value={value}
-                            className={`filterOption ${
-                                selectedGenres.includes(value) ? "selected" : ""
-                            }`}
-                            onClick={handleGenreSelect}
-                        >
-                            {label}
-                        </li>
-                    ))}
-                </ul>
-            </div> */}
-                        <div>
-                <label htmlFor="genre">Género:</label>
-                <select
-                    name="genre"
-                    id="genre"
-                    value={genre}
-                    onChange={handleGenreChange}
-                    className="filterSelect"
-                >
-                    {options.genres.map(({ value, label }) => (
-                        <option
-                            key={value}
-                            value={value}
-                            className="filterOption"
-                        >
-                            {label}
-                        </option>
-                    ))}
-                </select>
+            <div className="main__filter">
+                <div className="filter">
+                    <h3>Géneros</h3>
+                    <ul className="multi_select">
+                        {options.genres.map(({ value, label }) => (
+                            <li
+                                key={value}
+                                data-value={value}
+                                className={`filterOption ${
+                                    genre.includes(value) ? "selected" : ""
+                                }`}
+                                onClick={handleGenreSelect}
+                            >
+                                {label}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <button onClick={handleResetFilters}>Restablecer</button>
         </div>

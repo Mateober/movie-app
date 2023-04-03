@@ -8,7 +8,6 @@ import { Loading } from "../ui/Loading/Loading";
 import { Filter } from "../components/Filter";
 
 export const PopularPage = () => {
-    console.log("PopularPage");
     const { movies, topMovies, isLoading, categoryType } = useSelector(
         (state) => state.movies
     );

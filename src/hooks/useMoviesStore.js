@@ -25,11 +25,11 @@ export const useMoviesStore = () => {
             );
             const data2 = await getTopRatedMovies(categoryType);
 
-            setTimeout(() => {
+            //setTimeout(() => {
                 dispatch(setMovies(data));
                 dispatch(setTopMovies(data2));
                 //dispatch(setLoading(false));
-            }, 1000);
+            //}, 1000);
         } catch (error) {
             dispatch(setError(error));
             //dispatch(setLoading(false));

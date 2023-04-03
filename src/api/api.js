@@ -17,11 +17,11 @@ const apiRequest = async (url) => {
 export const getMoviesByCategory = async (
     category = "movie",
     sortby = "popularity.desc",
-    genre = ""
+    genre = []
 ) => {
     let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}`;
-    if (genre !== "") {
-        url += `&with_genres=${genre}`;
+    if (!genre.length == 0) {
+        url += `&with_genres=${genre.join(",")}`;
     }
     const data = await apiRequest(url);
     console.log(url);

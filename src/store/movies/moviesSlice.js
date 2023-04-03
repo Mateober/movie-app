@@ -10,7 +10,7 @@ export const moviesSlice = createSlice({
         error: null,
         filters: {
             sort: "popularity.desc",
-            genre: "",
+            genre: [],
         },
     },
     reducers: {
