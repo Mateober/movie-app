@@ -3,19 +3,11 @@ import { useSelector } from "react-redux";
 import { getMoviesByCategory } from "../api/api";
 import { MoviesList } from "../components/MoviesList";
 import { TopMoviesList } from "../components/TopMoviesList";
-import { useMoviesStore } from "../hooks/useMoviesStore";
 import { Loading } from "../ui/Loading/Loading";
 import { Filter } from "../components/Filter";
 
 export const PopularPage = () => {
-    const { movies, topMovies, isLoading, categoryType } = useSelector(
-        (state) => state.movies
-    );
-    const { fetchMoviesByCategory } = useMoviesStore();
-
-    useEffect(() => {
-        fetchMoviesByCategory("movie");
-    }, []);
+    const { movies, topMovies, isLoading, categoryType } = useSelector((state) => state.movies);
 
     const categoryTitles = {
         movie: "MOVIES",
@@ -23,7 +15,7 @@ export const PopularPage = () => {
     };
 
     const title = categoryTitles[categoryType];
-    
+
     return (
         <>
             <Filter />

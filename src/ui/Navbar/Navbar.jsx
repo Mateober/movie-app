@@ -1,36 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { BiCameraMovie } from "react-icons/bi";
 import "./navbar.scss";
 import { InputSearch } from "../Search/InputSearch";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useMoviesStore } from "../../hooks/useMoviesStore";
-import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
-
+    // Función toggleMenu para cambiar el valor de showMenu
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
 
-    const { fetchMoviesByCategory, useSetCategoryType } = useMoviesStore();
-    const [categoryType, setCategoryType] = useState();
+    // Se desestructuran las funciones que se obtienen del hook useMoviesStore
+    const { useSetCategoryType, useSetResetFilters } = useMoviesStore();
 
+    // Función para cambiar el tipo de categoría y reiniciar los filtros al hacer clic en el menú
     const handleCategoryTypeClick = (categoryType) => {
-        setCategoryType(categoryType);
         useSetCategoryType(categoryType);
+        useSetResetFilters();
     };
-
-    const [initialRender, setInitialRender] = useState(false);
-
-    useEffect(() => {
-        if (initialRender) {
-            fetchMoviesByCategory();
-        } else {
-            setInitialRender(true);
-        }
-    }, [categoryType]);
 
     return (
         <nav className="navbar">

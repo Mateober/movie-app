@@ -10,48 +10,61 @@ import {
 import { getMoviesByCategory, getTopRatedMovies } from "../api/api";
 
 export const useMoviesStore = () => {
+    console.log("hola")
+    // Obtenemos el dispatch y los datos del estado desde el store de Redux
     const dispatch = useDispatch();
-    const { movies, isLoading, error, categoryType, topMovies, filters } =
-        useSelector((state) => state.movies);
+    const { movies, isLoading, error, categoryType, topMovies, filters } = useSelector((state) => state.movies);
+    const { sort, genre } = filters;
 
-    const fetchMoviesByCategory = async () => {
+    // Función para cargar las películas
+    const fetchMovies = async () => {
         try {
-            dispatch(setLoading(true));
-            
-            const data = await getMoviesByCategory(
-                categoryType,
-                filters.sort,
-                filters.genre
-            );
+            dispatch(setLoading(true)); // Establecemos el estado de carga a verdadero
+
+            // Obtenemos los datos de las películas y las películas principales de la API
+            const data = await getMoviesByCategory(categoryType, sort, genre);
             const data2 = await getTopRatedMovies(categoryType);
 
-            //setTimeout(() => {
+            // Esperamos un segundo para simular una carga más realista
+            setTimeout(() => {
+                // Establecemos las películas en el estado de Redux
                 dispatch(setMovies(data));
                 dispatch(setTopMovies(data2));
-                //dispatch(setLoading(false));
-            //}, 1000);
+                dispatch(setLoading(false)); // Establecemos el estado de carga a falso
+            }, 1000);
         } catch (error) {
-            dispatch(setError(error));
-            //dispatch(setLoading(false));
+            dispatch(setError(error)); // Establecemos el error en el estado de Redux
+            dispatch(setLoading(false)); // Establecemos el estado de carga a falso
         }
     };
 
+    // Función para establecer el tipo de categoría en el estado de Redux
     const useSetCategoryType = (categoryType) => {
         dispatch(setCategoryType(categoryType));
     };
 
-    const useSetFilters = (sortby, genre) => {
-        dispatch(setFilters({ sort: sortby, genre: genre }));
+    // Función para establecer los filtros en el estado de Redux
+    const useSetFilters = async (sort, genre) => {
+        dispatch(setFilters({ sort, genre }));
     };
 
+    // Función para restablecer los filtros a sus valores predeterminados
+    const useSetResetFilters = () => {
+        if (sort !== "popularity.desc" || genre.length !== 0) {
+            useSetFilters("popularity.desc", []);
+        }
+    };
+
+    // Devolvemos las propiedades y las funciones para usarlas en otros componentes de React
     return {
         movies,
         topMovies,
         isLoading,
         error,
         categoryType,
-        fetchMoviesByCategory,
+        fetchMovies,
         useSetFilters,
         useSetCategoryType,
+        useSetResetFilters,
     };
 };

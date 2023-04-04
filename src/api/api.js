@@ -1,7 +1,10 @@
 import axios from "axios";
+import { getEnvVariables } from "../helpers/getEnvVariables";
+
+const { VITE_API_KEY } = getEnvVariables();
 
 const apiUrl = "https://api.themoviedb.org/3";
-const apiKey = "327298bc06eb4df81d5e95139069ec51";
+const apiKey = VITE_API_KEY;
 const language = "es-ES";
 
 const apiRequest = async (url) => {
