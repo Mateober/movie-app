@@ -37,6 +37,7 @@ export const getGenres = async (category = "movie") => {
             `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`
         );
         return response.data.genres;
+        
     } catch (error) {
         console.log("Error fetch genres:", error);
     }

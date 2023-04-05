@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useMoviesStore } from "../hooks/useMoviesStore";
 import { getFilterOptions } from "../helpers/getFilterOptions";
+import { IoIosArrowForward } from "react-icons/io";
 import "./filter.scss";
 
 export const Filter = () => {
@@ -47,35 +48,50 @@ export const Filter = () => {
     const handleResetFilters = () => {
         useSetResetFilters();
     };
+    const [filterVisible, setFilterVisible] = useState(false);
+    const [filterVisible2, setFilterVisible2] = useState(false);
 
     // Renderizar el componente
     return (
         <div>
             {/* Sección de ordenamiento */}
-            <div>
-                <label htmlFor="sort-by">Ordenar por:</label>
-                <select
-                    name="sort-by"
-                    id="sort-by"
-                    value={sort}
-                    onChange={handleSortByChange}
-                    className="filterSelect"
-                >
-                    {options.sort.map(({ value, label }) => (
-                        <option
-                            key={value}
-                            value={value}
-                            className="filterOption"
-                        >
-                            {label}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
+            <div className="filter_panel">
+                <div className="name" onClick={() => setFilterVisible(!filterVisible)}>
+                    <h2>Ordenar</h2>
+                    <span className={`arrow_filter ${filterVisible ? '' : 'rotated'}`}>
+                        <IoIosArrowForward />
+                    </span>
+                </div>
+                <div className={`filter ${filterVisible ? '' : 'hidden'}`}>
+                    <h3>Ordenar resultador por</h3>
+                    <select
+                        name="sort-by"
+                        id="sort-by"
+                        value={sort}
+                        onChange={handleSortByChange}
+                        className="filterSelect"
+                    >
+                        {options.sort.map(({ value, label }) => (
+                            <option
+                                key={value}
+                                value={value}
+                                className="filterOption"
+                            >
+                                {label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </div>            
             {/* Sección de géneros */}
-            <div className="main__filter">
-                <div className="filter">
+            <div className="filter_panel">
+                <div className="name" onClick={() => setFilterVisible2(!filterVisible2)}>
+                    <h2>Filtros</h2>
+                    <span className={`arrow_filter ${filterVisible2 ? '' : 'rotated'}`}>
+                        <IoIosArrowForward />
+                    </span>
+                </div>
+                <div className={`filter ${filterVisible2 ? '' : 'hidden'}`}>
                     <h3>Géneros</h3>
                     <ul className="multi_select">
                         {options.genres.map(({ value, label }) => (
@@ -93,6 +109,8 @@ export const Filter = () => {
                     </ul>
                 </div>
             </div>
+
+
 
             {/* Botón para restablecer los filtros */}
             <button onClick={handleResetFilters}>Restablecer</button>

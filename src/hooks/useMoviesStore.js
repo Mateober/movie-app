@@ -10,7 +10,6 @@ import {
 import { getMoviesByCategory, getTopRatedMovies } from "../api/api";
 
 export const useMoviesStore = () => {
-    console.log("hola")
     // Obtenemos el dispatch y los datos del estado desde el store de Redux
     const dispatch = useDispatch();
     const { movies, isLoading, error, categoryType, topMovies, filters } = useSelector((state) => state.movies);
