@@ -1,5 +1,6 @@
-import { getColor } from '../../helpers/getColor';
+import { Circle } from '../circle/circle';
 import './movieCard.scss';
+import '../circle/circle.scss';
 
 const MovieCard = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average } = movie;
@@ -12,17 +13,6 @@ const MovieCard = ({ movie }) => {
         month: 'short',
         year: 'numeric',
     });
-
-    const ratingColor = getColor(vote_average);
-    let rating = Math.round(vote_average * 10);
-
-    if (rating === 0) {
-        rating = 'NR';
-    }
-
-    const styleRating = {
-        background: ratingColor,
-    };
 
     if (formattedReleaseDate === 'Invalid Date') {
         formattedReleaseDate = '';
@@ -41,23 +31,14 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="movie__card animate__animated animate__fadeIn">
-            <div className="movie__image">{renderImage()}</div>
-            <div className="circulo1">
-                <div className="circulo2" style={styleRating}>
-                    <div className="circulo3">
-                        <p>
-                            {rating}
-                            {rating !== 'NR' && <span className="porciento">%</span>}
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div className="movie__info">
-                <div className="movie__info-title">
+        <div className="movieCard animate__animated animate__fadeIn">
+            <div className="movieCard__image">{renderImage()}</div>
+            <Circle vote_average={vote_average} />
+            <div className="movieCard__info">
+                <div className="movieCard__info--title">
                     <h2>{title || name}</h2>
                 </div>
-                <div className="movie__info-date">
+                <div className="movieCard__info--date">
                     <p>{formattedReleaseDate}</p>
                 </div>
             </div>

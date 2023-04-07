@@ -13,35 +13,35 @@
         padding: 5px 0;
         text-align: center;
     }
+}
 
-    .topmovie__card {
-        display: flex;
-        flex-direction: row;
-        margin: 10px;
-        padding: 0 20px;
-        transition: transform 0.2s ease;
-        cursor: pointer;
+.topmovieCard {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 0 20px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
 
-        &:hover {
-            transform: scale(1.05);
+    &:hover {
+        transform: scale(1.05);
+    }
+    &__image {
+        img {
+            width: 110px;
+            border-radius: 5px;
+            margin-right: 10px;
         }
-        .topmovie__image {
-            img {
-                width: 110px;
-                border-radius: 5px;
-                margin-right: 10px;
-            }
+    }
+    &__info {
+        .title {
+            color: white;
         }
-        .topmovie__info {
-            .title {
-                color: white;
-            }
-            .date {
-                color: #8da0bc;
-            }
-            .vote {
-                color: #edb709;
-            }
+        .date {
+            color: #8da0bc;
+        }
+        .vote {
+            color: #edb709;
         }
     }
 }

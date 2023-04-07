@@ -21,9 +21,9 @@ export const TopMovieCard = ({ movie }) => {
     };
 
     return (
-        <div className="topmovie__card">
-            <div className="topmovie__image">{renderImage()}</div>
-            <div className="topmovie__info">
+        <div className="topmovieCard">
+            <div className="topmovieCard__image">{renderImage()}</div>
+            <div className="topmovieCard__info">
                 <p className="title">{title || name}</p>
                 <p className="date">{formattedRealeaseDate}</p>
                 <p className="vote">{`${vote_average}/10`}</p>

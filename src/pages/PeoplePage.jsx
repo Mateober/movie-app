@@ -27,7 +27,7 @@ export const PeoplePage = () => {
                 <h1 className="title-page">FAMOUS PEOPLE</h1>
             </div>
 
-            <div className="divdiv">
+            <div className="containerPeople">
                 <div className="container-people">
                     {people.map((person) => (
                         <PeopleCard key={person.id} person={person} />

@@ -1,11 +1,11 @@
-import axios from "axios";
-import { getEnvVariables } from "../helpers/getEnvVariables";
+import axios from 'axios';
+import { getEnvVariables } from '../helpers/getEnvVariables';
 
 const { VITE_API_KEY } = getEnvVariables();
 
-const apiUrl = "https://api.themoviedb.org/3";
+const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = VITE_API_KEY;
-const language = "es-ES";
+const language = 'es-ES';
 
 const apiRequest = async (url) => {
     try {
@@ -17,35 +17,29 @@ const apiRequest = async (url) => {
     }
 };
 
-export const getMoviesByCategory = async (
-    category = "movie",
-    sortby = "popularity.desc",
-    genre = []
-) => {
+export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = []) => {
     let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}`;
     if (!genre.length == 0) {
-        url += `&with_genres=${genre.join(",")}`;
+        url += `&with_genres=${genre.join(',')}`;
     }
 
-    if (sortby === "release_date.desc") {
+    if (sortby === 'release_date.desc') {
         const today = new Date();
-        const isoDate = today.toISOString().split("T")[0];
+        const isoDate = today.toISOString().split('T')[0];
         url += `&primary_release_date.lte=${isoDate}`;
     }
-    
+
     const data = await apiRequest(url);
-    console.log(url)
+    console.log(url);
     return data.results;
 };
 
-export const getGenres = async (category = "movie") => {
+export const getGenres = async (category = 'movie') => {
     try {
-        const response = await axios.get(
-            `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`
-        );
+        const response = await axios.get(`${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`);
         return response.data.genres;
     } catch (error) {
-        console.log("Error fetch genres:", error);
+        console.log('Error fetch genres:', error);
     }
 };
 
@@ -63,7 +57,7 @@ export const searchMovies = async (searchTerm) => {
     return combinedResults;
 };
 
-export const getTopRatedMovies = async (category = "movie") => {
+export const getTopRatedMovies = async (category = 'movie') => {
     const url = `${apiUrl}/${category}/top_rated?api_key=${apiKey}&language=${language}`;
     const data = await apiRequest(url);
     const topMovies = data.results.slice(0, 10);

@@ -44,6 +44,8 @@ export const Filter = () => {
     // Manejar el restablecimiento de los filtros
     const handleResetFilters = () => {
         useSetResetFilters();
+        setFilterVisible(false);
+        setFilterVisible2(false);
     };
 
     // Manejar la visibilidad de los filtros
@@ -104,7 +106,9 @@ export const Filter = () => {
             </div>
 
             {/* Botón para restablecer los filtros */}
-            <button onClick={handleResetFilters}>Restablecer</button>
+            <div className="buttonRestablecer" onClick={handleResetFilters}>
+                <p>Restablecer</p>
+            </div>
         </>
     );
 };

@@ -1,4 +1,4 @@
-.divdiv {
+.containerPeople {
     display: flex;
     justify-content: center;
 }
@@ -10,15 +10,14 @@
     gap: 20px;
 }
 
-.people-card {
+.peopleCard {
     background-color: white;
     border-radius: 10px;
     border: 1px solid #e3e3e3;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     width: 230px;
-}
 
-.people-image {
+    &__image {
     overflow: hidden;
     height: 250px;
     img {
@@ -28,10 +27,13 @@
     }
 }
 
-.people-name {
+&__name {
     padding: 10px 10px 10px 10px;
     p {
         font-size: 18px;
         font-weight: 600;
     }
 }
+}
+
+
