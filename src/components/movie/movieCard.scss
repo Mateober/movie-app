@@ -7,7 +7,6 @@
     justify-content: center;
 }
 
-
 .container-movies-search,
 .container-movies {
     display: grid;
@@ -139,7 +138,8 @@
 }
 
 @media (max-width: 440px) {
-    .container-movies, .container-movies-search {
+    .container-movies,
+    .container-movies-search {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px 10px;

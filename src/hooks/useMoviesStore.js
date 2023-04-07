@@ -1,13 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-    setMovies,
-    setTopMovies,
-    setLoading,
-    setError,
-    setCategoryType,
-    setFilters,
-} from "../store/movies/moviesSlice";
-import { getMoviesByCategory, getTopRatedMovies } from "../api/api";
+import { useDispatch, useSelector } from 'react-redux';
+import { setMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } from '../store/movies/moviesSlice';
+import { getMoviesByCategory, getTopRatedMovies } from '../api/api';
 
 export const useMoviesStore = () => {
     // Obtenemos el dispatch y los datos del estado desde el store de Redux
@@ -49,8 +42,8 @@ export const useMoviesStore = () => {
 
     // Función para restablecer los filtros a sus valores predeterminados
     const useSetResetFilters = () => {
-        if (sort !== "popularity.desc" || genre.length !== 0) {
-            useSetFilters("popularity.desc", []);
+        if (sort !== 'popularity.desc' || genre.length !== 0) {
+            useSetFilters('popularity.desc', []);
         }
     };
 

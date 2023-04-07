@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useMoviesStore } from "../hooks/useMoviesStore";
-import { getFilterOptions } from "../helpers/getFilterOptions";
-import { IoIosArrowForward } from "react-icons/io";
-import "./filter.scss";
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useMoviesStore } from '../../hooks/useMoviesStore';
+import { getFilterOptions } from '../../helpers/getFilterOptions';
+import { IoIosArrowForward } from 'react-icons/io';
+import './filter.scss';
 
 export const Filter = () => {
     // Obtener el estado actual de Redux
@@ -11,7 +11,7 @@ export const Filter = () => {
     const { sort, genre } = filters;
 
     // Obtener funciones personalizadas de useMoviesStore
-    const { useSetFilters, fetchMovies, useSetResetFilters } = useMoviesStore();
+    const { useSetFilters, useSetResetFilters } = useMoviesStore();
 
     // Guardar las opciones de filtro en el estado local
     const [options, setOptions] = useState({ sort: [], genres: [] });
@@ -25,17 +25,14 @@ export const Filter = () => {
         fetchOptions();
     }, [categoryType]);
 
-    // Obtener las películas cada vez que cambia algún filtro
-    useEffect(() => {
-        fetchMovies();
-    }, [sort, genre, categoryType]);
-
     // Manejar la selección de género
     const handleGenreSelect = (event) => {
         const selectedValue = parseInt(event.target.dataset.value);
+
         const newGenre = genre.includes(selectedValue)
             ? genre.filter((value) => value !== selectedValue)
             : [...genre, selectedValue];
+
         useSetFilters(sort, newGenre);
     };
 
@@ -48,59 +45,55 @@ export const Filter = () => {
     const handleResetFilters = () => {
         useSetResetFilters();
     };
+
+    // Manejar la visibilidad de los filtros
     const [filterVisible, setFilterVisible] = useState(false);
     const [filterVisible2, setFilterVisible2] = useState(false);
 
     // Renderizar el componente
     return (
-        <div>
+        <>
             {/* Sección de ordenamiento */}
-            <div className="filter_panel">
-                <div className="name" onClick={() => setFilterVisible(!filterVisible)}>
+            <div className="filterPanel">
+                <div className="filterPanel__name" onClick={() => setFilterVisible(!filterVisible)}>
                     <h2>Ordenar</h2>
-                    <span className={`arrow_filter ${filterVisible ? '' : 'rotated'}`}>
+                    <span className={`${filterVisible ? '' : 'rotated'}`}>
                         <IoIosArrowForward />
                     </span>
                 </div>
-                <div className={`filter ${filterVisible ? '' : 'hidden'}`}>
+                <div className={`filterPanel__filter ${filterVisible ? '' : 'hidden'}`}>
                     <h3>Ordenar resultador por</h3>
                     <select
                         name="sort-by"
                         id="sort-by"
                         value={sort}
                         onChange={handleSortByChange}
-                        className="filterSelect"
+                        className="filterPanel__filter--select"
                     >
                         {options.sort.map(({ value, label }) => (
-                            <option
-                                key={value}
-                                value={value}
-                                className="filterOption"
-                            >
+                            <option key={value} value={value}>
                                 {label}
                             </option>
                         ))}
                     </select>
                 </div>
-            </div>            
+            </div>
             {/* Sección de géneros */}
-            <div className="filter_panel">
-                <div className="name" onClick={() => setFilterVisible2(!filterVisible2)}>
+            <div className="filterPanel">
+                <div className="filterPanel__name" onClick={() => setFilterVisible2(!filterVisible2)}>
                     <h2>Filtros</h2>
-                    <span className={`arrow_filter ${filterVisible2 ? '' : 'rotated'}`}>
+                    <span className={`${filterVisible2 ? '' : 'rotated'}`}>
                         <IoIosArrowForward />
                     </span>
                 </div>
-                <div className={`filter ${filterVisible2 ? '' : 'hidden'}`}>
+                <div className={`filterPanel__filter ${filterVisible2 ? '' : 'hidden'}`}>
                     <h3>Géneros</h3>
-                    <ul className="multi_select">
+                    <ul className="filterPanel__filter--multiSelect">
                         {options.genres.map(({ value, label }) => (
                             <li
                                 key={value}
                                 data-value={value}
-                                className={`filterOption ${
-                                    genre.includes(value) ? "selected" : ""
-                                }`}
+                                className={`${genre.includes(value) ? 'selected' : ''}`}
                                 onClick={handleGenreSelect}
                             >
                                 {label}
@@ -110,10 +103,8 @@ export const Filter = () => {
                 </div>
             </div>
 
-
-
             {/* Botón para restablecer los filtros */}
             <button onClick={handleResetFilters}>Restablecer</button>
-        </div>
+        </>
     );
 };

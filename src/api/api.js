@@ -26,8 +26,15 @@ export const getMoviesByCategory = async (
     if (!genre.length == 0) {
         url += `&with_genres=${genre.join(",")}`;
     }
+
+    if (sortby === "release_date.desc") {
+        const today = new Date();
+        const isoDate = today.toISOString().split("T")[0];
+        url += `&primary_release_date.lte=${isoDate}`;
+    }
+    
     const data = await apiRequest(url);
-    console.log(url);
+    console.log(url)
     return data.results;
 };
 
@@ -37,7 +44,6 @@ export const getGenres = async (category = "movie") => {
             `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`
         );
         return response.data.genres;
-        
     } catch (error) {
         console.log("Error fetch genres:", error);
     }

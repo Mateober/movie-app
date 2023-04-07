@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const moviesSlice = createSlice({
-    name: "movies",
+    name: 'movies',
     initialState: {
         movies: [],
         topMovies: [],
-        categoryType: "movie",
+        categoryType: 'movie',
         isLoading: true,
         error: null,
         filters: {
-            sort: "popularity.desc",
+            sort: 'popularity.desc',
             genre: [],
         },
     },
@@ -36,11 +36,4 @@ export const moviesSlice = createSlice({
     },
 });
 
-export const {
-    setMovies,
-    setTopMovies,
-    setLoading,
-    setError,
-    setCategoryType,
-    setFilters,
-} = moviesSlice.actions;
+export const { setMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } = moviesSlice.actions;

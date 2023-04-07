@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getPopularPeople } from "../api/api";
-import { PeopleCard } from "../components/PeopleCard";
-import { Loading } from "../ui/Loading/Loading";
+import React, { useEffect, useState } from 'react';
+import { getPopularPeople } from '../api/api';
+import { Loading } from '../ui/Loading/Loading';
+import { PeopleCard } from '../components/people/PeopleCard';
 
 export const PeoplePage = () => {
-    console.log("peoplePage")
+    console.log('peoplePage');
     const [people, setPeople] = useState([]);
     const [loading, setLoading] = useState(true);
 

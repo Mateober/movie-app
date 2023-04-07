@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
-import { BiCameraMovie } from "react-icons/bi";
-import "./navbar.scss";
-import { InputSearch } from "../Search/InputSearch";
-import { NavLink } from "react-router-dom";
-import { useMoviesStore } from "../../hooks/useMoviesStore";
+import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa';
+import { BiCameraMovie } from 'react-icons/bi';
+import './navbar.scss';
+import { InputSearch } from '../Search/InputSearch';
+import { NavLink } from 'react-router-dom';
+import { useMoviesStore } from '../../hooks/useMoviesStore';
 
 const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -31,11 +31,11 @@ const Navbar = () => {
                     </div>
                     <p>MovieApp</p>
                 </div>
-                <ul className={`menu ${showMenu ? "show-menu" : ""}`}>
+                <ul className={`menu ${showMenu ? 'show-menu' : ''}`}>
                     <NavLink
                         to={`/movie`}
                         onClick={() => {
-                            handleCategoryTypeClick("movie");
+                            handleCategoryTypeClick('movie');
                         }}
                     >
                         Movies
@@ -43,7 +43,7 @@ const Navbar = () => {
                     <NavLink
                         to={`/tv`}
                         onClick={() => {
-                            handleCategoryTypeClick("tv");
+                            handleCategoryTypeClick('tv');
                         }}
                     >
                         TV Shows

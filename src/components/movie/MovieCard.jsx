@@ -1,48 +1,36 @@
-import { getColor } from "../helpers/getColor";
-import "./movieCard.scss";
+import { getColor } from '../../helpers/getColor';
+import './movieCard.scss';
 
 const MovieCard = ({ movie }) => {
-    const {
-        release_date,
-        first_air_date,
-        poster_path,
-        title,
-        name,
-        vote_average,
-    } = movie;
-    const imageBaseUrl = "https://image.tmdb.org/t/p/w500/";
+    const { release_date, first_air_date, poster_path, title, name, vote_average } = movie;
+    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
 
     const releaseDate = new Date(release_date || first_air_date);
 
-    let formattedReleaseDate = releaseDate.toLocaleDateString("es-ES", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
+    let formattedReleaseDate = releaseDate.toLocaleDateString('es-ES', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
     });
 
     const ratingColor = getColor(vote_average);
     let rating = Math.round(vote_average * 10);
 
     if (rating === 0) {
-        rating = "NR";
+        rating = 'NR';
     }
 
     const styleRating = {
         background: ratingColor,
     };
 
-    if (formattedReleaseDate === "Invalid Date") {
-        formattedReleaseDate = "";
+    if (formattedReleaseDate === 'Invalid Date') {
+        formattedReleaseDate = '';
     }
 
     const renderImage = () => {
         if (poster_path) {
-            return (
-                <img
-                    src={`${imageBaseUrl}${poster_path}`}
-                    alt={title || name}
-                />
-            );
+            return <img src={`${imageBaseUrl}${poster_path}`} alt={title || name} />;
         } else {
             return (
                 <div className="noImageDiv">
@@ -60,9 +48,7 @@ const MovieCard = ({ movie }) => {
                     <div className="circulo3">
                         <p>
                             {rating}
-                            {rating !== "NR" && (
-                                <span className="porciento">%</span>
-                            )}
+                            {rating !== 'NR' && <span className="porciento">%</span>}
                         </p>
                     </div>
                 </div>

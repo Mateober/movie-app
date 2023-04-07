@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { searchMovies } from "../api/api";
-import { useParams } from "react-router-dom";
-import { Loading } from "../ui/Loading/Loading";
-import { MoviesList } from "../components/MoviesList";
+import React, { useState, useEffect } from 'react';
+import { searchMovies } from '../api/api';
+import { useParams } from 'react-router-dom';
+import { Loading } from '../ui/Loading/Loading';
+import { MoviesList } from '../components/movie/MoviesList';
 
 export const SearchPage = () => {
-    console.log("SearchPage")
+    console.log('SearchPage');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const { searchTerm } = useParams();
