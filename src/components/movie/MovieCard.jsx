@@ -1,6 +1,5 @@
 import { Circle } from '../circle/circle';
 import './movieCard.scss';
-import '../circle/circle.scss';
 
 const MovieCard = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average } = movie;
