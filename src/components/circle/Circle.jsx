@@ -1,5 +1,5 @@
 import React from 'react';
-import { getColor } from '../../helpers/getColor';
+import { getColor } from './../../helpers/getColor';
 import './circle.scss';
 
 export const Circle = ({ vote_average }) => {
