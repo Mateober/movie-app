@@ -1,4 +1,4 @@
-import { Circle } from '../circle/circle';
+import { Circle } from '../circle/Circle';
 import './movieCard.scss';
 
 const MovieCard = ({ movie }) => {
