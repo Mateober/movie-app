@@ -18,6 +18,10 @@ export const moviesSlice = createSlice({
             state.movies = payload;
             state.isLoading = false;
         },
+        setMoreMovies: (state, { payload }) => {
+            state.movies = [...state.movies, ...payload];
+            state.isLoading = false;
+        },
         setTopMovies: (state, { payload }) => {
             state.topMovies = payload;
         },
@@ -36,4 +40,4 @@ export const moviesSlice = createSlice({
     },
 });
 
-export const { setMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } = moviesSlice.actions;
+export const { setMovies, setMoreMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } = moviesSlice.actions;

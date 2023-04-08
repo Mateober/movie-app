@@ -1,5 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } from '../store/movies/moviesSlice';
+import {
+    setMovies,
+    setMoreMovies,
+    setTopMovies,
+    setLoading,
+    setError,
+    setCategoryType,
+    setFilters,
+} from '../store/movies/moviesSlice';
 import { getMoviesByCategory, getTopRatedMovies } from '../api/api';
 
 export const useMoviesStore = () => {
@@ -30,6 +38,11 @@ export const useMoviesStore = () => {
         }
     };
 
+    const useSetMoreMovies = async (page) => {
+        const newMovies = await getMoviesByCategory(categoryType, sort, genre, page);
+        dispatch(setMoreMovies(newMovies));
+    };
+
     // Función para establecer el tipo de categoría en el estado de Redux
     const useSetCategoryType = (categoryType) => {
         dispatch(setCategoryType(categoryType));
@@ -55,6 +68,7 @@ export const useMoviesStore = () => {
         error,
         categoryType,
         fetchMovies,
+        useSetMoreMovies,
         useSetFilters,
         useSetCategoryType,
         useSetResetFilters,

@@ -17,8 +17,8 @@ const apiRequest = async (url) => {
     }
 };
 
-export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = []) => {
-    let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}`;
+export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
+    let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}&page=${page}`;
     if (!genre.length == 0) {
         url += `&with_genres=${genre.join(',')}`;
     }
@@ -35,12 +35,11 @@ export const getMoviesByCategory = async (category = 'movie', sortby = 'populari
 };
 
 export const getGenres = async (category = 'movie') => {
-    try {
-        const response = await axios.get(`${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`);
-        return response.data.genres;
-    } catch (error) {
-        console.log('Error fetch genres:', error);
-    }
+    let url = `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`;
+
+    const data = await apiRequest(url);
+
+    return data.genres;
 };
 
 export const searchMovies = async (searchTerm) => {
@@ -66,5 +65,7 @@ export const getTopRatedMovies = async (category = 'movie') => {
 
 export const getPopularPeople = async () => {
     const url = `${apiUrl}/person/popular?api_key=${apiKey}&language=${language}`;
-    return apiRequest(url).then((data) => data.results);
+    const data = await apiRequest(url);
+
+    return data.results;
 };
