@@ -43,8 +43,8 @@ export const getGenres = async (category = 'movie') => {
 };
 
 export const searchMovies = async (searchTerm) => {
-    const movieUrl = `${apiUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false&page=1`;
-    const tvUrl = `${apiUrl}/search/tv?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false&page=1`;
+    const movieUrl = `${apiUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false`;
+    const tvUrl = `${apiUrl}/search/tv?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false`;
 
     const movieResults = await apiRequest(movieUrl);
     const tvResults = await apiRequest(tvUrl);
