@@ -44,12 +44,11 @@ export const Filter = () => {
     // Manejar el restablecimiento de los filtros
     const handleResetFilters = () => {
         useSetResetFilters();
-        setFilterVisible(false);
         setFilterVisible2(false);
     };
 
     // Manejar la visibilidad de los filtros
-    const [filterVisible, setFilterVisible] = useState(false);
+    const [filterVisible, setFilterVisible] = useState(true);
     const [filterVisible2, setFilterVisible2] = useState(false);
 
     // Renderizar el componente

@@ -17,7 +17,7 @@ const apiRequest = async (url) => {
     }
 };
 
-export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
+const buildUrl = (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
     let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}&page=${page}`;
     if (!genre.length == 0) {
         url += `&with_genres=${genre.join(',')}`;
@@ -29,9 +29,20 @@ export const getMoviesByCategory = async (category = 'movie', sortby = 'populari
         url += `&primary_release_date.lte=${isoDate}`;
     }
 
+    return url;
+};
+
+export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
+    const url = buildUrl(category, sortby, genre, page);
     const data = await apiRequest(url);
     console.log(url);
     return data.results;
+};
+
+export const getTotalResults = async (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
+    const url = buildUrl(category, sortby, genre, page);
+    const data = await apiRequest(url);
+    return data.total_results;
 };
 
 export const getGenres = async (category = 'movie') => {
@@ -42,9 +53,9 @@ export const getGenres = async (category = 'movie') => {
     return data.genres;
 };
 
-export const searchMovies = async (searchTerm) => {
-    const movieUrl = `${apiUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false`;
-    const tvUrl = `${apiUrl}/search/tv?api_key=${apiKey}&query=${searchTerm}&language=${language}&include_adult=false`;
+export const searchMovies = async (searchTerm, page = 1) => {
+    const movieUrl = `${apiUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}&language=${language}&page=${page}`;
+    const tvUrl = `${apiUrl}/search/tv?api_key=${apiKey}&query=${searchTerm}&language=${language}&page=${page}`;
 
     const movieResults = await apiRequest(movieUrl);
     const tvResults = await apiRequest(tvUrl);

@@ -5,15 +5,25 @@ import { Loading } from '../ui/Loading/Loading';
 import { MoviesList } from '../components/movie/MoviesList';
 
 export const SearchPage = () => {
-    console.log('SearchPage');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const { searchTerm } = useParams();
+
+    const [page, setPage] = useState(2);
+    const [buttonVisible, setButtonVisible] = useState(true);
+
+    const onClickMoreMovies = async () => {
+        setPage(page + 1);
+        const results = await searchMovies(searchTerm, page);
+        setMovies([...movies, ...results]);
+    };
+
     useEffect(() => {
         const search = async () => {
             setLoading(true);
             const results = await searchMovies(searchTerm);
             setMovies(results);
+            setPage(2);
             setLoading(false);
         };
 
@@ -26,17 +36,22 @@ export const SearchPage = () => {
 
     return (
         <>
-            <div className="div-title-page">
-                <h1 className="title-page">RESULTS FOR {searchTerm}</h1>
-            </div>
-
-            {movies.length === 0 ? (
-                <p>NO HAY PELICULAS</p>
-            ) : (
-                <div className="container-movies-search">
-                    <MoviesList movies={movies} />
+            <div className="container-searchpage">
+                <div className="div-title-page">
+                    <h1 className="title-page">RESULTS FOR {searchTerm}</h1>
                 </div>
-            )}
+
+                {movies.length === 0 ? (
+                    <p>NO HAY PELICULAS</p>
+                ) : (
+                    <div className="container-movies-search">
+                        <MoviesList movies={movies} />
+                    </div>
+                )}
+                <div className={`${buttonVisible ? '' : 'hidden'} buttonMore `} onClick={onClickMoreMovies}>
+                    Mostrar mas
+                </div>
+            </div>
         </>
     );
 };

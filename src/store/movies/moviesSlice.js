@@ -8,6 +8,7 @@ export const moviesSlice = createSlice({
         categoryType: 'movie',
         isLoading: true,
         error: null,
+        totalResults: "",
         filters: {
             sort: 'popularity.desc',
             genre: [],
@@ -37,7 +38,10 @@ export const moviesSlice = createSlice({
         setFilters: (state, { payload }) => {
             state.filters = payload;
         },
+        setTotalResults: (state, { payload }) => {
+            state.totalResults = payload;
+        },
     },
 });
 
-export const { setMovies, setMoreMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters } = moviesSlice.actions;
+export const { setMovies, setMoreMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters, setTotalResults } = moviesSlice.actions;

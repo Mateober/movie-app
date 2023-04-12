@@ -86,3 +86,14 @@
         background-color: #034073;
     }
 }
+
+.container-searchpage {
+    margin: 30px 0;
+}
+
+.container-movies-search  {
+    display: grid;
+    gap: 15px 10px;
+    grid-template-columns: repeat(auto-fill, 185px);
+    justify-content: center;
+}

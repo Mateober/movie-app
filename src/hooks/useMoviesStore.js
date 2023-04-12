@@ -7,8 +7,9 @@ import {
     setError,
     setCategoryType,
     setFilters,
+    setTotalResults,
 } from '../store/movies/moviesSlice';
-import { getMoviesByCategory, getTopRatedMovies } from '../api/api';
+import { getMoviesByCategory, getTopRatedMovies, getTotalResults } from '../api/api';
 
 export const useMoviesStore = () => {
     // Obtenemos el dispatch y los datos del estado desde el store de Redux
@@ -24,12 +25,14 @@ export const useMoviesStore = () => {
             // Obtenemos los datos de las películas y las películas principales de la API
             const data = await getMoviesByCategory(categoryType, sort, genre);
             const data2 = await getTopRatedMovies(categoryType);
+            const data3 = await getTotalResults(categoryType, sort, genre);
 
             // Esperamos un segundo para simular una carga más realista
             setTimeout(() => {
                 // Establecemos las películas en el estado de Redux
                 dispatch(setMovies(data));
                 dispatch(setTopMovies(data2));
+                dispatch(setTotalResults(data3));
                 dispatch(setLoading(false)); // Establecemos el estado de carga a falso
             }, 1000);
         } catch (error) {
