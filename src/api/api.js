@@ -80,3 +80,10 @@ export const getPopularPeople = async () => {
 
     return data.results;
 };
+
+export const getMovieById = async (id) => {
+    const url = `${apiUrl}/movie/${id}?api_key=${apiKey}&language=${language}`;
+    const data = await apiRequest(url);
+    console.log(url)
+    return data;
+};

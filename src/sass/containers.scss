@@ -48,8 +48,6 @@
     margin: 0 auto;
     padding: 20px;
     margin-bottom: 100px;
-    h1 {
-    }
 }
 .container-movies-filter {
     display: flex;
@@ -96,4 +94,22 @@
     gap: 15px 10px;
     grid-template-columns: repeat(auto-fill, 185px);
     justify-content: center;
+}
+
+@media (max-width: 540px) {
+    .container-movies-filter {
+        flex-direction: column;
+    }
+    .container-filter {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 440px) {
+    .container-movies {
+        display: grid;
+        gap: 10px 5px;
+        grid-template-columns: repeat(auto-fill, 150px);
+        justify-content: center;
+    }
 }

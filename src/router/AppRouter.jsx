@@ -5,6 +5,7 @@ import { PopularPage } from '../pages/PopularPage';
 import { SearchPage } from '../pages/SearchPage';
 import Navbar from '../ui/Navbar/Navbar';
 import { Footer } from '../ui/Footer/Footer';
+import { MovieDetailContainer } from '../components/movieDetail/MovieDetailContainer';
 
 export const AppRouter = () => {
     return (
@@ -15,6 +16,7 @@ export const AppRouter = () => {
                 <Route path=":category" element={<PopularPage />} />
                 <Route path="people" element={<PeoplePage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
+                <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />}></Route>
             </Routes>
             <Footer/>
         </>
