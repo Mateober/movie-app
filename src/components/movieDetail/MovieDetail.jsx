@@ -30,7 +30,10 @@ export const MovieDetail = ({ movie }) => {
 
     return (
         <>
-            <div className="movieDetailContainer" style={{ backgroundImage: `url(${backdropImageBaseUrl}${backdropImage})` }}>
+            <div
+                className="movieDetailContainer"
+                style={{ backgroundImage: `url(${backdropImageBaseUrl}${backdropImage || movie.poster_path})` }}
+            >
                 <div className="fondo">
                     <div className="movieDetail__image">{renderImage()}</div>
                     <div className="movieDetail">
@@ -44,6 +47,9 @@ export const MovieDetail = ({ movie }) => {
                             <p className="movieDetail__info--text">
                                 {releaseDate} • {genres} • {duration}
                             </p>
+                        </div>
+                        <div className="movieDetail__circle">
+                            <Circle vote_average={score} />
                         </div>
                         <div className="movieDetail__summary">
                             <p className="movieDetail__summary--title">Resumen</p>

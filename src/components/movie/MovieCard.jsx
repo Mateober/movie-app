@@ -37,7 +37,9 @@ const MovieCard = ({ movie }) => {
         <Link to={`/${categoryType}/${id}`}>
             <div className="movieCard animate__animated animate__fadeIn">
                 <div className="movieCard__image">{renderImage()}</div>
-                <Circle vote_average={vote_average} />
+                <div className='movieCard__circle'>
+                    <Circle vote_average={vote_average} />
+                </div>
                 <div className="movieCard__info">
                     <div className="movieCard__info--title">
                         <h2>{title || name}</h2>

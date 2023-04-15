@@ -1,22 +1,13 @@
 .circulo1 {
     background-color: #081c22;
-    height: 38px;
-    width: 38px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /*     position: absolute;
-    transform: translate(20%, -55%); */
-    margin-top: -21px;
-    margin-bottom: -16px;
-    margin-left: 8px;
-    z-index: 1;
+    //z-index: 1;
 }
 
 .circulo2 {
-    height: 34px;
-    width: 34px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -25,8 +16,6 @@
 
 .circulo3 {
     background-color: #081c22;
-    height: 30px;
-    width: 30px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -34,13 +23,58 @@
 
     p {
         color: white;
-        font-size: 13px;
-        font-weight: 600;
         display: flex;
         align-items: center;
-        .porciento {
-            font-size: 10px;
+    }
+}
+
+.movieCard__circle {
+    margin-top: -21px;
+    margin-bottom: -16px;
+    margin-left: 8px;
+    .circulo1 {
+        height: 38px;
+        width: 38px;
+    }
+    .circulo2 {
+        height: 34px;
+        width: 34px;
+    }
+    .circulo3 {
+        height: 30px;
+        width: 30px;
+        p {
+            font-size: 13px;
             font-weight: 600;
+            .porciento {
+                font-size: 10px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.movieDetail__circle {
+    margin-bottom: 10px;
+    .circulo1 {
+        height: 60px;
+        width: 60px;
+    }
+    .circulo2 {
+        height: 56px;
+        width: 56px;
+    }
+    .circulo3 {
+        height: 52px;
+        width: 52px;
+        p {
+            font-size: 18px;
+            font-weight: 600;
+
+            .porciento {
+                font-size: 14px;
+                font-weight: 600;
+            }
         }
     }
 }
