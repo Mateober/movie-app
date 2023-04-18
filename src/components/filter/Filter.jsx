@@ -16,6 +16,10 @@ export const Filter = () => {
     // Guardar las opciones de filtro en el estado local
     const [options, setOptions] = useState({ sort: [], genres: [] });
 
+    // Guardar genres y sortBy
+    const [sortBy, setSortBy] = useState('popularity.desc');
+    const [genres, setGenres] = useState([]);
+
     // Obtener las opciones de filtro cuando cambia la categoría
     useEffect(() => {
         const fetchOptions = async () => {
@@ -29,22 +33,27 @@ export const Filter = () => {
     const handleGenreSelect = (event) => {
         const selectedValue = parseInt(event.target.dataset.value);
 
-        const newGenre = genre.includes(selectedValue)
-            ? genre.filter((value) => value !== selectedValue)
-            : [...genre, selectedValue];
+        const newGenre = genres.includes(selectedValue)
+            ? genres.filter((value) => value !== selectedValue)
+            : [...genres, selectedValue];
 
-        useSetFilters(sort, newGenre);
+        setGenres(newGenre);
     };
 
     // Manejar el cambio de ordenamiento
     const handleSortByChange = (event) => {
-        useSetFilters(event.target.value, genre);
+        setSortBy(event.target.value);
     };
 
     // Manejar el restablecimiento de los filtros
     const handleResetFilters = () => {
         useSetResetFilters();
         setFilterVisible2(false);
+    };
+
+    // Manejar el apply de los filtros
+    const handleApplytFilters = () => {
+        useSetFilters(sortBy, genres);
     };
 
     // Manejar la visibilidad de los filtros
@@ -94,7 +103,7 @@ export const Filter = () => {
                             <li
                                 key={value}
                                 data-value={value}
-                                className={`${genre.includes(value) ? 'selected' : ''}`}
+                                className={`${genres.includes(value) ? 'selected' : ''}`}
                                 onClick={handleGenreSelect}
                             >
                                 {label}
@@ -105,8 +114,13 @@ export const Filter = () => {
             </div>
 
             {/* Botón para restablecer los filtros */}
-            <div className="buttonRestablecer" onClick={handleResetFilters}>
-                <p>Restablecer</p>
+            <div className="buttonsFilter">
+                <div className="buttonFilter buttonAplicar" onClick={handleApplytFilters}>
+                    <p>Aplicar</p>
+                </div>
+                <div className="buttonFilter" onClick={handleResetFilters}>
+                    <p>Restablecer</p>
+                </div>
             </div>
         </>
     );

@@ -80,7 +80,7 @@
     color: white;
 }
 
-.buttonRestablecer {
+.buttonFilter {
     border: 1px solid #e3e3e3;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: inline-flex;
@@ -96,6 +96,16 @@
         font-size: 16px;
         font-weight: 600;
     }
+}
+
+.buttonsFilter {
+    display: flex;
+    flex-direction: row;
+}
+.buttonAplicar {
+    margin-right: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 @media (max-width: 540px) {
