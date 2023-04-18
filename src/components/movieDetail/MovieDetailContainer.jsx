@@ -3,18 +3,20 @@ import { MovieDetail } from './MovieDetail';
 import { useEffect, useState } from 'react';
 import { getMovieById } from '../../api/api';
 import { Loading } from '../../ui/Loading/Loading';
+import { useSelector } from 'react-redux';
 
 export const MovieDetailContainer = () => {
     const { idMovie } = useParams();
     const [movie, setMovie] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const { categoryType } = useSelector((state) => state.movies);
 
     useEffect(() => {
         const fetchMovie = async () => {
             if (!idMovie) {
                 return;
             }
-            const result = await getMovieById(idMovie);
+            const result = await getMovieById( categoryType, idMovie);
             setMovie(result);
             setIsLoading(false);
         };

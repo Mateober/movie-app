@@ -7,15 +7,18 @@ export const MovieDetail = ({ movie }) => {
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
     const backdropImageBaseUrl = 'https://image.tmdb.org/t/p/original/';
 
-    const releaseYear = movie.details.release_date ? new Date(movie.details.release_date).getFullYear() : '';
+    const releaseYear = movie.details.release_date
+        ? new Date(movie.details.release_date).getFullYear()
+        : new Date(movie.details.first_air_date).getFullYear();
     const releaseDate = movie.details.release_date ? movie.details.release_date : '';
     const genres = movie.details.genres ? movie.details.genres.map((genre) => genre.name).join(', ') : '';
     const duration = movie.details.runtime ? `${Math.floor(movie.details.runtime / 60)}h ${movie.details.runtime % 60}m` : '';
     const score = movie.details.vote_average ? movie.details.vote_average : '';
     const resumen = movie.details.overview ? movie.details.overview : '';
-    const title = movie.details.title ? movie.details.title : '';
+    const title = movie.details.title ? movie.details.title : movie.details.name;
     const name = movie.details.name ? movie.details.name : '';
     const backdropImage = movie.details.backdrop_path ? movie.details.backdrop_path : '';
+    const seasons = movie.details.number_of_seasons ? movie.details.number_of_seasons : '';
 
     const renderImage = () => {
         if (movie.details.poster_path) {
@@ -45,15 +48,19 @@ export const MovieDetail = ({ movie }) => {
                             </p>
                         </div>
                         <div className="movieDetail__info">
-                            <p className="movieDetail__info--text">
-                                {releaseDate} • {genres} • {duration}
-                            </p>
+                            <p>{[releaseDate, genres, duration].filter(Boolean).join(' • ')}</p>
+                            {seasons && (
+                                <p className="serieDetail__info--text">
+                                    {seasons} {seasons === 1 ? 'Temporada' : 'Temporadas'}
+                                </p>
+                            )}
                         </div>
                         <div className="movieDetail__circle">
                             <Circle vote_average={score} />
+                            <p className='movieDetail__circle--text'>Puntuación de usuario</p>
                         </div>
                         <div className="movieDetail__summary">
-                            <p className="movieDetail__summary--title">Resumen</p>
+                            {resumen ? <p className="movieDetail__summary--title">Resumen</p> : ''}
                             <p className="movieDetail__summary--text">{resumen}</p>
                         </div>
                     </div>
@@ -61,7 +68,7 @@ export const MovieDetail = ({ movie }) => {
             </div>
             <div className="actorsContainer">
                 <h2>Actores Principales:</h2>
-                <ul className='actorsUl'>
+                <ul className="actorsUl">
                     {movie.actors.cast.slice(0, 20).map((actor) => (
                         <li key={actor.id} className="actorCard">
                             <ActorsCard actor={actor} />

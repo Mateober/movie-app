@@ -81,9 +81,9 @@ export const getPopularPeople = async () => {
     return data.results;
 };
 
-export const getMovieById = async (id) => {
-    const url1 = `${apiUrl}/movie/${id}?api_key=${apiKey}&language=${language}`;
-    const url2 = `${apiUrl}/movie/${id}/credits?api_key=${apiKey}&language=${language}`;
+export const getMovieById = async ( category = "movie", id) => {
+    const url1 = `${apiUrl}/${category}/${id}?api_key=${apiKey}&language=${language}`;
+    const url2 = `${apiUrl}/${category}/${id}/credits?api_key=${apiKey}&language=${language}`;
     const details = await apiRequest(url1);
     const actors = await apiRequest(url2);
     const data = { details: details, actors: actors };

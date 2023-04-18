@@ -36,7 +36,7 @@
 
     &__info {
         margin-bottom: 20px;
-        &--text {
+        p {
             font-size: 16px;
             font-weight: 400;
         }
@@ -51,6 +51,15 @@
         &--text {
             font-size: 16px;
             font-weight: 400;
+        }
+    }
+    &__circle {
+        display: flex;
+        &--text {
+            margin-left: 10px;
+            width: 10px;
+            font-size: 16px;
+            font-weight: 700;
         }
     }
 }
