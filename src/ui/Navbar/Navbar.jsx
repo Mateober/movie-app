@@ -23,40 +23,48 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
-            <div className="container">
-                <div className="logo">
-                    <div className="icon">
-                        <BiCameraMovie />
+        <>
+            {' '}
+            <nav className="navbar">
+                <div className="container">
+                    <div className="logo">
+                        <div className="icon">
+                            <BiCameraMovie />
+                        </div>
+                        <p>MovieApp</p>
                     </div>
-                    <p>MovieApp</p>
+                    <ul className={`menu ${showMenu ? 'show-menu' : ''}`}>
+                        <NavLink
+                            to={`/movie`}
+                            onClick={() => {
+                                handleCategoryTypeClick('movie');
+                            }}
+                        >
+                            Movies
+                        </NavLink>
+                        <NavLink
+                            to={`/tv`}
+                            onClick={() => {
+                                handleCategoryTypeClick('tv');
+                            }}
+                        >
+                            TV Shows
+                        </NavLink>
+                        <NavLink to="/people">People</NavLink>
+                    </ul>
+                    <InputSearch />
+                    <button className="login-button">Login</button>
+                    <div className="menu-icon" onClick={toggleMenu}>
+                        <FaBars />
+                    </div>
                 </div>
-                <ul className={`menu ${showMenu ? 'show-menu' : ''}`}>
-                    <NavLink
-                        to={`/movie`}
-                        onClick={() => {
-                            handleCategoryTypeClick('movie');
-                        }}
-                    >
-                        Movies
-                    </NavLink>
-                    <NavLink
-                        to={`/tv`}
-                        onClick={() => {
-                            handleCategoryTypeClick('tv');
-                        }}
-                    >
-                        TV Shows
-                    </NavLink>
-                    <NavLink to="/people">People</NavLink>
-                </ul>
-                <InputSearch />
-                <button className="login-button">Login</button>
-                <div className="menu-icon" onClick={toggleMenu}>
-                    <FaBars />
+            </nav>
+            <nav className="navbarMobile">
+                <div>
+                    <h1>NAVBAR</h1>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 };
 
