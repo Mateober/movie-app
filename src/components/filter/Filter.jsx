@@ -4,6 +4,7 @@ import { useMoviesStore } from '../../hooks/useMoviesStore';
 import { getFilterOptions } from '../../helpers/getFilterOptions';
 import { IoIosArrowForward } from 'react-icons/io';
 import './filter.scss';
+import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 export const Filter = () => {
     // Obtener el estado actual de Redux
@@ -53,6 +54,7 @@ export const Filter = () => {
 
     // Manejar el apply de los filtros
     const handleApplytFilters = () => {
+        windowScrollUp()
         useSetFilters(sortBy, genres);
     };
 

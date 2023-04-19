@@ -2,6 +2,7 @@ import { Circle } from '../circle/Circle';
 import { Link } from 'react-router-dom';
 import './movieCard.scss';
 import { useSelector } from 'react-redux';
+import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 const MovieCard = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average, id } = movie;
@@ -34,7 +35,7 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <Link to={`/${categoryType}/${id}`}>
+        <Link to={`/${categoryType}/${id}`} onClick={windowScrollUp}>
             <div className="movieCard animate__animated animate__fadeIn">
                 <div className="movieCard__image">{renderImage()}</div>
                 <div className='movieCard__circle'>
