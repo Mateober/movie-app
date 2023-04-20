@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Loading } from '../ui/Loading/Loading';
 import { Filter } from '../components/filter/Filter';
 import { useMoviesStore } from '../hooks/useMoviesStore';
-import { MoviesList } from '../components/movie/MoviesList';
+import { MoviesList } from '../components/movieCard/MoviesList';
 
 const categoryTitles = {
     movie: 'Movies',

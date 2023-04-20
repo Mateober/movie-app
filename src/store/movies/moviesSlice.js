@@ -4,7 +4,6 @@ export const moviesSlice = createSlice({
     name: 'movies',
     initialState: {
         movies: [],
-        topMovies: [],
         categoryType: localStorage.getItem('categoryType') || 'movie',
         isLoading: true,
         error: null,
@@ -22,9 +21,6 @@ export const moviesSlice = createSlice({
         setMoreMovies: (state, { payload }) => {
             state.movies = [...state.movies, ...payload];
             state.isLoading = false;
-        },
-        setTopMovies: (state, { payload }) => {
-            state.topMovies = payload;
         },
         setLoading: (state, { payload }) => {
             state.isLoading = payload;
@@ -45,4 +41,4 @@ export const moviesSlice = createSlice({
     },
 });
 
-export const { setMovies, setMoreMovies, setTopMovies, setLoading, setError, setCategoryType, setFilters, setTotalResults } = moviesSlice.actions;
+export const { setMovies, setMoreMovies, setLoading, setError, setCategoryType, setFilters, setTotalResults } = moviesSlice.actions;

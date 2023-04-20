@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     setMovies,
     setMoreMovies,
-    setTopMovies,
     setLoading,
     setError,
     setCategoryType,
@@ -14,7 +13,7 @@ import { getMoviesByCategory, getTopRatedMovies, getTotalResults } from '../api/
 export const useMoviesStore = () => {
     // Obtenemos el dispatch y los datos del estado desde el store de Redux
     const dispatch = useDispatch();
-    const { movies, isLoading, error, categoryType, topMovies, filters } = useSelector((state) => state.movies);
+    const { movies, isLoading, error, categoryType, filters } = useSelector((state) => state.movies);
     const { sort, genre } = filters;
 
     // Función para cargar las películas
@@ -31,7 +30,6 @@ export const useMoviesStore = () => {
             setTimeout(() => {
                 // Establecemos las películas en el estado de Redux
                 dispatch(setMovies(data));
-                dispatch(setTopMovies(data2));
                 dispatch(setTotalResults(data3));
                 dispatch(setLoading(false)); // Establecemos el estado de carga a falso
             }, 1000);
@@ -66,7 +64,6 @@ export const useMoviesStore = () => {
     // Devolvemos las propiedades y las funciones para usarlas en otros componentes de React
     return {
         movies,
-        topMovies,
         isLoading,
         error,
         categoryType,
