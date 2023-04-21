@@ -8,7 +8,7 @@ export const ActorsCard = ({ actor }) => {
         } else {
             return (
                 <div className="noImageDivActor">
-                    <img src="../assets/noImage.svg" alt="no image" />
+                    <img src="../../../assets/noImage.svg" alt="no image" />
                 </div>
             );
         }

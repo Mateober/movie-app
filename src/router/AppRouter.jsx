@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { PeoplePage } from '../pages/PeoplePage';
 import { PopularPage } from '../pages/PopularPage';
 import { SearchPage } from '../pages/SearchPage';
 import Navbar from '../ui/Navbar/Navbar';
@@ -18,7 +17,6 @@ export const AppRouter = () => {
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
                 <Route path="show/:category" element={<PopularPage />} />
-                <Route path="people" element={<PeoplePage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
                 <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />} />
             </Routes>
