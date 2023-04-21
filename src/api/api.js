@@ -17,6 +17,7 @@ const apiRequest = async (url) => {
     }
 };
 
+// POPULAR PAGE
 const buildUrl = (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
     let url = `${apiUrl}/discover/${category}?api_key=${apiKey}&language=${language}&sort_by=${sortby}&page=${page}`;
     if (!genre.length == 0) {
@@ -45,6 +46,7 @@ export const getTotalResults = async (category = 'movie', sortby = 'popularity.d
     return data.total_results;
 };
 
+//FILTER
 export const getGenres = async (category = 'movie') => {
     let url = `${apiUrl}/genre/${category}/list?api_key=${apiKey}&language=${language}`;
 
@@ -53,6 +55,7 @@ export const getGenres = async (category = 'movie') => {
     return data.genres;
 };
 
+//SEARCH PAGE
 export const searchMovies = async (searchTerm, page = 1) => {
     const movieUrl = `${apiUrl}/search/movie?api_key=${apiKey}&query=${searchTerm}&language=${language}&page=${page}`;
     const tvUrl = `${apiUrl}/search/tv?api_key=${apiKey}&query=${searchTerm}&language=${language}&page=${page}`;
@@ -67,13 +70,7 @@ export const searchMovies = async (searchTerm, page = 1) => {
     return combinedResults;
 };
 
-export const getTopRatedMovies = async (category = 'movie') => {
-    const url = `${apiUrl}/${category}/top_rated?api_key=${apiKey}&language=${language}`;
-    const data = await apiRequest(url);
-    const topMovies = data.results.slice(0, 10);
-    return topMovies;
-};
-
+//POPULAR PAGE
 export const getPopularPeople = async () => {
     const url = `${apiUrl}/person/popular?api_key=${apiKey}&language=${language}`;
     const data = await apiRequest(url);
@@ -81,6 +78,7 @@ export const getPopularPeople = async () => {
     return data.results;
 };
 
+//MOVIE DETAIL PAGE
 export const getMovieById = async (category = 'movie', id) => {
     const url1 = `${apiUrl}/${category}/${id}?api_key=${apiKey}&language=${language}`;
     const url2 = `${apiUrl}/${category}/${id}/credits?api_key=${apiKey}&language=${language}`;
@@ -89,4 +87,19 @@ export const getMovieById = async (category = 'movie', id) => {
     const data = { details: details, actors: actors };
     console.log(data);
     return data;
+};
+
+//HOME PAGE
+export const getTopRatedMovies = async (category = 'movie') => {
+    const url = `${apiUrl}/${category}/top_rated?api_key=${apiKey}&language=${language}`;
+    const data = await apiRequest(url);
+    const topMovies = data.results.slice(0, 10);
+    return topMovies;
+};
+
+const getPopularMovies = async (category = 'movie') => {
+    const url = `${apiUrl}/${category}?api_key=${apiKey}&language=${language}`;
+    const data = await apiRequest(url);
+    const popularMovies = data.results.slice(0, 10);
+    return popularMovies;
 };

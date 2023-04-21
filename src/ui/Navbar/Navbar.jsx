@@ -24,7 +24,6 @@ const Navbar = () => {
 
     return (
         <>
-            {' '}
             <nav className="navbar">
                 <div className="container">
                     <div className="logo">
@@ -34,8 +33,9 @@ const Navbar = () => {
                         <p>MovieApp</p>
                     </div>
                     <ul className={`menu ${showMenu ? 'show-menu' : ''}`}>
+                        <NavLink to={`/home`}>Home</NavLink>
                         <NavLink
-                            to={`/movie`}
+                            to={`show/movie`}
                             onClick={() => {
                                 handleCategoryTypeClick('movie');
                             }}
@@ -43,14 +43,13 @@ const Navbar = () => {
                             Movies
                         </NavLink>
                         <NavLink
-                            to={`/tv`}
+                            to={`show/tv`}
                             onClick={() => {
                                 handleCategoryTypeClick('tv');
                             }}
                         >
                             TV Shows
                         </NavLink>
-                        <NavLink to="/people">People</NavLink>
                     </ul>
                     <InputSearch />
                     <button className="login-button">Login</button>
