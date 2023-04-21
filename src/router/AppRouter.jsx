@@ -7,14 +7,14 @@ import Navbar from '../ui/Navbar/Navbar';
 import { Footer } from '../ui/Footer/Footer';
 import { MovieDetailContainer } from '../components/movieDetail/MovieDetailContainer';
 import { HomePage } from '../pages/HomePage';
-import { NotFoundPage } from '../pages/notFoundPage';
+import { PageNotFound } from '../pages/PageNotFound';
 
 export const AppRouter = () => {
     return (
         <>
             <Navbar />
             <Routes>
-                <Route path="*" element={<NotFoundPage />} />
+                <Route path="*" element={<PageNotFound />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
                 <Route path="show/:category" element={<PopularPage />} />
