@@ -39,7 +39,7 @@ export const MovieDetail = ({ movie }) => {
         } else {
             return (
                 <div className="noImageDiv">
-                    <img src="../../assets/noImage.svg" alt="no image" />
+                    <img src="../../assets/noImage.png" alt="no image" />
                 </div>
             );
         }
