@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './movieCard.scss';
 import { useSelector } from 'react-redux';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
+import noImage from '../../assets/noImage.png';
 
 const MovieCard = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average, id } = movie;
@@ -28,7 +29,7 @@ const MovieCard = ({ movie }) => {
         } else {
             return (
                 <div className="noImageDiv">
-                    <img src="../../assets/noImage.png" alt="no image" />
+                    <img src={noImage} alt="no image" />
                 </div>
             );
         }
@@ -38,7 +39,7 @@ const MovieCard = ({ movie }) => {
         <Link to={`/${categoryType}/${id}`} onClick={windowScrollUp}>
             <div className="movieCard animate__animated animate__fadeIn">
                 <div className="movieCard__image">{renderImage()}</div>
-                <div className='movieCard__circle'>
+                <div className="movieCard__circle">
                     <Circle vote_average={vote_average} />
                 </div>
                 <div className="movieCard__info">

@@ -43,8 +43,10 @@
 .noImageDivActor {
     background-color: #dbdbdb;
     height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
-        height: 225px;
         transform: scale(0.5);
     }
 }

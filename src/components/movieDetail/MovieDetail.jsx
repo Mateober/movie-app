@@ -2,6 +2,7 @@ import React from 'react';
 import { Circle } from '../circle/Circle';
 import './movieDetail.scss';
 import { ActorsCard } from './ActorsCard';
+import noImage from '../../assets/noImage.png';
 
 export const MovieDetail = ({ movie }) => {
     const { details, actors } = movie;
@@ -39,7 +40,7 @@ export const MovieDetail = ({ movie }) => {
         } else {
             return (
                 <div className="noImageDiv">
-                    <img src="../../assets/noImage.png" alt="no image" />
+                    <img src={noImage} alt="no image" />
                 </div>
             );
         }

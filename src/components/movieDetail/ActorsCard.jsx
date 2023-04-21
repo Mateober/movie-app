@@ -1,4 +1,5 @@
 import './actor.scss';
+import noImage from '../../assets/noImage.png';
 
 export const ActorsCard = ({ actor }) => {
     const profilePathUrl = 'https://image.tmdb.org/t/p/w500/';
@@ -8,7 +9,7 @@ export const ActorsCard = ({ actor }) => {
         } else {
             return (
                 <div className="noImageDivActor">
-                    <img src="../../assets/noImage.png" alt="no image" />
+                    <img src={noImage} alt="no image" />
                 </div>
             );
         }
