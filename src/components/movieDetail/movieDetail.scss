@@ -65,13 +65,14 @@
 }
 
 @media (max-width: 550px) {
-    .fondo {
+    .movieDetailContainer-black {
         margin: 0;
         padding: 20px 20px;
         display: flex;
         flex-direction: column;
     }
-    .movieDetail__image {
+
+    .movie__image {
         margin-right: 0;
         text-align: center;
         img {
