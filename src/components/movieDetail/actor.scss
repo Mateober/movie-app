@@ -43,11 +43,12 @@
 .noImageDivActor {
     background-color: #dbdbdb;
     height: 225px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     img {
-        transform: scale(0.5);
+        width: 80px;
     }
 }
 

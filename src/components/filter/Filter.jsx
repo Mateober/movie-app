@@ -78,7 +78,7 @@ export const Filter = () => {
                     <select
                         name="sort-by"
                         id="sort-by"
-                        value={sort}
+                        value={sortBy}
                         onChange={handleSortByChange}
                         className="filterPanel__filter--select"
                     >
