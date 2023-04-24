@@ -3,55 +3,76 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './movieHomeCard.scss';
+import { MovieCardHome } from './MovieCardHome';
 
 export const MovieListHome = ({ moviesArray, title }) => {
     const settings = {
         infinite: true,
         speed: 500,
-        slidesToShow: 8,
+        slidesToShow: 10,
         slidesToScroll: 2,
-        className: 'center',
-        swipeToSlide: true,
-        className: 'sliderDiv',
         responsive: [
             {
-                breakpoint: 1700,
+                breakpoint: 1750,
                 settings: {
-                    slidesToShow: 6,
+                    slidesToShow: 9,
                 },
             },
             {
-                breakpoint: 1460,
+                breakpoint: 1550,
                 settings: {
-                    slidesToShow: 5,
+                    slidesToShow: 8,
+                },
+            },
+            {
+                breakpoint: 1390,
+                settings: {
+                    slidesToShow: 7,
                 },
             },
             {
                 breakpoint: 1200,
                 settings: {
+                    slidesToShow: 6,
+                },
+            },
+            {
+                breakpoint: 1044,
+                settings: {
+                    slidesToShow: 5,
+                },
+            },
+            {
+                breakpoint: 860,
+                settings: {
                     slidesToShow: 4,
                 },
             },
             {
-                breakpoint: 1000,
+                breakpoint: 688,
                 settings: {
                     slidesToShow: 3,
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 508,
                 settings: {
                     slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 340,
+                settings: {
+                    slidesToShow: 1,
                 },
             },
         ],
     };
     return (
         <div className="list">
-            <h2>{title}</h2>
             <Slider {...settings}>
                 {moviesArray.map((movie) => (
-                    <MovieCard key={movie.id} movie={movie} />
+                    <MovieCardHome key={movie.id} movie={movie} type={title} />
                 ))}
             </Slider>
         </div>

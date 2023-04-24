@@ -10,14 +10,59 @@
     padding: 10px !important;
 }
 
+.home__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 89%;
+    h2 {
+        color: #032541;
+        font-size: 25px;
+        font-weight: 600;
+    }
+    p {
+        font-size: 20px;
+        font-weight: 400;
+        color: #8a8787;
+        cursor: pointer;
+    }
+}
+
 .list {
     height: 100%;
-    margin-bottom: 30px;
     width: 90%;
 }
 
-.list2 {
-    display: flex;
+.cardhome {
+    width: 150px;
+    min-height: 322px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+    }
+    &__info {
+        h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: black;
+        }
+
+        p {
+            padding-top: 0px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #8a8787;
+        }
+    }
+    &__img {
+        margin-bottom: 10px;
+        img {
+            width: 150px;
+            height: 225px;
+            border-radius: 10px;
+        }
+    }
 }
 
 .slick-prev,

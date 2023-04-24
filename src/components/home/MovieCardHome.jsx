@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
 import noImage from '../../assets/noImage.png';
-export const MovieHomeCard = ({ movie }) => {
-    const { release_date, first_air_date, poster_path, title, name, vote_average, id } = movie;
+
+export const MovieCardHome = ({ movie, type }) => {
+    const { release_date, first_air_date, poster_path, title, name, vote_average, id, runtime } = movie;
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
 
     const { categoryType } = useSelector((state) => state.movies);
@@ -34,21 +35,16 @@ export const MovieHomeCard = ({ movie }) => {
     };
 
     return (
-        <Link to={`/${categoryType}/${id}`} onClick={windowScrollUp}>
-            <div className="movieCard animate__animated animate__fadeIn">
-                <div className="movieCard__image">{renderImage()}</div>
-                <div className="movieCard__circle">
-                    <Circle vote_average={vote_average} />
-                </div>
-                <div className="movieCard__info">
-                    <div className="movieCard__info--title">
-                        <h2>{title || name}</h2>
-                    </div>
-                    <div className="movieCard__info--date">
+        <>
+            <Link to={`/${categoryType}/${id}`} onClick={windowScrollUp}>
+                <div className="cardhome">
+                    <div className="cardhome__img">{renderImage()}</div>
+                    <div className="cardhome__info">
+                        <h3>{title || name}</h3>
                         <p>{formattedReleaseDate}</p>
                     </div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+        </>
     );
 };

@@ -30,7 +30,15 @@ export const HomePage = () => {
     return (
         <div className="containerHome">
             {listType.map((list) => (
-                <MovieListHome key={list.title} moviesArray={list.moviesArray} title={list.title} />
+                <>
+                    <div className='home__title'>
+                        <h2 className="list__title">{list.title}</h2>
+                        {list.title === 'POPULAR MOVIES' ? <p className="vermashome">Ver mas...</p> : ''}
+                        {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
+                    </div>
+
+                    <MovieListHome key={list.title} moviesArray={list.moviesArray} title={list.title} />
+                </>
             ))}
         </div>
     );
