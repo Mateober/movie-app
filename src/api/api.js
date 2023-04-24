@@ -85,21 +85,13 @@ export const getMovieById = async (category = 'movie', id) => {
     const details = await apiRequest(url1);
     const actors = await apiRequest(url2);
     const data = { details: details, actors: actors };
-    console.log(data);
     return data;
 };
 
 //HOME PAGE
-export const getTopRatedMovies = async (category = 'movie') => {
-    const url = `${apiUrl}/${category}/top_rated?api_key=${apiKey}&language=${language}`;
+export const getHomeMovies = async (category = 'movie', type) => {
+    const url = `${apiUrl}/${category}/${type}?api_key=${apiKey}&language=${language}`;
     const data = await apiRequest(url);
-    const topMovies = data.results.slice(0, 10);
-    return topMovies;
-};
-
-const getPopularMovies = async (category = 'movie') => {
-    const url = `${apiUrl}/${category}?api_key=${apiKey}&language=${language}`;
-    const data = await apiRequest(url);
-    const popularMovies = data.results.slice(0, 10);
-    return popularMovies;
+    const homeMovies = data.results;
+    return homeMovies;
 };

@@ -1,0 +1,39 @@
+.containerHome {
+    display: flex;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    height: 100% !important;
+}
+
+.slick-list {
+    //border: 1px yellow solid;
+    padding: 10px !important;
+}
+
+
+.list {
+    width: 90%;
+    height: 100%;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.slick-prev,
+.slick-next {
+    z-index: 1;
+    width: 100px !important;
+    height: 100% !important;
+}
+.slick-prev {
+    left: -6% !important;
+}
+.slick-next {
+    right: -6% !important;
+}
+
+.slick-next:before,
+.slick-prev::before {
+    color: #032541;
+    font-size: 50px !important;
+}

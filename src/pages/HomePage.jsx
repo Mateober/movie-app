@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { getTopRatedMovies } from '../api/api';
-import '../components/home/home.scss';
+import { MovieListHome } from '../components/home/MovieListHome';
+import { getHomeMovies } from '../api/api';
 
 export const HomePage = () => {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [topRatedTv, setTopRatedTv] = useState([]);
+    const [popularMovies, setPopularMovies] = useState([]);
+    const [popularTv, setPopularTv] = useState([]);
+    const [upcomingMovies, setUpcomingMovies] = useState([]);
 
     useEffect(() => {
-        const fetchTopRatedMovies = async () => {
-            const data = await getTopRatedMovies('movie');
-            setTopRatedMovies(data);
+        const fetchMovies = async () => {
+            setTopRatedMovies(await getHomeMovies('movie', 'top_rated'));
+            setTopRatedTv(await getHomeMovies('tv', 'top_rated'));
+            setPopularMovies(await getHomeMovies('movie', 'popular'));
+            setPopularTv(await getHomeMovies('tv', 'popular'));
+            setUpcomingMovies(await getHomeMovies('movie', 'upcoming'));
         };
-        fetchTopRatedMovies();
+        fetchMovies();
     }, []);
 
-    const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
+    const listType = [
+        { title: 'POPULAR MOVIES', moviesArray: popularMovies },
+        { title: 'POPULAR TV SHOWS', moviesArray: popularTv },
+        { title: 'TOP RATED MOVIES', moviesArray: topRatedMovies },
+        { title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv },
+    ];
 
     return (
         <div className="containerHome">
-            <div className="list">
-                <h2>TOP 10 MOVIES</h2>
-                <ul className='homeUl'>
-                    {topRatedMovies.map((movie) => (
-                        <li key={movie.id}>
-                            <img src={`${imageBaseUrl}${movie.poster_path}`} alt={movie.title || movie.name} />
-                            <p>{movie.title || movie.name}</p>{' '}
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {listType.map((list) => (
+                <MovieListHome key={list.title} moviesArray={list.moviesArray} title={list.title} />
+            ))}
         </div>
     );
 };
