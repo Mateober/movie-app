@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './movieHomeCard.scss';
-import { MovieHomeCard } from './movieHomeCard';
 
 export const MovieListHome = ({ moviesArray, title }) => {
     const settings = {
