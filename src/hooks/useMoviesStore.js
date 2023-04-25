@@ -19,22 +19,17 @@ export const useMoviesStore = () => {
     // Función para cargar las películas
     const fetchMovies = async () => {
         try {
-            dispatch(setLoading(true)); // Establecemos el estado de carga a verdadero
+            dispatch(setLoading(true));
 
-            // Obtenemos los datos de las películas y las películas principales de la API
             const data = await getMoviesByCategory(categoryType, sort, genre);
-            const data3 = await getTotalResults(categoryType, sort, genre);
+            const dataResults = await getTotalResults(categoryType, sort, genre);
 
-            // Esperamos un segundo para simular una carga más realista
-            setTimeout(() => {
-                // Establecemos las películas en el estado de Redux
-                dispatch(setMovies(data));
-                dispatch(setTotalResults(data3));
-                dispatch(setLoading(false)); // Establecemos el estado de carga a falso
-            }, 1000);
+            dispatch(setMovies(data));
+            dispatch(setTotalResults(dataResults));
+            dispatch(setLoading(false));
         } catch (error) {
-            dispatch(setError(error)); // Establecemos el error en el estado de Redux
-            dispatch(setLoading(false)); // Establecemos el estado de carga a falso
+            dispatch(setError(error));
+            dispatch(setLoading(false));
         }
     };
 

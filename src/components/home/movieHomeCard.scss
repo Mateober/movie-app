@@ -6,8 +6,12 @@
 }
 
 .slick-list {
-    //border: 1px yellow solid;
-    padding: 10px !important;
+    padding-top: 10px !important;
+}
+
+.list {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .home__title {
@@ -15,10 +19,12 @@
     justify-content: space-between;
     align-items: flex-end;
     width: 89%;
+    margin-bottom: 20px;
     h2 {
         color: #032541;
         font-size: 25px;
         font-weight: 600;
+        border-bottom: 4px solid #032541;
     }
     p {
         font-size: 20px;
@@ -28,16 +34,13 @@
     }
 }
 
-.list {
-    height: 100%;
-    width: 90%;
-}
-
 .cardhome {
     width: 150px;
     min-height: 322px;
     transition: transform 0.2s ease;
     cursor: pointer;
+    margin: 0 auto;
+    
     &:hover {
         transform: scale(1.05);
     }
@@ -67,15 +70,16 @@
 
 .slick-prev,
 .slick-next {
+    top: 35%;
     z-index: 1;
-    width: 100px !important;
-    height: 100% !important;
+    height: 50px;
+    width: 50px;
 }
 .slick-prev {
-    left: -6% !important;
+    left: -25px;
 }
 .slick-next {
-    right: -6% !important;
+    right: -25px;
 }
 
 .slick-next:before,
@@ -83,3 +87,19 @@
     color: #032541;
     font-size: 50px !important;
 }
+/* @media (max-width: 820px) {
+    .slick-prev {
+        left: -6% !important;
+    }
+    .slick-next {
+        right: 3% !important;
+    }
+}
+@media (max-width: 385px) {
+    .slick-prev {
+        left: -6% !important;
+    }
+    .slick-next {
+        right: 4% !important;
+    }
+} */

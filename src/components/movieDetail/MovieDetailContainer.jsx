@@ -16,9 +16,11 @@ export const MovieDetailContainer = () => {
             if (!idMovie) {
                 return;
             }
-            const result = await getMovieById( categoryType, idMovie);
-            setMovie(result);
-            setIsLoading(false);
+            const result = await getMovieById(categoryType, idMovie);
+            setTimeout(() => {
+                setMovie(result);
+                setIsLoading(false);
+            }, 500);
         };
         fetchMovie();
     }, [idMovie]);
