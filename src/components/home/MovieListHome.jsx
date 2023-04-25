@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import './movieHomeCard.scss';
 import { MovieCardHome } from './MovieCardHome';
 
-export const MovieListHome = ({ moviesArray, title }) => {
+export const MovieListHome = ({ moviesArray }) => {
     const settings = {
         infinite: true,
         speed: 500,
@@ -68,11 +68,12 @@ export const MovieListHome = ({ moviesArray, title }) => {
             },
         ],
     };
+
     return (
-        <div className="list">
+        <div className="list animate__animated animate__fadeInLeft">
             <Slider {...settings}>
                 {moviesArray.map((movie) => (
-                    <MovieCardHome key={movie.id} movie={movie} type={title} />
+                    <MovieCardHome key={movie.id} movie={movie}/>
                 ))}
             </Slider>
         </div>

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
 import noImage from '../../assets/noImage.png';
 
-export const MovieCardHome = ({ movie, type }) => {
+export const MovieCardHome = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average, id, runtime } = movie;
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
 

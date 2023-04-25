@@ -25,10 +25,10 @@ export const HomePage = () => {
     }, []);
 
     const listType = [
-        { title: 'POPULAR MOVIES', moviesArray: popularMovies },
-        { title: 'POPULAR TV SHOWS', moviesArray: popularTv },
-        { title: 'TOP RATED MOVIES', moviesArray: topRatedMovies },
-        { title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv },
+        { title: 'POPULAR MOVIES', moviesArray: popularMovies, id: 1 },
+        { title: 'POPULAR TV SHOWS', moviesArray: popularTv, id: 2 },
+        { title: 'TOP RATED MOVIES', moviesArray: topRatedMovies, id: 3 },
+        { title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv, id: 4 },
     ];
 
     return isLoading ? (
@@ -43,7 +43,7 @@ export const HomePage = () => {
                         {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
                     </div>
 
-                    <MovieListHome key={list.title} moviesArray={list.moviesArray} title={list.title} />
+                    <MovieListHome key={list.id} moviesArray={list.moviesArray} />
                 </>
             ))}
         </div>
