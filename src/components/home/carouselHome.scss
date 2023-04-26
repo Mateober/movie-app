@@ -1,0 +1,10 @@
+// Define la altura de tu navbar
+$navbar-height: 60px;
+
+// Define la altura total de la pantalla utilizando la variable --vh
+$screen-height: calc(var(--vh, 1vh) * 100);
+
+.carouselDiv{
+    height: calc(#{$screen-height} - #{$navbar-height});
+    background-color: red;
+}

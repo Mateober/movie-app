@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MovieListHome } from '../components/home/MovieListHome';
 import { getHomeMovies } from '../api/api';
 import { Loading } from '../ui/Loading/Loading';
+import { CarouselHome } from '../components/home/CarouselHome';
 
 export const HomePage = () => {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -34,18 +35,22 @@ export const HomePage = () => {
     return isLoading ? (
         <Loading />
     ) : (
-        <div className="containerHome">
-            {listType.map((list) => (
-                <>
-                    <div className="home__title">
-                        <h2 className="list__title">{list.title}</h2>
-                        {list.title === 'POPULAR MOVIES' ? <p className="vermashome">Ver mas...</p> : ''}
-                        {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
-                    </div>
+        <div>
+            <CarouselHome movies={popularMovies.slice(0, 5)}/>
 
-                    <MovieListHome key={list.id} moviesArray={list.moviesArray} />
-                </>
-            ))}
+            <div className="containerHome">
+                {listType.map((list) => (
+                    <>
+                        <div className="home__title">
+                            <h2 className="list__title">{list.title}</h2>
+                            {list.title === 'POPULAR MOVIES' ? <p className="vermashome">Ver mas...</p> : ''}
+                            {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
+                        </div>
+
+                        <MovieListHome key={list.id} moviesArray={list.moviesArray} />
+                    </>
+                ))}
+            </div>
         </div>
     );
 };

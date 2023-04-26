@@ -1,4 +1,3 @@
-import { Circle } from '../circle/Circle';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
