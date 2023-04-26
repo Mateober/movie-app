@@ -1,23 +1,27 @@
+import Slider from 'react-slick';
+import { CarouselCardHome } from './CarouselCardHome';
 import './carouselHome.scss';
 
 export const CarouselHome = ({ movies }) => {
     const settings = {
+        dots: true,
         infinite: true,
-        speed: 500,
-        slidesToShow: 10,
-        slidesToScroll: 2,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3500,
+        speed: 2000,
+        arrows: false,
     };
     return (
         <>
-{/*         <div>
-            {movies.map((movie) => (
-                <div>{movie.title}</div>
-            ))}
-        </div> */}
-        <div className='carouselDiv'>
-
-        </div>        
+            <div>
+                <Slider {...settings}>
+                    {movies.map((movie) => (
+                        <CarouselCardHome movie={movie} />
+                    ))}
+                </Slider>
+            </div>
         </>
-
     );
 };

@@ -26,17 +26,17 @@ export const HomePage = () => {
     }, []);
 
     const listType = [
-        { title: 'POPULAR MOVIES', moviesArray: popularMovies, id: 1 },
-        { title: 'POPULAR TV SHOWS', moviesArray: popularTv, id: 2 },
-        { title: 'TOP RATED MOVIES', moviesArray: topRatedMovies, id: 3 },
-        { title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv, id: 4 },
+        { type: 'movie', title: 'POPULAR MOVIES', moviesArray: popularMovies, id: 1 },
+        { type: 'tv', title: 'POPULAR TV SHOWS', moviesArray: popularTv, id: 2 },
+        { type: 'movie', title: 'TOP RATED MOVIES', moviesArray: topRatedMovies, id: 3 },
+        { type: 'tv', title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv, id: 4 },
     ];
 
     return isLoading ? (
         <Loading />
     ) : (
         <div>
-            <CarouselHome movies={popularMovies.slice(0, 5)}/>
+            <CarouselHome movies={popularMovies.slice(0, 5)} />
 
             <div className="containerHome">
                 {listType.map((list) => (
@@ -47,7 +47,7 @@ export const HomePage = () => {
                             {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
                         </div>
 
-                        <MovieListHome key={list.id} moviesArray={list.moviesArray} />
+                        <MovieListHome key={list.id} moviesArray={list.moviesArray} type={list.type} />
                     </>
                 ))}
             </div>

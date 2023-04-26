@@ -1,10 +1,56 @@
-// Define la altura de tu navbar
-$navbar-height: 60px;
-
-// Define la altura total de la pantalla utilizando la variable --vh
 $screen-height: calc(var(--vh, 1vh) * 100);
 
-.carouselDiv{
-    height: calc(#{$screen-height} - #{$navbar-height});
-    background-color: red;
+.carouselDiv {
+    height: calc(#{$screen-height} - 60px);
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;   
+}
+
+.carouselDiv2 {
+    background: rgba(0, 0, 0, 0.569);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.carouselDiv3 {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.carousel {
+    &__title {
+        font-size: 37px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 20px;
+    }
+    &__info {
+        font-size: 20px;
+        color: white;
+        display: flex;
+        margin-bottom: 20px;
+        &--score {
+            font-weight: 700;
+            margin-right: 30px;
+            color: #EBB509;
+        }
+        &--duration {
+            font-weight: 400;
+            margin-right: 30px;
+        }
+        &--year {
+            font-weight: 400;
+        }
+    }
+    &__resumen {
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 20px;
+    }
+    &__button {
+    }
 }

@@ -5,13 +5,12 @@
     align-items: center;
 }
 
-.slick-list {
-    padding: 10px 0 !important;
-}
-
 .list {
     width: 90%;
     margin: 0 auto;
+    .slick-list {
+        padding: 10px 0 !important;
+    }
 }
 
 .home__title {
@@ -79,7 +78,7 @@
     left: -25px;
 }
 .slick-next {
-    right: -25px;
+    right: -33px;
 }
 
 .slick-next:before,
@@ -88,7 +87,15 @@
     font-size: 50px !important;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1045px) {
+    .slick-prev {
+        left: -32px;
+    }
+    .slick-next {
+        right: -35px;
+    }
+}
+@media (max-width: 680px) {
     .slick-prev {
         left: -20px;
     }
