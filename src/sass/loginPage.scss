@@ -1,0 +1,106 @@
+.LoginPage {
+    padding: 20px 20px;
+    background-color: #f3f3f3;
+    cursor: default;
+}
+.LoginPage2 {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #efeded;
+    border-radius: 7px;
+}
+
+.container__login {
+    margin: 0 auto;
+    h3 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 30px;
+    }
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    margin: 30px 0;
+    cursor: pointer;
+    .btnLogin {
+        width: 165px;
+        border-radius: 7px;
+        border: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    &__google {
+        background-color: white;
+        color: rgb(70, 70, 70);
+        svg {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+    }
+    &__facebook {
+        background-color: #415992;
+        color: white;
+        svg {
+            font-size: 17px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.inputLoginPage {
+    p {
+        font-size: 17px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        cursor: default;
+        span {
+            font-size: 13px;
+            color: #7d7d7d;
+            border-bottom: 1px solid #b5b4b4;
+            cursor: pointer;
+            margin-left: 3px;
+        }
+    }
+    input {
+        border-radius: 7px;
+        border: 1px solid #efefef;
+        background-color: #f7f7f7;
+        height: 40px;
+        width: 350px;
+        margin-bottom: 20px;
+        outline: none;
+        padding: 0 10px;
+        font-size: 15px;
+
+        &:focus {
+            border: 1px solid #cacaca;
+        }
+    }
+
+    .btnSubmit {
+        background-color: #333333;
+        color: white;
+        height: 40px;
+        cursor: pointer;
+        margin-bottom: 50px;
+    }
+    &__register {
+        font-size: 16px;
+        color: #626262;
+        cursor: pointer;
+        span {
+            border-bottom: 1px solid #b5b4b4;
+            padding-bottom: 1px;
+        }
+    }
+}
