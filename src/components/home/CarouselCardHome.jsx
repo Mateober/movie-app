@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 
 export const CarouselCardHome = ({ movie }) => {
-    const { release_date, first_air_date, vote_average, title, backdrop_path, overview, id } = movie;
+    const { release_date, first_air_date, vote_average, title, backdrop_path, id } = movie;
     const releaseYear = new Date(release_date).getFullYear() || new Date(first_air_date).getFullYear() || '';
     const score = vote_average || '';
-    const resumen = overview || '';
     const titleMovie = title || '';
     const backdropImage = backdrop_path || '';
 
@@ -21,8 +20,6 @@ export const CarouselCardHome = ({ movie }) => {
                             </p>
                         </div>
                         <p className="carousel__score">{score}/10</p>
-
-                        <p className="carousel__resumen">{resumen}</p>
                         <Link to={`/movie/${id}`}>
                             <div className="carousel__button">Ver más...</div>
                         </Link>

@@ -63,8 +63,8 @@
 @media (max-width: 440px) {
     .container-movies {
         display: grid;
-        gap: 10px 5px;
+        gap: 10px 0;
         grid-template-columns: repeat(auto-fill, 150px);
-        justify-content: center;
+       justify-content: space-evenly;
     }
 }

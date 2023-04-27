@@ -52,7 +52,8 @@ const Navbar = () => {
                         </NavLink>
                     </ul>
                     <InputSearch />
-                    <button className="login-button">Login</button>
+                    <NavLink to={`/login`}><button className="login-button" >Login</button></NavLink>
+                    
                     <div className="menu-icon" onClick={toggleMenu}>
                         <FaBars />
                     </div>

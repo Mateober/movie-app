@@ -7,6 +7,7 @@ import { Footer } from '../ui/Footer/Footer';
 import { MovieDetailContainer } from '../components/movieDetail/MovieDetailContainer';
 import { HomePage } from '../pages/HomePage';
 import { PageNotFound } from '../pages/PageNotFound';
+import { LoginPage } from '../pages/LoginPage';
 
 export const AppRouter = () => {
     return (
@@ -16,6 +17,7 @@ export const AppRouter = () => {
                 <Route path="*" element={<PageNotFound />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
+                <Route path="login" element={<LoginPage />} />
                 <Route path="show/:category" element={<PopularPage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
                 <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />} />

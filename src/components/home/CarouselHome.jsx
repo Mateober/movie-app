@@ -10,8 +10,9 @@ export const CarouselHome = ({ movies }) => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 4000,
-        speed: 3000,
+        speed: 1000,
         arrows: false,
+        
     };
     return (
         <>
