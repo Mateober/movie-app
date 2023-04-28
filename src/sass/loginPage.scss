@@ -1,14 +1,18 @@
+$screen-height: calc(var(--vh, 1vh) * 100);
+
 .LoginPage {
-    padding: 20px 20px;
     background-color: #f3f3f3;
     cursor: default;
-}
-.LoginPage2 {
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 40px;
+    height: calc(#{$screen-height} - 60px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginPage2 {
+    padding: 50px 90px;
+    max-width: 550px;
     background-color: #fff;
     border: 1px solid #efeded;
     border-radius: 7px;
@@ -20,6 +24,7 @@
         text-align: center;
         font-weight: 400;
         font-size: 30px;
+        margin-bottom: 30px;
     }
 }
 
@@ -27,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     height: 45px;
-    margin: 30px 0;
+    margin-bottom: 30px;
     cursor: pointer;
     .btnLogin {
         width: 165px;
@@ -92,15 +97,41 @@
         color: white;
         height: 40px;
         cursor: pointer;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
-    &__register {
-        font-size: 16px;
-        color: #626262;
-        cursor: pointer;
-        span {
-            border-bottom: 1px solid #b5b4b4;
-            padding-bottom: 1px;
+}
+
+.loginWith {
+    color: #626262;
+    margin-bottom: 10px;
+}
+.registerNow {
+    font-size: 16px;
+    color: #626262;
+    cursor: pointer;
+    span {
+        border-bottom: 1px solid #b5b4b4;
+        padding-bottom: 1px;
+    }
+}
+.divnamesurname {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .ilp2 {
+        input {
+            width: 160px;
         }
     }
 }
+
+/* @media (max-width: 540px) {
+    .LoginPage {
+        background-color: #fff;
+    }
+
+    .LoginPage2 {
+        padding: 0;
+        border: none;
+    }
+} */

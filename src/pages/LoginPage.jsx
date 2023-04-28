@@ -10,17 +10,7 @@ export const LoginPage = () => {
         <div className="LoginPage">
             <div className="LoginPage2">
                 <div className={`container__login ${registerVisible ? 'hidden' : ''}`}>
-                    <h3>Ingresar con</h3>
-                    <div className="buttonsContainer">
-                        <div className="btnLogin buttonsContainer__google">
-                            <FcGoogle />
-                            Google
-                        </div>
-                        <div className="btnLogin buttonsContainer__facebook">
-                            <ImFacebook2 />
-                            Facebook
-                        </div>
-                    </div>
+                    <h3>Ingresar</h3>
                     <form>
                         <div className="inputLoginPage">
                             <p>Email</p>
@@ -35,19 +25,37 @@ export const LoginPage = () => {
                         <div className="inputLoginPage">
                             <input type="submit" className="btnSubmit" value="Ingresar" />
                         </div>
-                        <p className="inputLoginPage__register" onClick={() => setRegisterVisible(!registerVisible)}>
-                            Aun no te has registrado? <span>Registrate ahora</span>{' '}
-                        </p>
                     </form>
+                    <p className='loginWith'>o inicia sesión con</p>
+                    <div className="buttonsContainer">
+                        <div className="btnLogin buttonsContainer__google">
+                            <FcGoogle />
+                            Google
+                        </div>
+                        <div className="btnLogin buttonsContainer__facebook">
+                            <ImFacebook2 />
+                            Facebook
+                        </div>
+                    </div>
+                    <p className="registerNow" onClick={() => setRegisterVisible(!registerVisible)}>
+                        Aun no te has registrado? <span>Registrate ahora</span>{' '}
+                    </p>
                 </div>
 
                 <div className={`container__login ${registerVisible ? '' : 'hidden'}`}>
                     <h3>Registro</h3>
                     <form>
-                        <div className="inputLoginPage">
-                            <p>Nombre</p>
-                            <input type="text" name="registerName" />
+                        <div className="divnamesurname">
+                            <div className="inputLoginPage ilp2">
+                                <p>Nombre</p>
+                                <input type="text" name="registerName" />
+                            </div>
+                            <div className="inputLoginPage ilp2">
+                                <p>Apellido</p>
+                                <input type="text" name="registerSurname" />
+                            </div>
                         </div>
+
                         <div className="inputLoginPage">
                             <p>Email</p>
                             <input type="email" name="registerEmail" />
@@ -59,13 +67,13 @@ export const LoginPage = () => {
 
                         <div className="inputLoginPage">
                             <p>Repita la contraseña</p>
-                            <input type="password"  name="registerPassword2" />
+                            <input type="password" name="registerPassword2" />
                         </div>
 
                         <div className="inputLoginPage">
                             <input type="submit" className="btnSubmit" value="Crear cuenta" />
                         </div>
-                        <p className="inputLoginPage__register" onClick={() => setRegisterVisible(!registerVisible)}>
+                        <p className="registerNow" onClick={() => setRegisterVisible(!registerVisible)}>
                             Ya estas registrado? <span>Ingresa ahora</span>
                         </p>
                     </form>
