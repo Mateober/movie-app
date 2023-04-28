@@ -125,7 +125,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     }
 }
 
-/* @media (max-width: 540px) {
+@media (max-width: 540px) {
     .LoginPage {
         background-color: #fff;
     }
@@ -134,4 +134,4 @@ $screen-height: calc(var(--vh, 1vh) * 100);
         padding: 0;
         border: none;
     }
-} */
+}
