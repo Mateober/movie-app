@@ -6,6 +6,8 @@ import { CarouselHome } from '../components/home/CarouselHome';
 import { useMoviesStore } from '../hooks/useMoviesStore';
 import { Link } from 'react-router-dom';
 
+import { windowScrollUp } from '../helpers/windowScrollUp';
+
 export const HomePage = () => {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [topRatedTv, setTopRatedTv] = useState([]);
@@ -36,8 +38,9 @@ export const HomePage = () => {
 
     const { useSetCategoryType } = useMoviesStore();
 
-    const verMas = (categoryType) => {
+    const onClickVerMas = (categoryType) => {
         useSetCategoryType(categoryType);
+        windowScrollUp();
     };
 
     return isLoading ? (
@@ -55,7 +58,7 @@ export const HomePage = () => {
                                 <Link
                                     to={`/show/movie`}
                                     onClick={() => {
-                                        handleCategoryTypeClick('movie');
+                                        onClickVerMas('movie');
                                     }}
                                 >
                                     <p className="vermashome">Ver mas...</p>
@@ -67,7 +70,7 @@ export const HomePage = () => {
                                 <Link
                                     to={`/show/tv`}
                                     onClick={() => {
-                                        handleCategoryTypeClick('tv');
+                                        onClickVerMas('tv');
                                     }}
                                 >
                                     <p className="vermashome">Ver mas...</p>
