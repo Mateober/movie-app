@@ -3,7 +3,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
 .LoginPage {
     background-color: #f3f3f3;
     cursor: default;
-    height: calc(#{$screen-height} - 60px);
+    min-height: calc(#{$screen-height} - 60px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,6 +12,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
 
 .LoginPage2 {
     padding: 50px 90px;
+    margin: 20px 0;
     max-width: 550px;
     background-color: #fff;
     border: 1px solid #efeded;
@@ -33,7 +34,6 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     justify-content: space-between;
     height: 45px;
     margin-bottom: 30px;
-    cursor: pointer;
     .btnLogin {
         width: 165px;
         border-radius: 7px;
@@ -47,6 +47,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     &__google {
         background-color: white;
         color: rgb(70, 70, 70);
+        cursor: pointer;
         svg {
             font-size: 20px;
             margin-right: 5px;
@@ -55,6 +56,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     &__facebook {
         background-color: #415992;
         color: white;
+        cursor: pointer;
         svg {
             font-size: 17px;
             margin-right: 5px;
@@ -128,6 +130,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
 @media (max-width: 540px) {
     .LoginPage {
         background-color: #fff;
+        height: calc(#{$screen-height} - 120px);
     }
 
     .LoginPage2 {

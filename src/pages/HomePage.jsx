@@ -3,6 +3,8 @@ import { MovieListHome } from '../components/home/MovieListHome';
 import { getHomeMovies } from '../api/api';
 import { Loading } from '../ui/Loading/Loading';
 import { CarouselHome } from '../components/home/CarouselHome';
+import { useMoviesStore } from '../hooks/useMoviesStore';
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -32,6 +34,12 @@ export const HomePage = () => {
         { type: 'tv', title: 'TOP RATED TV SHOWS', moviesArray: topRatedTv, id: 4 },
     ];
 
+    const { useSetCategoryType } = useMoviesStore();
+
+    const verMas = (categoryType) => {
+        useSetCategoryType(categoryType);
+    };
+
     return isLoading ? (
         <Loading />
     ) : (
@@ -43,8 +51,30 @@ export const HomePage = () => {
                     <>
                         <div className="home__title">
                             <h2 className="list__title">{list.title}</h2>
-                            {list.title === 'POPULAR MOVIES' ? <p className="vermashome">Ver mas...</p> : ''}
-                            {list.title === 'POPULAR TV SHOWS' ? <p className="vermashome">Ver mas...</p> : ''}
+                            {list.title === 'POPULAR MOVIES' ? (
+                                <Link
+                                    to={`/show/movie`}
+                                    onClick={() => {
+                                        handleCategoryTypeClick('movie');
+                                    }}
+                                >
+                                    <p className="vermashome">Ver mas...</p>
+                                </Link>
+                            ) : (
+                                ''
+                            )}
+                            {list.title === 'POPULAR TV SHOWS' ? (
+                                <Link
+                                    to={`/show/tv`}
+                                    onClick={() => {
+                                        handleCategoryTypeClick('tv');
+                                    }}
+                                >
+                                    <p className="vermashome">Ver mas...</p>
+                                </Link>
+                            ) : (
+                                ''
+                            )}
                         </div>
 
                         <MovieListHome key={list.id} moviesArray={list.moviesArray} type={list.type} />
