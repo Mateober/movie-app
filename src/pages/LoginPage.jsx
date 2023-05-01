@@ -34,14 +34,13 @@ export const LoginPage = () => {
         onInputChange: onRegisterInputChange,
     } = useForm(registerFormFields);
 
-    console.log(registerName);
-
     const loginSubmit = (event) => {
-        console.log(first);
+        console.log({ loginEmail, loginPassword });
         event.preventDefault();
     };
 
     const registerSubmit = (event) => {
+        console.log({ registerName, registerSurname, registerEmail, registerPassword, registerPassword2 });
         event.preventDefault();
     };
 
@@ -76,7 +75,7 @@ export const LoginPage = () => {
                             <input type="submit" className="btnSubmit" value="Ingresar" />
                         </div>
                     </form>
-                    <p className="loginWith">o inicia sesión con</p>
+                    <p className="loginWith">o inicia sesión con (No funciona por ahora)</p>
                     <div className="buttonsContainer">
                         <div className="btnLogin buttonsContainer__google">
                             <FcGoogle />
