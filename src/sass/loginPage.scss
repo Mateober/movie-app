@@ -127,6 +127,27 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     }
 }
 
+.eyeIcon {
+    color: #6a7171;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    &:hover {
+        color: #989b9b;
+    }
+
+}
+
+.eyeDiv {
+    display: flex;
+    
+}
+.eyeDiv2 {
+    position: absolute;
+    margin-left: 325px;
+    margin-top: 11px;
+}
+
 @media (max-width: 540px) {
     .LoginPage {
         background-color: #fff;

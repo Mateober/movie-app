@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../sass/loginPage.scss';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
+import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { useForm } from '../hooks/useForm';
 
 const loginFormFields = {
@@ -18,6 +19,9 @@ const registerFormFields = {
 };
 
 export const LoginPage = () => {
+    const [eyeIcon1, setEyeIcon1] = useState(true);
+    const [eyeIcon2, setEyeIcon2] = useState(true);
+    const [eyeIcon3, setEyeIcon3] = useState(true);
     const [registerVisible, setRegisterVisible] = useState(false);
 
     const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm(loginFormFields);
@@ -30,10 +34,10 @@ export const LoginPage = () => {
         onInputChange: onRegisterInputChange,
     } = useForm(registerFormFields);
 
-    console.log(registerName)
+    console.log(registerName);
 
     const loginSubmit = (event) => {
-        console.log(first)
+        console.log(first);
         event.preventDefault();
     };
 
@@ -55,9 +59,20 @@ export const LoginPage = () => {
                             <p>
                                 Password <span>Olvidaste tu contraseña?</span>
                             </p>
-                            <input type="password" name="loginPassword" value={loginPassword} onChange={onLoginInputChange} />
+                            <div className="eyeDiv">
+                                <input
+                                    type={`${eyeIcon1 ? 'password' : 'text'}`}
+                                    name="loginPassword"
+                                    value={loginPassword}
+                                    onChange={onLoginInputChange}
+                                />
+                                <div className="eyeDiv2" onClick={() => setEyeIcon1(!eyeIcon1)}>
+                                    <BsFillEyeFill className={`eyeIcon ${!eyeIcon1 ? 'hidden' : ''}`} />
+                                    <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon1 ? 'hidden' : ''}`} />
+                                </div>
+                            </div>
                         </div>
-                        <div className="inputLoginPage">
+                        <div className="inputLoginPage 3">
                             <input type="submit" className="btnSubmit" value="Ingresar" />
                         </div>
                     </form>
@@ -102,22 +117,34 @@ export const LoginPage = () => {
                         </div>
                         <div className="inputLoginPage">
                             <p>Contraseña</p>
-                            <input
-                                type="password"
-                                name="registerPassword"
-                                value={registerPassword}
-                                onChange={onRegisterInputChange}
-                            />
+                            <div className="eyeDiv">
+                                <input
+                                    type={`${eyeIcon2 ? 'password' : 'text'}`}
+                                    name="registerPassword"
+                                    value={registerPassword}
+                                    onChange={onRegisterInputChange}
+                                />
+                                <div className="eyeDiv2" onClick={() => setEyeIcon2(!eyeIcon2)}>
+                                    <BsFillEyeFill className={`eyeIcon ${!eyeIcon2 ? 'hidden' : ''}`} />
+                                    <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon2 ? 'hidden' : ''}`} />
+                                </div>
+                            </div>
                         </div>
 
                         <div className="inputLoginPage">
                             <p>Repita la contraseña</p>
-                            <input
-                                type="password"
-                                name="registerPassword2"
-                                value={registerPassword2}
-                                onChange={onRegisterInputChange}
-                            />
+                            <div className="eyeDiv">
+                                <input
+                                    type={`${eyeIcon3 ? 'password' : 'text'}`}
+                                    name="registerPassword2"
+                                    value={registerPassword2}
+                                    onChange={onRegisterInputChange}
+                                />
+                                <div className="eyeDiv2" onClick={() => setEyeIcon3(!eyeIcon3)}>
+                                    <BsFillEyeFill className={`eyeIcon ${!eyeIcon3 ? 'hidden' : ''}`} />
+                                    <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon3 ? 'hidden' : ''}`} />
+                                </div>
+                            </div>
                         </div>
 
                         <div className="inputLoginPage">
