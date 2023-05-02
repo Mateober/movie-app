@@ -1,0 +1,89 @@
+.navbarMobile {
+    background-color: #032541;
+    font-weight: 600;
+    padding: 0 20px;
+    display: none;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        
+        .logo {
+            display: flex;
+            color: #27bad3;
+            align-items: center;
+            .icon {
+                padding-right: 5px;
+                display: flex;
+                font-size: 40px;
+            }
+            p {
+                font-size: 30px;
+                
+            }
+        }
+    }
+    .menu {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        p{
+            margin-right: 20px;
+        }
+
+        &__homeIcon {
+            font-size: 30px;
+            margin-right: 4PX;
+        }
+        &__movieIcon {
+            font-size: 26px;
+            margin-right: 4px;
+        }
+        &__tvIcon {
+            font-size: 26px;
+            margin-right: 4px;
+        }
+        &__searchIcon {
+            font-size: 23px;
+            margin-right: 4px;
+        }
+
+    }
+    .menu-icon {
+        .bars-icon {
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .user-icon {
+        background-color: rgb(74, 158, 199);
+        width: 35px;
+        height: 35px;
+        border-radius: 100px;
+
+    }
+}
+@media (max-width: 930px) {
+    .navbarMobile {
+        display: block;
+        .container { 
+            .logo {
+                .icon {
+                    font-size: 30px;
+                }
+                p {
+                    font-size: 23px;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 720px) {
+    .navbarMobile {
+        display: block;
+    }
+}

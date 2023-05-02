@@ -1,7 +1,7 @@
 .navbar {
     background-color: #032541;
     font-weight: 600;
-
+    padding: 0 20px;
     .container {
         margin: 0 auto;
         max-width: 1320px;
@@ -9,10 +9,11 @@
         align-items: center;
         justify-content: space-between;
         height: 60px;
-        padding: 0 20px;
+
         .logo {
             display: flex;
             color: #27bad3;
+            align-items: center;
             .icon {
                 padding-right: 5px;
                 display: flex;
@@ -45,10 +46,6 @@
                     left: 0;
                 }
             }
-        }
-
-        .show-menu {
-            background-color: red;
         }
 
         .search {
@@ -95,44 +92,16 @@
                 background-color: #03d1ffb3;
             }
         }
-
-        .menu-icon {
-            display: none;
-        }
     }
 }
 
-.navbarMobile {
-    display: none;
-    div {
-        width: 100%;
-        height: 60px;
-        background-color: #032541;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        h1 {
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-        }
-    }
-}
-
-@media (max-width: 1100px) {
+@media (max-width: 930px) {
     .navbar {
         display: none;
-    }
-    .navbarMobile {
-        display: block;
     }
 }
 @media (max-width: 720px) {
     .navbar {
         display: none;
-    }
-    .navbarMobile {
-        display: block;
     }
 }
