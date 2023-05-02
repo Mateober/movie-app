@@ -9,7 +9,7 @@
         align-items: center;
         justify-content: space-between;
         height: 60px;
-        
+
         .logo {
             display: flex;
             color: #27bad3;
@@ -21,36 +21,38 @@
             }
             p {
                 font-size: 30px;
-                
             }
         }
     }
     .menu {
         color: white;
         display: flex;
-        align-items: center;
-        justify-content: space-around;
-        p{
+        flex-direction: row;
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            cursor: pointer;
+        }
+        .title-icon {
             margin-right: 20px;
         }
-
+        &__icon {
+            margin-right: 4px;
+        }
         &__homeIcon {
             font-size: 30px;
-            margin-right: 4PX;
         }
         &__movieIcon {
             font-size: 26px;
-            margin-right: 4px;
         }
         &__tvIcon {
             font-size: 26px;
-            margin-right: 4px;
         }
         &__searchIcon {
-            font-size: 23px;
-            margin-right: 4px;
+            font-size: 26px;
         }
-
     }
     .menu-icon {
         .bars-icon {
@@ -64,13 +66,28 @@
         width: 35px;
         height: 35px;
         border-radius: 100px;
+    }
+    .login-button {
+        cursor: pointer;
+        width: 90px;
+        height: 40px;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: #03d1ff67;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        transition-duration: 0.1s;
 
+        &:hover {
+            background-color: #03d1ffb3;
+        }
     }
 }
 @media (max-width: 930px) {
     .navbarMobile {
         display: block;
-        .container { 
+        .container {
             .logo {
                 .icon {
                     font-size: 30px;
@@ -82,8 +99,35 @@
         }
     }
 }
-@media (max-width: 720px) {
+@media (max-width: 700px) {
     .navbarMobile {
         display: block;
+    }
+    .navbarMobile {
+        padding: 0 10px;
+        .menu {
+            p {
+                display: none;
+            }
+            &__icon {
+                margin-right: 13px;
+            }
+            &__searchIcon {
+                margin-right: 0;
+            }
+        }
+    }
+}
+@media (max-width: 450px) {
+    .navbarMobile {
+        display: block;
+    }
+    .navbarMobile {
+        padding: 0 10px;
+        .login-button {
+            width: 60px;
+            height: 30px;
+            font-size: 14px;
+        }
     }
 }

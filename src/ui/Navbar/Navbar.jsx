@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { BiCameraMovie } from 'react-icons/bi';
-import { MdHome } from 'react-icons/md';
-import './navbar.scss';
-import './navbarMobile.scss';
-import { InputSearch } from '../Search/InputSearch';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useMoviesStore } from '../../hooks/useMoviesStore';
+
+import './navbar.scss';
+import './navbarMobile.scss';
+
+import { InputSearch } from '../Search/InputSearch';
+
+import { BiCameraMovie, BiMovie } from 'react-icons/bi';
+import { MdHome } from 'react-icons/md';
 import { FaSearch } from 'react-icons/fa';
-import { BiMovie } from 'react-icons/bi';
 import { RiTvLine } from 'react-icons/ri';
+import { HiOutlineSearch } from 'react-icons/hi';
 
 const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -71,17 +74,39 @@ const Navbar = () => {
                         <p>MovieApp</p>
                     </NavLink>
                     <div className="menu">
-                        <MdHome className="menu__homeIcon" />
-                        <p>Home</p>
-                        <BiMovie className="menu__movieIcon" />
-                        <p>Movies</p>
-                        <RiTvLine className="menu__tvIcon" />
-                        <p>Tv Shows</p>
-                        <FaSearch className="menu__searchIcon" />
-                        <p>Busqueda</p>
+                        <NavLink className="row" to={`/home`}>
+                            <MdHome className="menu__homeIcon menu__icon" />
+                            <p className="title-icon">Home</p>
+                        </NavLink>
+                        <NavLink
+                            className="row"
+                            to={`/show/movie`}
+                            onClick={() => {
+                                handleCategoryTypeClick('movie');
+                            }}
+                        >
+                            <BiMovie className="menu__movieIcon menu__icon" />
+                            <p className="title-icon">Movies</p>
+                        </NavLink>
+                        <NavLink
+                            className="row"
+                            to={`/show/tv`}
+                            onClick={() => {
+                                handleCategoryTypeClick('tv');
+                            }}
+                        >
+                            <RiTvLine className="menu__tvIcon menu__icon" />
+                            <p className="title-icon">Tv Shows</p>
+                        </NavLink>
+                        <NavLink className="row">
+                            <HiOutlineSearch className="menu__searchIcon menu__icon" />
+                            <p>Busqueda</p>
+                        </NavLink>
                     </div>
 
-                    <div className="user-icon"></div>
+                    <NavLink to={`/login`}>
+                        <button className="login-button">Login</button>
+                    </NavLink>
                 </div>
             </nav>
         </>
