@@ -1,19 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { useMoviesStore } from '../../hooks/useMoviesStore';
-
-import { InputSearch } from '../Search/InputSearch';
-
-import { BiCameraMovie } from 'react-icons/bi';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
+import { InputSearch } from '../Search/InputSearch';
+import { BiCameraMovie } from 'react-icons/bi';
 
-export const NavbarDesktop = () => {
-    const { useSetCategoryType, useSetResetFilters } = useMoviesStore();
 
-    const handleCategoryTypeClick = (categoryType) => {
-        windowScrollUp();
-        useSetCategoryType(categoryType);
-        useSetResetFilters();
-    };
+export const NavbarDesktop = ({handleCategoryTypeClick}) => {
+
     return (
         <nav className="navbar">
             <div className="container">
