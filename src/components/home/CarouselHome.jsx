@@ -19,7 +19,7 @@ export const CarouselHome = ({ movies }) => {
             <div>
                 <Slider {...settings}>
                     {movies.map((movie) => (
-                        <CarouselCardHome movie={movie} />
+                        <CarouselCardHome key={movie.id} movie={movie} />
                     ))}
                 </Slider>
             </div>
