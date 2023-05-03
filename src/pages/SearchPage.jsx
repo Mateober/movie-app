@@ -38,7 +38,7 @@ export const SearchPage = () => {
         <>
             <div className="container-searchpage">
                 <div className="div-title-page">
-                    <h1 className="title-page">RESULTS FOR {searchTerm}</h1>
+                    <h1 className="title-page-search">RESULTS FOR {searchTerm}</h1>
                 </div>
 
                 {movies.length === 0 ? (

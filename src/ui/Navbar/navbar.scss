@@ -2,6 +2,10 @@
     background-color: #032541;
     font-weight: 600;
     padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 60px;
     .container {
         margin: 0 auto;
         max-width: 1320px;

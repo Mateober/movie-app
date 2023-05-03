@@ -24,6 +24,15 @@ a {
     color: black;
     font-size: 30px;
     font-weight: 600;
+    margin-top: 60px;
+}
+
+.title-page-search {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 35px;
+    padding-bottom: 30px;
 }
 
 .hidden {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 export const InputSearch = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ export const InputSearch = () => {
         event.preventDefault();
         navigate(`/search/${searchTerm}`);
         setSearchTerm('');
+        windowScrollUp()
     };
 
     return (
