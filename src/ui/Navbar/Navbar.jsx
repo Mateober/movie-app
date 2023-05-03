@@ -1,6 +1,6 @@
 import './navbar.scss';
-import { NavbarDesktop } from './navbarDesktop';
-import { NavbarMobile } from './navbarMobile';
+import { NavbarDesktop } from './NavbarDesktop';
+import { NavbarMobile } from './NavbarMobile';
 import './navbarMobile.scss';
 
 const Navbar = () => {
