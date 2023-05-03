@@ -1,10 +1,9 @@
 .navbarMobile {
     background-color: #032541;
     font-weight: 600;
-    display: none;
     position: fixed;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
 
     .container {
         display: flex;
@@ -94,8 +93,8 @@
     top: 0;
     transition: 0.4s ease-in-out;
     width: 100%;
-    z-index: 1;
     height: 30px;
+    z-index: -1;
 
     &.show {
         top: 60px;
@@ -104,7 +103,6 @@
 
 @media (max-width: 930px) {
     .navbarMobile {
-        display: block;
         .container {
             .logo {
                 .icon {
@@ -118,9 +116,6 @@
     }
 }
 @media (max-width: 700px) {
-    .navbarMobile {
-        display: block;
-    }
     .navbarMobile {
         .container {
             padding: 0 10px;
@@ -140,9 +135,6 @@
     }
 }
 @media (max-width: 450px) {
-    .navbarMobile {
-        display: block;
-    }
     .navbarMobile {
         .login-button {
             width: 60px;
