@@ -3,8 +3,6 @@ import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
 
-import './inputSearchMobile.scss';
-
 export const InputSearchMobile = () => {
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');

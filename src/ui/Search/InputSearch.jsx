@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
-import './inputSearchDesktop.scss';
 
 export const InputSearch = () => {
     const navigate = useNavigate();
