@@ -3,8 +3,7 @@ import { windowScrollUp } from '../../helpers/windowScrollUp';
 import { InputSearch } from '../Search/InputSearch';
 import { BiCameraMovie } from 'react-icons/bi';
 
-export const NavbarDesktop = ({handleCategoryTypeClick}) => {
-
+export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
     return (
         <nav className="navbar">
             <div className="container">

@@ -17,11 +17,13 @@ const Navbar = () => {
     };
     return (
         <>
-            {windowWidth > 930 ? (
-                <NavbarDesktop handleCategoryTypeClick={handleCategoryTypeClick} />
-            ) : (
-                <NavbarMobile handleCategoryTypeClick={handleCategoryTypeClick} />
-            )}
+            <header>
+                {windowWidth > 930 ? (
+                    <NavbarDesktop handleCategoryTypeClick={handleCategoryTypeClick} />
+                ) : (
+                    <NavbarMobile handleCategoryTypeClick={handleCategoryTypeClick} />
+                )}
+            </header>
         </>
     );
 };
