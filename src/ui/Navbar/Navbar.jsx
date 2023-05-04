@@ -5,8 +5,8 @@ import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 import './navbarMobile.scss';
 import './navbarDesktop.scss';
-//import '../Search/inputSearchDesktop.scss';
-//import '../Search/inputSearchMobile.scss';
+import '../Search/inputSearchDesktop.scss';
+import '../Search/inputSearchMobile.scss';
 
 const Navbar = () => {
     const windowWidth = window.innerWidth;
