@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { InputSearchMobile } from '../Search/InputSearchMobile';
 import { BiCameraMovie, BiMovie } from 'react-icons/bi';
 import { MdHome } from 'react-icons/md';
 import { RiTvLine } from 'react-icons/ri';
@@ -59,9 +59,9 @@ export const NavbarMobile = () => {
                         <button className="login-button">Login</button>
                     </NavLink>
                 </div>
-            </nav>{' '}
+            </nav>
             <div className={`divSearch ${showSearch ? 'show' : ''}`}>
-                <p>Lorem ipsum</p>
+                <InputSearchMobile />
             </div>
         </>
     );
