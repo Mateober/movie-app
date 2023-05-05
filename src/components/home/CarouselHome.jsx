@@ -12,7 +12,6 @@ export const CarouselHome = ({ movies }) => {
         autoplaySpeed: 4000,
         speed: 1000,
         arrows: false,
-        
     };
     return (
         <>

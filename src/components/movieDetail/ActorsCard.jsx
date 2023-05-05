@@ -17,7 +17,7 @@ export const ActorsCard = ({ actor }) => {
     return (
         <>
             {renderImage()}
-            <div className='actorCard__info'>
+            <div className="actorCard__info">
                 <p className="actorCard__info--name">{actor.name}</p>
                 <p className="actorCard__info--character">{actor.character}</p>
             </div>

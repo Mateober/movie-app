@@ -15,7 +15,7 @@ export const InputSearchMobile = () => {
         event.preventDefault();
         navigate(`/search/${searchTerm}`);
         setSearchTerm('');
-        windowScrollUp()
+        windowScrollUp();
     };
 
     return (
@@ -31,4 +31,3 @@ export const InputSearchMobile = () => {
         </form>
     );
 };
-

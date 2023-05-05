@@ -7,7 +7,7 @@ export const moviesSlice = createSlice({
         categoryType: localStorage.getItem('categoryType') || 'movie',
         isLoading: true,
         error: null,
-        totalResults: "",
+        totalResults: '',
         filters: {
             sort: 'popularity.desc',
             genre: [],

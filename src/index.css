@@ -20,20 +20,6 @@ a {
     text-decoration: none;
 }
 
-.title-page {
-    color: black;
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.title-page-search {
-    color: black;
-    font-size: 30px;
-    font-weight: 600;
-    padding-left: 35px;
-    padding-bottom: 30px;
-}
-
 .hidden {
     display: none;
 }

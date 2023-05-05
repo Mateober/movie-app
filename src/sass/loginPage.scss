@@ -134,12 +134,10 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     &:hover {
         color: #989b9b;
     }
-
 }
 
 .eyeDiv {
     display: flex;
-    
 }
 .eyeDiv2 {
     position: absolute;

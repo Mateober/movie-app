@@ -8,8 +8,7 @@ import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 export const Filter = () => {
     // Obtener el estado actual de Redux
-    const { categoryType, filters } = useSelector((state) => state.movies);
-    const { sort, genre } = filters;
+    const { categoryType} = useSelector((state) => state.movies);
 
     // Obtener funciones personalizadas de useMoviesStore
     const { useSetFilters, useSetResetFilters } = useMoviesStore();
@@ -54,7 +53,7 @@ export const Filter = () => {
 
     // Manejar el apply de los filtros
     const handleApplytFilters = () => {
-        windowScrollUp()
+        windowScrollUp();
         useSetFilters(sortBy, genres);
     };
 

@@ -1,13 +1,16 @@
+//POPULAR PAGE
 .container-popular {
     max-width: 1320px;
     margin: 0 auto;
     padding: 20px;
     margin-bottom: 100px;
 }
+
 .container-movies-filter {
     display: flex;
     margin-top: 30px;
 }
+
 .container-filter {
     margin-right: 20px;
 }
@@ -21,7 +24,6 @@
     grid-template-columns: repeat(auto-fill, 185px);
     justify-content: center;
 }
-
 .buttonMore {
     text-align: center;
     background-color: #032541;
@@ -40,17 +42,37 @@
     }
 }
 
+.title-page {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+}
+//SEARCH PAGE
 .container-searchpage {
     padding-top: 20px;
 }
 
-.container-movies-search  {
+.container-movies-search {
     display: grid;
     gap: 15px 10px;
     grid-template-columns: repeat(auto-fill, 185px);
     justify-content: center;
     justify-items: center;
     margin: 0 10px;
+}
+
+.title-page-search {
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+    padding-left: 35px;
+    padding-bottom: 30px;
+}
+
+@media (max-width: 930px) {
+    .title-page-search {
+        margin-top: 30px;
+    }
 }
 
 @media (max-width: 540px) {
@@ -68,7 +90,7 @@
         grid-template-columns: repeat(auto-fill, 150px);
         justify-content: space-evenly;
     }
-    .container-movies-search  {
+    .container-movies-search {
         gap: 10px 5px;
         grid-template-columns: repeat(auto-fill, 150px);
         justify-content: space-evenly;

@@ -22,7 +22,7 @@ export const PopularPage = () => {
     const [buttonVisible, setButtonVisible] = useState(true);
 
     useEffect(() => {
-            setButtonVisible(totalResults !== movies.length);
+        setButtonVisible(totalResults !== movies.length);
     }, [movies.length]);
 
     // Disparamos una función que obtiene las películas cada vez que cambia algún filtro o la categoría
@@ -48,7 +48,7 @@ export const PopularPage = () => {
                     {isLoading ? (
                         <Loading />
                     ) : (
-                        <div className="container-movies-button">
+                        <div className="container-movies-more">
                             <div className="container-movies">
                                 <MoviesList movies={movies} />
                             </div>

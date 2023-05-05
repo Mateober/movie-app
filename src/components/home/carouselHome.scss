@@ -17,7 +17,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     align-items: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg,#00000055,rgba(0, 0, 0, 0));
+    background: linear-gradient(0deg, #00000055, rgba(0, 0, 0, 0));
 }
 .carouselDiv4 {
     max-width: 1000px;
@@ -45,7 +45,6 @@ $screen-height: calc(var(--vh, 1vh) * 100);
         font-size: 20px;
         margin-bottom: 30px;
     }
-
 
     &__button {
         background-color: #032541;

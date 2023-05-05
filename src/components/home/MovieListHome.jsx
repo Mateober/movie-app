@@ -72,7 +72,7 @@ export const MovieListHome = ({ moviesArray, type }) => {
         <div className="list animate__animated animate__fadeInLeft">
             <Slider {...settings}>
                 {moviesArray.map((movie) => (
-                    <MovieCardHome key={movie.id} movie={movie} type={type}/>
+                    <MovieCardHome key={movie.id} movie={movie} type={type} />
                 ))}
             </Slider>
         </div>

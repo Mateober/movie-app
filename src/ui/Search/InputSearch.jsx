@@ -15,7 +15,7 @@ export const InputSearch = () => {
         event.preventDefault();
         navigate(`/search/${searchTerm}`);
         setSearchTerm('');
-        windowScrollUp()
+        windowScrollUp();
     };
 
     return (
