@@ -17,7 +17,6 @@ export const PopularPage = () => {
 
     const title = categoryTitles[categoryType];
 
-    // Estados para manejar el botón de "Mostrar más"
     const [page, setPage] = useState(2);
     const [buttonVisible, setButtonVisible] = useState(true);
 
@@ -25,13 +24,11 @@ export const PopularPage = () => {
         setButtonVisible(totalResults !== movies.length);
     }, [movies.length]);
 
-    // Disparamos una función que obtiene las películas cada vez que cambia algún filtro o la categoría
     useEffect(() => {
         fetchMovies();
         setPage(2);
     }, [sort, genre, categoryType]);
 
-    // Disparamos una función que obtiene más películas cuando se presiona el botón de "Mostrar más"
     const onClickMoreMovies = () => {
         setPage(page + 1);
         useSetMoreMovies(page);

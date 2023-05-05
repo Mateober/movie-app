@@ -36,7 +36,6 @@ const buildUrl = (category = 'movie', sortby = 'popularity.desc', genre = [], pa
 export const getMoviesByCategory = async (category = 'movie', sortby = 'popularity.desc', genre = [], page = 1) => {
     const url = buildUrl(category, sortby, genre, page);
     const data = await apiRequest(url);
-    console.log(url);
     return data.results;
 };
 

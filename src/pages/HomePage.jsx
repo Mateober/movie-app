@@ -13,7 +13,6 @@ export const HomePage = () => {
     const [topRatedTv, setTopRatedTv] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
     const [popularTv, setPopularTv] = useState([]);
-    const [upcomingMovies, setUpcomingMovies] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +22,6 @@ export const HomePage = () => {
             setTopRatedTv(await getHomeMovies('tv', 'top_rated'));
             setPopularMovies(await getHomeMovies('movie', 'popular'));
             setPopularTv(await getHomeMovies('tv', 'popular'));
-            setUpcomingMovies(await getHomeMovies('movie', 'upcoming'));
             setIsLoading(false);
         };
         fetchMovies();
@@ -55,24 +53,14 @@ export const HomePage = () => {
                         <div className="home__title">
                             <h2 className="list__title">{list.title}</h2>
                             {list.title === 'POPULAR MOVIES' ? (
-                                <Link
-                                    to={`/show/movie`}
-                                    onClick={() => {
-                                        onClickVerMas('movie');
-                                    }}
-                                >
+                                <Link to={`/show/movie`} onClick={() => {onClickVerMas('movie');}}>
                                     <p className="vermashome">Ver mas...</p>
                                 </Link>
                             ) : (
                                 ''
                             )}
                             {list.title === 'POPULAR TV SHOWS' ? (
-                                <Link
-                                    to={`/show/tv`}
-                                    onClick={() => {
-                                        onClickVerMas('tv');
-                                    }}
-                                >
+                                <Link to={`/show/tv`} onClick={() => {onClickVerMas('tv');}}>
                                     <p className="vermashome">Ver mas...</p>
                                 </Link>
                             ) : (
