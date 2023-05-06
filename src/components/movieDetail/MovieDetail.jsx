@@ -4,6 +4,8 @@ import './movieDetail.scss';
 import { ActorsCard } from './ActorsCard';
 import noImage from '../../assets/noImage.png';
 
+import { ImBookmark, ImHeart, ImCheckmark } from 'react-icons/im';
+
 export const MovieDetail = ({ movie }) => {
     const { details, actors } = movie;
     const {
@@ -70,10 +72,18 @@ export const MovieDetail = ({ movie }) => {
                                     </p>
                                 )}
                             </div>
-                            <div className="movieDetail__circle">
-                                <Circle vote_average={score} />
-                                <p className="movieDetail__circle--text">Puntuación de usuario</p>
+                            <div className='movieDetail__scoreandbuttons'>
+                                <div className="movieDetail__circle">
+                                    <Circle vote_average={score} />
+                                    <p className="movieDetail__circle--text">Puntuación de usuario</p>
+                                </div>
+                                <div className='movieDetail__buttons'>
+                                    <div><ImHeart></ImHeart></div>
+                                    <div><ImBookmark></ImBookmark></div>
+                                    <div><ImCheckmark></ImCheckmark></div>
+                                </div>
                             </div>
+
                             <div className="movieDetail__resumen">
                                 {resumen && (
                                     <>
