@@ -12,7 +12,7 @@ const loginFormFields = {
 
 const registerFormFields = {
     registerName: '',
-    registerSurname: '',
+    registerLastname: '',
     registerEmail: '',
     registerPassword: '',
     registerPassword2: '',
@@ -27,7 +27,7 @@ export const LoginPage = () => {
     const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm(loginFormFields);
     const {
         registerName,
-        registerSurname,
+        registerLastname,
         registerEmail,
         registerPassword,
         registerPassword2,
@@ -40,7 +40,7 @@ export const LoginPage = () => {
     };
 
     const registerSubmit = (event) => {
-        console.log({ registerName, registerSurname, registerEmail, registerPassword, registerPassword2 });
+        console.log({ registerName, registerLastname, registerEmail, registerPassword, registerPassword2 });
         event.preventDefault();
     };
 
@@ -103,8 +103,8 @@ export const LoginPage = () => {
                                 <p>Apellido</p>
                                 <input
                                     type="text"
-                                    name="registerSurname"
-                                    value={registerSurname}
+                                    name="registerLastname"
+                                    value={registerLastname}
                                     onChange={onRegisterInputChange}
                                 />
                             </div>
