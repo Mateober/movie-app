@@ -4,24 +4,31 @@ import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { useForm } from '../hooks/useForm';
+import { useSelector } from 'react-redux';
+import { useAuthStore } from '../hooks/useAuthStore';
 
 const loginFormFields = {
     loginEmail: '',
     loginPassword: '',
 };
-
 const registerFormFields = {
     registerName: '',
     registerLastname: '',
     registerEmail: '',
     registerPassword: '',
     registerPassword2: '',
+    registerUsername: 'Username',
+    registerProfilepic: 'https://i.postimg.cc/Rh66Bkp6/Avatar9.png',
 };
 
 export const LoginPage = () => {
+    const { errorMessage } = useSelector((state) => state.auth);
+    const { startLogin, startRegister } = useAuthStore();
+
     const [eyeIcon1, setEyeIcon1] = useState(true);
     const [eyeIcon2, setEyeIcon2] = useState(true);
     const [eyeIcon3, setEyeIcon3] = useState(true);
+    const [errorPassword, setErrorPassword] = useState('');
     const [registerVisible, setRegisterVisible] = useState(false);
 
     const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm(loginFormFields);
@@ -31,17 +38,27 @@ export const LoginPage = () => {
         registerEmail,
         registerPassword,
         registerPassword2,
+        registerUsername,
+        registerProfilepic,
         onInputChange: onRegisterInputChange,
     } = useForm(registerFormFields);
 
     const loginSubmit = (event) => {
+        startLogin({ email: loginEmail, password: loginPassword });
         console.log({ loginEmail, loginPassword });
         event.preventDefault();
     };
 
     const registerSubmit = (event) => {
-        console.log({ registerName, registerLastname, registerEmail, registerPassword, registerPassword2 });
+        //console.log({ registerName, registerLastname, registerEmail, registerPassword, registerPassword2, registerUsername, registerProfilepic });
         event.preventDefault();
+        if (registerPassword !== registerPassword2) {
+            setErrorPassword('Contraseñas no son iguales');
+            console.log('No iguales');
+            return;
+        }
+        setErrorPassword('');
+        startRegister({ name: registerName, lastname: registerLastname, email: registerEmail, password: registerPassword, username: registerUsername, profilepic: registerProfilepic });
     };
 
     return (
@@ -59,12 +76,7 @@ export const LoginPage = () => {
                                 Password <span>Olvidaste tu contraseña?</span>
                             </p>
                             <div className="eyeDiv">
-                                <input
-                                    type={`${eyeIcon1 ? 'password' : 'text'}`}
-                                    name="loginPassword"
-                                    value={loginPassword}
-                                    onChange={onLoginInputChange}
-                                />
+                                <input type={`${eyeIcon1 ? 'password' : 'text'}`} name="loginPassword" value={loginPassword} onChange={onLoginInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon1(!eyeIcon1)}>
                                     <BsFillEyeFill className={`eyeIcon ${!eyeIcon1 ? 'hidden' : ''}`} />
                                     <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon1 ? 'hidden' : ''}`} />
@@ -101,12 +113,7 @@ export const LoginPage = () => {
                             </div>
                             <div className="inputLoginPage ilp2">
                                 <p>Apellido</p>
-                                <input
-                                    type="text"
-                                    name="registerLastname"
-                                    value={registerLastname}
-                                    onChange={onRegisterInputChange}
-                                />
+                                <input type="text" name="registerLastname" value={registerLastname} onChange={onRegisterInputChange} />
                             </div>
                         </div>
 
@@ -117,12 +124,7 @@ export const LoginPage = () => {
                         <div className="inputLoginPage">
                             <p>Contraseña</p>
                             <div className="eyeDiv">
-                                <input
-                                    type={`${eyeIcon2 ? 'password' : 'text'}`}
-                                    name="registerPassword"
-                                    value={registerPassword}
-                                    onChange={onRegisterInputChange}
-                                />
+                                <input type={`${eyeIcon2 ? 'password' : 'text'}`} name="registerPassword" value={registerPassword} onChange={onRegisterInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon2(!eyeIcon2)}>
                                     <BsFillEyeFill className={`eyeIcon ${!eyeIcon2 ? 'hidden' : ''}`} />
                                     <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon2 ? 'hidden' : ''}`} />
@@ -133,19 +135,15 @@ export const LoginPage = () => {
                         <div className="inputLoginPage">
                             <p>Repita la contraseña</p>
                             <div className="eyeDiv">
-                                <input
-                                    type={`${eyeIcon3 ? 'password' : 'text'}`}
-                                    name="registerPassword2"
-                                    value={registerPassword2}
-                                    onChange={onRegisterInputChange}
-                                />
+                                <input type={`${eyeIcon3 ? 'password' : 'text'}`} name="registerPassword2" value={registerPassword2} onChange={onRegisterInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon3(!eyeIcon3)}>
                                     <BsFillEyeFill className={`eyeIcon ${!eyeIcon3 ? 'hidden' : ''}`} />
                                     <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon3 ? 'hidden' : ''}`} />
                                 </div>
                             </div>
                         </div>
-
+                        <div>{errorMessage}</div>
+                        <div>{errorPassword}</div>
                         <div className="inputLoginPage">
                             <input type="submit" className="btnSubmit" value="Crear cuenta" />
                         </div>

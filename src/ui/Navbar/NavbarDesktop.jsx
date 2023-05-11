@@ -2,8 +2,10 @@ import { NavLink } from 'react-router-dom';
 import { windowScrollUp } from '../../helpers/windowScrollUp';
 import { InputSearch } from '../Search/InputSearch';
 import { BiCameraMovie } from 'react-icons/bi';
+import { useSelector } from 'react-redux';
 
 export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
+    const { status } = useSelector((state) => state.auth);
     return (
         <nav className="navbar">
             <div className="container">
@@ -35,9 +37,13 @@ export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
                     </NavLink>
                 </div>
                 <InputSearch />
-                <NavLink to={`/login`}>
-                    <button className="login-button">Login</button>
-                </NavLink>
+                {status === 'authenticated' ? (
+                    <div className="user-icon"></div>
+                ) : (
+                    <NavLink to={`/login`}>
+                        <button className="login-button">Login</button>
+                    </NavLink>
+                )}
             </div>
         </nav>
     );

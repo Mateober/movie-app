@@ -5,6 +5,7 @@ import { BiCameraMovie, BiMovie } from 'react-icons/bi';
 import { MdHome } from 'react-icons/md';
 import { RiTvLine } from 'react-icons/ri';
 import { HiOutlineSearch } from 'react-icons/hi';
+import { useSelector } from 'react-redux';
 
 export const NavbarMobile = () => {
     const [showSearch, setShowSearch] = useState(false);
@@ -12,6 +13,7 @@ export const NavbarMobile = () => {
     const toggleSearch = () => {
         setShowSearch(!showSearch);
     };
+    const { status } = useSelector((state) => state.auth);
 
     return (
         <>
@@ -54,10 +56,13 @@ export const NavbarMobile = () => {
                             <p>Busqueda</p>
                         </NavLink>
                     </div>
-
-                    <NavLink to={`/login`}>
-                        <button className="login-button">Login</button>
-                    </NavLink>
+                    {status === 'authenticated' ? (
+                        <div className="user-icon"></div>
+                    ) : (
+                        <NavLink to={`/login`}>
+                            <button className="login-button">Login</button>
+                        </NavLink>
+                    )}
                 </div>
             </nav>
             <div className={`divSearch ${showSearch ? 'show' : ''}`}>
