@@ -13,8 +13,9 @@ export const useAuthStore = () => {
             const { data } = await backendApi.post('/Login', { email, password });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
-            dispatch(onLogin({ uid: data.user_id }));
+            dispatch(onLogin({}));
             clearErrorMessage();
+            checkAuthToken()
         } catch (error) {
             dispatch(onLogout(error.response.data?.message || ''));
         }
@@ -26,7 +27,7 @@ export const useAuthStore = () => {
             const { data } = await backendApi.post('/SignUp', { name, lastname, email, password, username, profilepic });
             localStorage.setItem('token', data.token);
             localStorage.setItem('token-init-date', new Date().getTime());
-            dispatch(onLogin({ uid: data.user_id }));
+            dispatch(onLogin({}));
             clearErrorMessage();
         } catch (error) {
             dispatch(onLogout(error.response.data?.message || ''));
@@ -36,6 +37,17 @@ export const useAuthStore = () => {
     const checkAuthToken = async () => {
         const token = localStorage.getItem('token');
         if (!token) return dispatch(onLogout());
+        try {
+            const { data } = await backendApi.get('/user', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            dispatch(onLogin({data}));
+        } catch (error) {
+            localStorage.clear();
+            dispatch(onLogout(error.response.data?.message || 'ERROR'));
+        }
     };
 
     const startLogout = async () => {
