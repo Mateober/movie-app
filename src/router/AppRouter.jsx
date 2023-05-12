@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { PopularPage } from '../pages/PopularPage';
 import { SearchPage } from '../pages/SearchPage';
@@ -8,16 +8,30 @@ import { MovieDetailContainer } from '../components/movieDetail/MovieDetailConta
 import { HomePage } from '../pages/HomePage';
 import { PageNotFound } from '../pages/PageNotFound';
 import { LoginPage } from '../pages/LoginPage';
+import { useAuthStore } from '../hooks/useAuthStore';
 
 export const AppRouter = () => {
+    const { checkAuthToken, status } = useAuthStore();
+
+    useEffect(() => {
+        checkAuthToken();
+    }, []);
+
     return (
         <>
             <Navbar />
             <Routes>
-                <Route path="*" element={<PageNotFound />} />
+                {status === 'not-authenticated' || status === 'checking' ? (
+                    <>
+                        <Route path="login" element={<LoginPage />} />
+                    </>
+                ) : (
+                    <></>
+                )}
+                {/* <Route path="*" element={<PageNotFound />} /> */}
+                <Route path="*" element={<Navigate to="home" />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
-                <Route path="login" element={<LoginPage />} />
                 <Route path="show/:category" element={<PopularPage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
                 <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />} />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../sass/loginPage.scss';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
@@ -6,6 +6,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
 import { useForm } from '../hooks/useForm';
 import { useSelector } from 'react-redux';
 import { useAuthStore } from '../hooks/useAuthStore';
+import { loginValidator, signUpValidator } from '../helpers/validateForm';
 
 const loginFormFields = {
     loginEmail: '',
@@ -28,7 +29,7 @@ export const LoginPage = () => {
     const [eyeIcon1, setEyeIcon1] = useState(true);
     const [eyeIcon2, setEyeIcon2] = useState(true);
     const [eyeIcon3, setEyeIcon3] = useState(true);
-    const [errorPassword, setErrorPassword] = useState('');
+
     const [registerVisible, setRegisterVisible] = useState(false);
 
     const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm(loginFormFields);
@@ -43,23 +44,31 @@ export const LoginPage = () => {
         onInputChange: onRegisterInputChange,
     } = useForm(registerFormFields);
 
+    const [errorLoginForm, setErrorLoginForm] = useState('');
+    const [errorRegisterForm, setErrorRegisterForm] = useState('');
+    const [errorApi, setErrorApi] = useState('');
+
     const loginSubmit = (event) => {
-        startLogin({ email: loginEmail, password: loginPassword });
-        console.log({ loginEmail, loginPassword });
         event.preventDefault();
+        if (!loginValidator(loginEmail, loginPassword, setErrorLoginForm)) {
+            return;
+        }
+        startLogin({ email: loginEmail, password: loginPassword });
     };
 
     const registerSubmit = (event) => {
-        //console.log({ registerName, registerLastname, registerEmail, registerPassword, registerPassword2, registerUsername, registerProfilepic });
         event.preventDefault();
-        if (registerPassword !== registerPassword2) {
-            setErrorPassword('Contraseñas no son iguales');
-            console.log('No iguales');
+        if (!signUpValidator(registerName, registerLastname, registerEmail, registerPassword, registerPassword2, setErrorRegisterForm)) {
             return;
         }
-        setErrorPassword('');
         startRegister({ name: registerName, lastname: registerLastname, email: registerEmail, password: registerPassword, username: registerUsername, profilepic: registerProfilepic });
     };
+
+    useEffect(() => {
+        if (errorMessage !== undefined) {
+            setErrorApi(errorMessage);
+        }
+    }, [errorMessage]);
 
     return (
         <div className="LoginPage">
@@ -69,7 +78,7 @@ export const LoginPage = () => {
                     <form onSubmit={loginSubmit}>
                         <div className="inputLoginPage">
                             <p>Email</p>
-                            <input type="email" name="loginEmail" value={loginEmail} onChange={onLoginInputChange} />
+                            <input type="text" name="loginEmail" value={loginEmail} onChange={onLoginInputChange} />
                         </div>
                         <div className="inputLoginPage">
                             <p>
@@ -83,6 +92,7 @@ export const LoginPage = () => {
                                 </div>
                             </div>
                         </div>
+                        <div className='errorMessage'>{errorApi}{errorLoginForm}</div>
                         <div className="inputLoginPage 3">
                             <input type="submit" className="btnSubmit" value="Ingresar" />
                         </div>
@@ -119,7 +129,7 @@ export const LoginPage = () => {
 
                         <div className="inputLoginPage">
                             <p>Email</p>
-                            <input type="email" name="registerEmail" value={registerEmail} onChange={onRegisterInputChange} />
+                            <input type="text" name="registerEmail" value={registerEmail} onChange={onRegisterInputChange} />
                         </div>
                         <div className="inputLoginPage">
                             <p>Contraseña</p>
@@ -142,8 +152,7 @@ export const LoginPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div>{errorMessage}</div>
-                        <div>{errorPassword}</div>
+                        <div className='errorMessage'>{errorApi}{errorRegisterForm}</div>
                         <div className="inputLoginPage">
                             <input type="submit" className="btnSubmit" value="Crear cuenta" />
                         </div>

@@ -10,23 +10,30 @@ const isPasswordInvalid = (password) => {
     return !(hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid);
 };
 
-export const signUpValidator = (name, lastname, email, password, repeatpassword, setBlanksToFill, setEmailError, setPasswordError, setMatchesPassword) => {
-    const hasEmptyFields = name === '' || lastname === '' || email === '' || password === '';
-    setBlanksToFill(hasEmptyFields);
-
-    const isEmailInvalid = !emailRegex.test(email);
-    setEmailError(isEmailInvalid);
-
-    setPasswordError(isPasswordInvalid(password));
-
-    const doesPasswordMatch = repeatpassword === password;
-    setMatchesPassword(doesPasswordMatch);
+export const signUpValidator = (registerName, registerLastname, registerEmail, registerPassword, registerPassword2, setErrorRegisterForm) => {
+    if (registerName === '' || registerLastname === '' || registerEmail === '' || registerPassword === '') {
+        setErrorRegisterForm('Por favor, complete todos los campos');
+    } else if (!emailRegex.test(registerEmail)) {
+        setErrorRegisterForm('Correo no válido');
+    } else if (isPasswordInvalid(registerPassword)) {
+        setErrorRegisterForm('Contraseña no válida');
+    } else if (registerPassword !== registerPassword2) {
+        setErrorRegisterForm('Las contraseñas no coinciden');
+    } else {
+        setErrorRegisterForm('');
+        return true;
+    }
 };
 
-export const loginValidator = (email, password, setBlanksToFill, setEmailError, setPasswordError) => {
-    email == '' && password == '' ? setBlanksToFill(true) : setBlanksToFill(false);
-
-    !emailRegex.test(email) ? setEmailError(true) : setEmailError(false);
-
-    !isPasswordInvalid(password) ? setPasswordError(true) : setPasswordError(false);
+export const loginValidator = (loginEmail, loginPassword, setErrorLoginForm) => {
+    if (loginEmail == '' && loginPassword == '') {
+        setErrorLoginForm('Por favor, complete todos los campos');
+    } else if (!emailRegex.test(loginEmail)) {
+        setErrorLoginForm('Correo no válido');
+    } else if (isPasswordInvalid(loginPassword)) {
+        setErrorLoginForm('Contraseña no válida');
+    } else {
+        setErrorLoginForm('');
+        return true;
+    }
 };

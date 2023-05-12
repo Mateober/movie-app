@@ -145,6 +145,12 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     margin-top: 11px;
 }
 
+.errorMessage {
+    color: red;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
 @media (max-width: 540px) {
     .LoginPage {
         background-color: #fff;

@@ -7,7 +7,7 @@ import { RiTvLine } from 'react-icons/ri';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { useSelector } from 'react-redux';
 
-export const NavbarMobile = () => {
+export const NavbarMobile = ({ handleCategoryTypeClick }) => {
     const [showSearch, setShowSearch] = useState(false);
 
     const toggleSearch = () => {
