@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
 
     const releaseDate = new Date(release_date || first_air_date);
 
-    let formattedReleaseDate = releaseDate.toLocaleDateString('es-ES', {
+    let formattedReleaseDate = releaseDate.toLocaleDateString('en', {
         day: 'numeric',
         month: 'short',
         year: 'numeric',

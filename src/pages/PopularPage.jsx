@@ -50,7 +50,7 @@ export const PopularPage = () => {
                                 <MoviesList movies={movies} />
                             </div>
                             <div className={`${buttonVisible ? '' : 'hidden'} buttonMore `} onClick={onClickMoreMovies}>
-                                Mostrar mas
+                                Load more
                             </div>
                         </div>
                     )}

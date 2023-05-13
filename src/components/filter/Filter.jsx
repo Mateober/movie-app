@@ -67,13 +67,13 @@ export const Filter = () => {
             {/* Sección de ordenamiento */}
             <div className="filterPanel">
                 <div className="filterPanel__name" onClick={() => setFilterVisible(!filterVisible)}>
-                    <h2>Ordenar</h2>
+                    <h2>Sort</h2>
                     <span className={`${filterVisible ? '' : 'rotated'}`}>
                         <IoIosArrowForward />
                     </span>
                 </div>
                 <div className={`filterPanel__filter ${filterVisible ? '' : 'hidden'}`}>
-                    <h3>Ordenar resultador por</h3>
+                    <h3>Sort Results By</h3>
                     <select
                         name="sort-by"
                         id="sort-by"
@@ -92,13 +92,13 @@ export const Filter = () => {
             {/* Sección de géneros */}
             <div className="filterPanel">
                 <div className="filterPanel__name" onClick={() => setFilterVisible2(!filterVisible2)}>
-                    <h2>Filtros</h2>
+                    <h2>Filters</h2>
                     <span className={`${filterVisible2 ? '' : 'rotated'}`}>
                         <IoIosArrowForward />
                     </span>
                 </div>
                 <div className={`filterPanel__filter ${filterVisible2 ? '' : 'hidden'}`}>
-                    <h3>Géneros</h3>
+                    <h3>Genres</h3>
                     <ul className="filterPanel__filter--multiSelect">
                         {options.genres.map(({ value, label }) => (
                             <li
@@ -117,10 +117,10 @@ export const Filter = () => {
             {/* Botón para restablecer los filtros */}
             <div className="buttonsFilter">
                 <div className="buttonFilter buttonAplicar" onClick={handleApplytFilters}>
-                    <p>Aplicar</p>
+                    <p>Search</p>
                 </div>
                 <div className="buttonFilter" onClick={handleResetFilters}>
-                    <p>Restablecer</p>
+                    <p>Reset</p>
                 </div>
             </div>
         </>

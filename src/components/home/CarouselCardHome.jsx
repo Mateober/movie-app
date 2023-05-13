@@ -35,7 +35,7 @@ export const CarouselCardHome = ({ movie }) => {
                                 onClickVerMas();
                             }}
                         >
-                            <div className="carousel__button">Ver más...</div>
+                            <div className="carousel__button">More info...</div>
                         </Link>
                     </div>
                 </div>

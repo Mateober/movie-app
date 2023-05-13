@@ -75,7 +75,7 @@ export const MovieDetail = ({ movie }) => {
                             <div className='movieDetail__scoreandbuttons'>
                                 <div className="movieDetail__circle">
                                     <Circle vote_average={score} />
-                                    <p className="movieDetail__circle--text">Puntuación de usuario</p>
+                                    <p className="movieDetail__circle--text">User Score</p>
                                 </div>
                                 <div className='movieDetail__buttons'>
                                     <div><ImHeart></ImHeart></div>
@@ -87,7 +87,7 @@ export const MovieDetail = ({ movie }) => {
                             <div className="movieDetail__resumen">
                                 {resumen && (
                                     <>
-                                        <h3>Resumen</h3>
+                                        <h3>Overview</h3>
                                         <p>{resumen}</p>
                                     </>
                                 )}
@@ -97,7 +97,7 @@ export const MovieDetail = ({ movie }) => {
                 </div>
                 {actors.cast.length !== 0 ? (
                     <div className="actorsContainer">
-                        <h2>Actores Principales:</h2>
+                        <h2>Cast:</h2>
                         <ul className="actorsUl">
                             {actors.cast.slice(0, 20).map((actor) => (
                                 <li key={actor.id} className="actorCard">

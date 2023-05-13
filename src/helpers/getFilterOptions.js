@@ -4,14 +4,14 @@ export const getFilterOptions = async (categoryType) => {
     const genres = await getGenres(categoryType);
 
     const sortOptions = [
-        { value: 'popularity.desc', label: 'Popularidad descendente', type: 'popularity' },
-        { value: 'popularity.asc', label: 'Popularidad ascendente', type: 'popularity' },
-        { value: 'vote_average.desc', label: 'Calificación descendente', type: 'rating' },
-        { value: 'vote_average.asc', label: 'Calificación ascendente', type: 'rating' },
-        { value: 'release_date.desc', label: 'Fecha de lanzamiento descendente', type: 'release' },
-        { value: 'release_date.asc', label: 'Fecha de lanzamiento ascendente', type: 'release' },
-        { value: 'original_title.asc', label: 'Título (A-Z)', type: 'title' },
-        { value: 'original_title.desc', label: 'Título (Z-A)', type: 'title' },
+        { value: 'popularity.desc', label: 'Popularity Descending', type: 'popularity' },
+        { value: 'popularity.asc', label: 'Popularity Ascending', type: 'popularity' },
+        { value: 'vote_average.desc', label: 'Rating Descending', type: 'rating' },
+        { value: 'vote_average.asc', label: 'Rating Ascending', type: 'rating' },
+        { value: 'release_date.desc', label: 'Release Date Descending', type: 'release' },
+        { value: 'release_date.asc', label: 'Release Date Ascending', type: 'release' },
+        { value: 'original_title.asc', label: 'Title (A-Z)', type: 'title' },
+        { value: 'original_title.desc', label: 'Title (Z-A)', type: 'title' },
     ];
 
     const genreOptions = [

@@ -7,6 +7,7 @@ import { useForm } from '../hooks/useForm';
 import { useSelector } from 'react-redux';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { loginValidator, signUpValidator } from '../helpers/validateForm';
+import { windowScrollUp } from '../helpers/windowScrollUp';
 
 const loginFormFields = {
     loginEmail: '',
@@ -75,7 +76,7 @@ export const LoginPage = () => {
         <div className="LoginPage">
             <div className="LoginPage2">
                 <div className={`container__login ${registerVisible ? 'hidden' : ''}`}>
-                    <h3>Ingresar</h3>
+                    <h3>Login</h3>
                     <form onSubmit={loginSubmit}>
                         <div className="inputLoginPage">
                             <p>Email</p>
@@ -83,7 +84,7 @@ export const LoginPage = () => {
                         </div>
                         <div className="inputLoginPage">
                             <p>
-                                Password <span>Olvidaste tu contraseña?</span>
+                                Password <span>Did you forget your password?</span>
                             </p>
                             <div className="eyeDiv">
                                 <input type={`${eyeIcon1 ? 'password' : 'text'}`} name="loginPassword" value={loginPassword} onChange={onLoginInputChange} />
@@ -95,10 +96,10 @@ export const LoginPage = () => {
                         </div>
                         <div className="errorMessage">{errorLoginForm !== '' ? errorLoginForm : errorApi}</div>
                         <div className="inputLoginPage 3">
-                            <input type="submit" className="btnSubmit" value="Ingresar" />
+                            <input type="submit" className="btnSubmit" value="Login" />
                         </div>
                     </form>
-                    <p className="loginWith">o inicia sesión con (No funciona por ahora)</p>
+                    <p className="loginWith">or login with (Not working for now)</p>
                     <div className="buttonsContainer">
                         <div className="btnLogin buttonsContainer__google">
                             <FcGoogle />
@@ -110,20 +111,20 @@ export const LoginPage = () => {
                         </div>
                     </div>
                     <p className="registerNow" onClick={() => setRegisterVisible(!registerVisible)}>
-                        Aun no te has registrado? <span>Registrate ahora</span>{' '}
+                        You have not yet registered? <span>Register now</span>
                     </p>
                 </div>
 
                 <div className={`container__login ${registerVisible ? '' : 'hidden'}`}>
-                    <h3>Registro</h3>
+                    <h3>Register</h3>
                     <form onSubmit={registerSubmit}>
                         <div className="divnamesurname">
                             <div className="inputLoginPage ilp2">
-                                <p>Nombre</p>
+                                <p>Name</p>
                                 <input type="text" name="registerName" value={registerName} onChange={onRegisterInputChange} />
                             </div>
                             <div className="inputLoginPage ilp2">
-                                <p>Apellido</p>
+                                <p>Last name</p>
                                 <input type="text" name="registerLastname" value={registerLastname} onChange={onRegisterInputChange} />
                             </div>
                         </div>
@@ -133,7 +134,7 @@ export const LoginPage = () => {
                             <input type="text" name="registerEmail" value={registerEmail} onChange={onRegisterInputChange} />
                         </div>
                         <div className="inputLoginPage">
-                            <p>Contraseña</p>
+                            <p>Password</p>
                             <div className="eyeDiv">
                                 <input type={`${eyeIcon2 ? 'password' : 'text'}`} name="registerPassword" value={registerPassword} onChange={onRegisterInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon2(!eyeIcon2)}>
@@ -144,7 +145,7 @@ export const LoginPage = () => {
                         </div>
 
                         <div className="inputLoginPage">
-                            <p>Repita la contraseña</p>
+                            <p>Repeat password</p>
                             <div className="eyeDiv">
                                 <input type={`${eyeIcon3 ? 'password' : 'text'}`} name="registerPassword2" value={registerPassword2} onChange={onRegisterInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon3(!eyeIcon3)}>
@@ -155,10 +156,10 @@ export const LoginPage = () => {
                         </div>
                         <div className="errorMessage">{errorRegisterForm !== '' ? errorRegisterForm : errorApi}</div>
                         <div className="inputLoginPage">
-                            <input type="submit" className="btnSubmit" value="Crear cuenta" />
+                            <input type="submit" className="btnSubmit" value="Create Account" />
                         </div>
                         <p className="registerNow" onClick={() => setRegisterVisible(!registerVisible)}>
-                            Ya estas registrado? <span>Ingresa ahora</span>
+                            Are you already registered? <span>Login now</span>
                         </p>
                     </form>
                 </div>

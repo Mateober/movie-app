@@ -5,7 +5,7 @@ const { VITE_API_KEY } = getEnvVariables();
 
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = VITE_API_KEY;
-const language = 'es-ES';
+const language = 'en';
 
 const apiRequest = async (url) => {
     try {

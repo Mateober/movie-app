@@ -54,14 +54,14 @@ export const HomePage = () => {
                             <h2 className="list__title">{list.title}</h2>
                             {list.title === 'POPULAR MOVIES' ? (
                                 <Link to={`/show/movie`} onClick={() => {onClickVerMas('movie');}}>
-                                    <p className="vermashome">Ver mas...</p>
+                                    <p className="vermashome">See more...</p>
                                 </Link>
                             ) : (
                                 ''
                             )}
                             {list.title === 'POPULAR TV SHOWS' ? (
                                 <Link to={`/show/tv`} onClick={() => {onClickVerMas('tv');}}>
-                                    <p className="vermashome">Ver mas...</p>
+                                    <p className="vermashome">See more...</p>
                                 </Link>
                             ) : (
                                 ''
