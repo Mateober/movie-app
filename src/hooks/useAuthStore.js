@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { backendApi } from '../api';
 
 export const useAuthStore = () => {
-    const { status } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
 
     const startLogin = async ({ email, password }) => {
@@ -29,6 +28,7 @@ export const useAuthStore = () => {
             localStorage.setItem('token-init-date', new Date().getTime());
             dispatch(onLogin({}));
             clearErrorMessage();
+            checkAuthToken()
         } catch (error) {
             dispatch(onLogout(error.response.data?.message || ''));
         }
@@ -43,7 +43,7 @@ export const useAuthStore = () => {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            dispatch(onLogin({data}));
+            dispatch(onLogin(data));
         } catch (error) {
             localStorage.clear();
             dispatch(onLogout(error.response.data?.message || 'ERROR'));
@@ -60,6 +60,5 @@ export const useAuthStore = () => {
         startRegister,
         checkAuthToken,
         startLogout,
-        status,
     };
 };

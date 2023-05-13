@@ -13,7 +13,7 @@ export const NavbarMobile = ({ handleCategoryTypeClick }) => {
     const toggleSearch = () => {
         setShowSearch(!showSearch);
     };
-    const { status } = useSelector((state) => state.auth);
+    const { status, user } = useSelector((state) => state.auth);
 
     return (
         <>
@@ -57,7 +57,7 @@ export const NavbarMobile = ({ handleCategoryTypeClick }) => {
                         </NavLink>
                     </div>
                     {status === 'authenticated' ? (
-                        <div className="user-icon"></div>
+                        <img src={user.profilepic} className="user-icon"></img>
                     ) : (
                         <NavLink to={`/login`}>
                             <button className="login-button">Login</button>

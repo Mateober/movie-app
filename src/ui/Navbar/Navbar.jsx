@@ -17,6 +17,7 @@ const Navbar = () => {
         useSetCategoryType(categoryType);
         useSetResetFilters();
     };
+
     return (
         <>
             <header>

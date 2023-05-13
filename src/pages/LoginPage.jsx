@@ -53,6 +53,7 @@ export const LoginPage = () => {
         if (!loginValidator(loginEmail, loginPassword, setErrorLoginForm)) {
             return;
         }
+
         startLogin({ email: loginEmail, password: loginPassword });
     };
 
@@ -92,7 +93,7 @@ export const LoginPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='errorMessage'>{errorApi}{errorLoginForm}</div>
+                        <div className="errorMessage">{errorLoginForm !== '' ? errorLoginForm : errorApi}</div>
                         <div className="inputLoginPage 3">
                             <input type="submit" className="btnSubmit" value="Ingresar" />
                         </div>
@@ -152,7 +153,7 @@ export const LoginPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='errorMessage'>{errorApi}{errorRegisterForm}</div>
+                        <div className="errorMessage">{errorRegisterForm !== '' ? errorRegisterForm : errorApi}</div>
                         <div className="inputLoginPage">
                             <input type="submit" className="btnSubmit" value="Crear cuenta" />
                         </div>

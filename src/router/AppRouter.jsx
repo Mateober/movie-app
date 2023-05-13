@@ -9,9 +9,11 @@ import { HomePage } from '../pages/HomePage';
 import { PageNotFound } from '../pages/PageNotFound';
 import { LoginPage } from '../pages/LoginPage';
 import { useAuthStore } from '../hooks/useAuthStore';
+import { useSelector } from 'react-redux';
 
 export const AppRouter = () => {
-    const { checkAuthToken, status } = useAuthStore();
+    const { checkAuthToken } = useAuthStore();
+    const { status } = useSelector((state) => state.auth);
 
     useEffect(() => {
         checkAuthToken();
