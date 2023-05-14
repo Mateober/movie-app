@@ -49,33 +49,19 @@ export const HomePage = () => {
 
             <div className="containerHome">
                 {listType.map((list) => (
-                    <>
+                    <div key={list.id} className='containerlist'>
                         <div className="home__title">
                             <h2 className="list__title">{list.title}</h2>
                             {list.title === 'POPULAR MOVIES' && (
-                                <Link
-                                    to={`/show/movie`}
-                                    onClick={() => {
-                                        onClickVerMas('movie');
-                                    }}
-                                >
-                                    See more...
-                                </Link>
+                                <Link to={`/show/movie`} onClick={() => { onClickVerMas('movie'); }}>See more...</Link>
                             )}
                             {list.title === 'POPULAR TV SHOWS' && (
-                                <Link
-                                    to={`/show/tv`}
-                                    onClick={() => {
-                                        onClickVerMas('tv');
-                                    }}
-                                >
-                                    See more...
-                                </Link>
+                                <Link to={`/show/tv`} onClick={() => { onClickVerMas('tv'); }}>See more...</Link>
                             )}
                         </div>
 
                         <MovieListHome key={list.id} moviesArray={list.moviesArray} type={list.type} />
-                    </>
+                    </div>
                 ))}
             </div>
         </div>
