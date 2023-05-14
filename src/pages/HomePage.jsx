@@ -52,19 +52,25 @@ export const HomePage = () => {
                     <>
                         <div className="home__title">
                             <h2 className="list__title">{list.title}</h2>
-                            {list.title === 'POPULAR MOVIES' ? (
-                                <Link to={`/show/movie`} onClick={() => {onClickVerMas('movie');}}>
-                                    <p className="vermashome">See more...</p>
+                            {list.title === 'POPULAR MOVIES' && (
+                                <Link
+                                    to={`/show/movie`}
+                                    onClick={() => {
+                                        onClickVerMas('movie');
+                                    }}
+                                >
+                                    See more...
                                 </Link>
-                            ) : (
-                                ''
                             )}
-                            {list.title === 'POPULAR TV SHOWS' ? (
-                                <Link to={`/show/tv`} onClick={() => {onClickVerMas('tv');}}>
-                                    <p className="vermashome">See more...</p>
+                            {list.title === 'POPULAR TV SHOWS' && (
+                                <Link
+                                    to={`/show/tv`}
+                                    onClick={() => {
+                                        onClickVerMas('tv');
+                                    }}
+                                >
+                                    See more...
                                 </Link>
-                            ) : (
-                                ''
                             )}
                         </div>
 
