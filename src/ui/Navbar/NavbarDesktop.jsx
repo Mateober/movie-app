@@ -6,6 +6,7 @@ import { ImHeart, ImCheckmark, ImCog, ImBookmark, ImExit } from 'react-icons/im'
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useAuthStore } from '../../hooks/useAuthStore';
+import { LoadingProfileNavbar } from '../Loading/LoadingProfileNavbar';
 
 export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
     const { status, user } = useSelector((state) => state.auth);
@@ -46,10 +47,11 @@ export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
                         </NavLink>
                     </div>
                     <InputSearch />
+
                     {status === 'authenticated' ? (
-                        <>
-                            <img src={user.profilepic} className="user-icon" onClick={() => setprofileMenu(!profileMenu)}></img>
-                        </>
+                        <img src={user.profilepic} className="user-icon" onClick={() => setprofileMenu(!profileMenu)}></img>
+                    ) : status === 'checking' ? (
+                        <LoadingProfileNavbar />
                     ) : (
                         <NavLink to={`/login`}>
                             <button className="login-button">Login</button>
@@ -57,7 +59,7 @@ export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
                     )}
                 </div>
             </nav>
-            {status === 'authenticated' ? (
+            {status === 'authenticated' && (
                 <>
                     <div className={`menuProfile ${profileMenu ? 'menuProfileActive' : ''}`}>
                         <div className="menuProfile__profiles">
@@ -93,8 +95,6 @@ export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
                         </div>
                     </div>
                 </>
-            ) : (
-                ''
             )}
         </>
     );

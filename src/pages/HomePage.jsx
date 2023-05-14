@@ -15,7 +15,7 @@ export const HomePage = () => {
     const [popularTv, setPopularTv] = useState([]);
 
     const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         const fetchMovies = async () => {
             setTopRatedMovies(await getHomeMovies('movie', 'top_rated'));

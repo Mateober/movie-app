@@ -48,7 +48,8 @@ export const Filter = () => {
     // Manejar el restablecimiento de los filtros
     const handleResetFilters = () => {
         useSetResetFilters();
-        setFilterVisible2(false);
+        setGenres([]);
+        
     };
 
     // Manejar el apply de los filtros
