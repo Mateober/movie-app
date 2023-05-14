@@ -13,7 +13,9 @@ export const InputSearch = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate(`/search/${searchTerm}`);
+        if (searchTerm !== '') {
+            navigate(`/search/${searchTerm}`);
+        }
         setSearchTerm('');
         windowScrollUp();
     };
@@ -21,13 +23,7 @@ export const InputSearch = () => {
     return (
         <form className="search-desktop" onSubmit={handleSubmit}>
             <FaSearch className="search-icon" />
-            <input
-                className="search-input"
-                type="text"
-                value={searchTerm}
-                onChange={handleSearch}
-                placeholder="Search movies..."
-            />
+            <input className="search-input" type="text" value={searchTerm} onChange={handleSearch} placeholder="Search movies..." />
         </form>
     );
 };

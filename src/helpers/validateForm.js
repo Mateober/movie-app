@@ -12,13 +12,13 @@ const isPasswordInvalid = (password) => {
 
 export const signUpValidator = (registerName, registerLastname, registerEmail, registerPassword, registerPassword2, setErrorRegisterForm) => {
     if (registerName === '' || registerLastname === '' || registerEmail === '' || registerPassword === '') {
-        setErrorRegisterForm('Por favor, complete todos los campos');
+        setErrorRegisterForm('Please complete all fields');
     } else if (!emailRegex.test(registerEmail)) {
-        setErrorRegisterForm('Correo no válido');
+        setErrorRegisterForm('Invalid email');
     } else if (isPasswordInvalid(registerPassword)) {
-        setErrorRegisterForm('Contraseña no válida');
+        setErrorRegisterForm('Invalid password');
     } else if (registerPassword !== registerPassword2) {
-        setErrorRegisterForm('Las contraseñas no coinciden');
+        setErrorRegisterForm('Passwords do not match');
     } else {
         setErrorRegisterForm('');
         return true;
@@ -26,12 +26,12 @@ export const signUpValidator = (registerName, registerLastname, registerEmail, r
 };
 
 export const loginValidator = (loginEmail, loginPassword, setErrorLoginForm) => {
-    if (loginEmail == '' && loginPassword == '') {
-        setErrorLoginForm('Por favor, complete todos los campos');
+    if (loginEmail == '' || loginPassword == '') {
+        setErrorLoginForm('Please complete all fields');
     } else if (!emailRegex.test(loginEmail)) {
-        setErrorLoginForm('Correo no válido');
+        setErrorLoginForm('Invalid email');
     } else if (isPasswordInvalid(loginPassword)) {
-        setErrorLoginForm('Contraseña no válida');
+        setErrorLoginForm('Invalid password');
     } else {
         setErrorLoginForm('');
         return true;
