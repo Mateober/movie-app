@@ -1,6 +1,5 @@
-import React from 'react';
 import { clearErrorMessage, onChecking, onLogin, onLogout } from '../store/auth/authSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { backendApi } from '../api';
 
 export const useAuthStore = () => {

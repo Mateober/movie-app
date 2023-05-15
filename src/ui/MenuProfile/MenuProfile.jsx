@@ -2,13 +2,17 @@ import { useSelector } from 'react-redux';
 import { useAuthStore } from '../../hooks/useAuthStore';
 import { ImHeart, ImCheckmark, ImCog, ImBookmark, ImExit } from 'react-icons/im';
 import './menuProfile.scss';
+import { NavLink } from 'react-router-dom';
 
-export const MenuProfile = ({ profileMenu }) => {
+export const MenuProfile = ({ profileMenu, setprofileMenu }) => {
     const { user } = useSelector((state) => state.auth);
     const { startLogout } = useAuthStore();
     const onClickLogout = () => {
         startLogout();
     };
+    const onClickFavorites = () => {
+        setprofileMenu(false)
+    }
     return (
         <>
             <div className={`menuProfile ${profileMenu ? 'menuProfileActive' : ''}`}>
@@ -23,7 +27,10 @@ export const MenuProfile = ({ profileMenu }) => {
                 <div className="menuProfile__options">
                     <div className="menuProfile__options--option">
                         <ImHeart />
-                        <p>My favorites</p>
+
+                        <NavLink to={`/favorites`} onClick={onClickFavorites}>
+                            <p>My favorites</p>
+                        </NavLink>
                     </div>
                     <div className="menuProfile__options--option">
                         <ImBookmark />
@@ -31,7 +38,7 @@ export const MenuProfile = ({ profileMenu }) => {
                     </div>
                     <div className="menuProfile__options--option">
                         <ImCheckmark />
-                        <p>Recently Viewed</p>
+                        <p>Recently Watched</p>
                     </div>
                     <div className="menuProfile__options--option">
                         <ImCog />

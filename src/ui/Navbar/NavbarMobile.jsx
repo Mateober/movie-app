@@ -79,7 +79,7 @@ export const NavbarMobile = ({ handleCategoryTypeClick }) => {
             <div className={`divSearch ${showSearch ? 'show' : ''}`}>
                 <InputSearchMobile />
             </div>
-            {status === 'authenticated' && <MenuProfile profileMenu={profileMenu} />}
+            {status === 'authenticated' && <MenuProfile profileMenu={profileMenu} setprofileMenu={setprofileMenu} />}
         </>
     );
 };

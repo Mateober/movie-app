@@ -7,4 +7,5 @@
 
 ```
 VITE_API_KEY=api_key_de_themoviedb
+VITE_API_URL=api_url
 ```

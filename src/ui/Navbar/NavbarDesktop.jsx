@@ -54,7 +54,7 @@ export const NavbarDesktop = ({ handleCategoryTypeClick }) => {
                     )}
                 </div>
             </nav>
-            {status === 'authenticated' && <MenuProfile profileMenu={profileMenu} />}
+            {status === 'authenticated' && <MenuProfile profileMenu={profileMenu} setprofileMenu={setprofileMenu}/>}
         </>
     );
 };

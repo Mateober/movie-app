@@ -10,6 +10,7 @@ import { PageNotFound } from '../pages/PageNotFound';
 import { LoginPage } from '../pages/LoginPage';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { useSelector } from 'react-redux';
+import { FavoritesPage } from '../pages/FavoritesPage';
 
 export const AppRouter = () => {
     const { checkAuthToken } = useAuthStore();
@@ -18,7 +19,6 @@ export const AppRouter = () => {
     useEffect(() => {
         checkAuthToken();
     }, []);
-
     return (
         <>
             <Navbar />
@@ -34,6 +34,7 @@ export const AppRouter = () => {
                 <Route path="*" element={<Navigate to="home" />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
+                <Route path="favorites" element={<FavoritesPage />} />
                 <Route path="show/:category" element={<PopularPage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
                 <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />} />
