@@ -1,9 +1,8 @@
 import './favoriteCard.scss';
 import noImage from '../../assets/noImage.png';
 import { FaTrash } from 'react-icons/fa';
-import { useFavorites } from '../../hooks/useFavorites';
 
-export const FavoriteCard = ({ movie }) => {
+export const FavoriteCard = ({ movie, clickDelete }) => {
     const title = movie.showname.length >= 35 ? movie.showname.substring(0, 35) + '...' : movie.showname || '';
     const categoryType = movie.media_type == 'movie' ? 'Movie' : 'TV Show';
     const score = Math.round(movie.score * 10) / 10 || 'NR';
@@ -20,13 +19,10 @@ export const FavoriteCard = ({ movie }) => {
     }
     const formattedDuration = movie.media_type === 'movie' ? duration : `${movie.duration} Episodes`;
 
-    const { startDeleteFavorite } = useFavorites();
-
-    const movieID = movie.id
-
     const onClickDelete = () => {
-        startDeleteFavorite({movieID})
-    }
+        const movieID = movie.id;
+        clickDelete({ movieID });
+    };
 
     const renderImage = () => {
         if (backdrop) {
@@ -58,7 +54,7 @@ export const FavoriteCard = ({ movie }) => {
                     <p>
                         {categoryType} <span>• {score}</span>
                     </p>
-                    <FaTrash onClick={onClickDelete}/>
+                    <FaTrash onClick={onClickDelete} />
                 </div>
             </div>
         </div>

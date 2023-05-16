@@ -7,6 +7,14 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     margin: 0 auto;
 }
 
+.noFav {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .favoritesHome {
     display: flex;
     flex-direction: column;

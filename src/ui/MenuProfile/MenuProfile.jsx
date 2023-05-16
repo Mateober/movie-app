@@ -11,8 +11,8 @@ export const MenuProfile = ({ profileMenu, setprofileMenu }) => {
         startLogout();
     };
     const onClickFavorites = () => {
-        setprofileMenu(false)
-    }
+        setprofileMenu(false);
+    };
     return (
         <>
             <div className={`menuProfile ${profileMenu ? 'menuProfileActive' : ''}`}>
@@ -46,10 +46,10 @@ export const MenuProfile = ({ profileMenu, setprofileMenu }) => {
                     </div>
                 </div>
                 <div className="line"></div>
-                <div className="menuProfile__logout" onClick={onClickLogout}>
+                <NavLink to={`/home`} className="menuProfile__logout" onClick={onClickLogout}>
                     <ImExit />
                     <p>Logout</p>
-                </div>
+                </NavLink>
             </div>
         </>
     );

@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
 import { FavoriteCard } from '../components/favorites/FavoriteCard';
-import { backendApi } from '../api';
 import { useFavorites } from '../hooks/useFavorites';
 export const FavoritesPage = () => {
     const [activeType, setActiveType] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
     const [favorites, setFavorites] = useState([]);
-
-    const { startGetFavorites } = useFavorites();
+    const { startGetFavorites, startDeleteFavorite } = useFavorites();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -15,7 +12,11 @@ export const FavoritesPage = () => {
         };
         fetchData();
     }, []);
-    
+
+    const clickDelete = ({ movieID }) => {
+        startDeleteFavorite({ movieID });
+        setFavorites((prevFavorites) => prevFavorites.filter((movie) => movie.id !== movieID));
+    };
 
     return (
         <>
@@ -30,10 +31,15 @@ export const FavoritesPage = () => {
                         <p>Recently Watched</p>
                     </div>
                 </div>
+                {favorites.length == 0 && (
+                    <div className="noFav">
+                        <p>You have not added anything to favorites</p>
+                    </div>
+                )}
 
                 <div className="favoritesCatalog">
                     {favorites.map((movie) => (
-                        <FavoriteCard key={movie.id} movie={movie} />
+                        <FavoriteCard key={movie.id} movie={movie} clickDelete={clickDelete} />
                     ))}
                 </div>
             </div>

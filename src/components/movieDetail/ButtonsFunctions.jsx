@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { ImBookmark, ImHeart, ImCheckmark } from 'react-icons/im';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useFavorites } from '../../hooks/useFavorites';
+import { useSelector } from 'react-redux';
 export const ButtonsFunctions = ({ details }) => {
+    const { status } = useSelector((state) => state.auth);
     const { categoryType, idMovie } = useParams();
     const [favInfo, setFavInfo] = useState({
         media_type: categoryType == 'Movies' ? 'movie' : 'tv',
@@ -37,22 +39,32 @@ export const ButtonsFunctions = ({ details }) => {
         });
     };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+    if (status == 'authenticated') {
+        useEffect(() => {
+            fetchData();
+        }, []);
+    }
+
+    const navigate = useNavigate();
 
     const onClickFavorite = async () => {
         const movieID = selectedMovieId;
-        if (favorite) {
-            await startDeleteFavorite({ movieID });
-            setFavorite(false);
-            fetchData();
+
+        if (status == 'authenticated') {
+            if (favorite) {
+                await startDeleteFavorite({ movieID });
+                setFavorite(false);
+                fetchData();
+            } else {
+                await startAddFavorite({ favInfo });
+                setFavorite(true);
+                fetchData();
+            }
         } else {
-            await startAddFavorite({ favInfo });
-            setFavorite(true);
-            fetchData();
+            navigate('/login');
         }
     };
+
     const onClickList = () => {
         setList(!list);
     };

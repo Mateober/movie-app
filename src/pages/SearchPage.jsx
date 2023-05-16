@@ -34,6 +34,14 @@ export const SearchPage = () => {
         return <Loading />;
     }
 
+    if (movies.length == 0) {
+        return (
+            <div className="container-searchpage noSearch">
+                <p>The search <span>"{searchTerm}"</span> does not match any movies or series</p>
+            </div>
+        );
+    }
+
     return (
         <>
             <div className="container-searchpage">
@@ -41,13 +49,10 @@ export const SearchPage = () => {
                     <h1 className="title-page-search">RESULTS FOR {searchTerm}</h1>
                 </div>
 
-                {movies.length === 0 ? (
-                    <p>NO HAY PELICULAS</p>
-                ) : (
-                    <div className="container-movies-search">
-                        <MoviesList movies={movies} />
-                    </div>
-                )}
+                <div className="container-movies-search">
+                    <MoviesList movies={movies} />
+                </div>
+
                 <div className={`${buttonVisible ? '' : 'hidden'} buttonMore `} onClick={onClickMoreMovies}>
                     Mostrar mas
                 </div>

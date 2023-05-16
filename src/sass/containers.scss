@@ -1,3 +1,4 @@
+$screen-height: calc(var(--vh, 1vh) * 100);
 //POPULAR PAGE
 .container-popular {
     max-width: 1320px;
@@ -50,6 +51,18 @@
 //SEARCH PAGE
 .container-searchpage {
     padding-top: 20px;
+    height: calc(#{$screen-height} - 60px);
+}
+
+.noSearch {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        color: #0874cd;
+    }
 }
 
 .container-movies-search {

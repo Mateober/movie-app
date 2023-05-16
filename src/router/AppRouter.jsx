@@ -30,11 +30,11 @@ export const AppRouter = () => {
                 ) : (
                     <></>
                 )}
+                {status === 'authenticated' && <Route path="favorites" element={<FavoritesPage />} />}
                 {/* <Route path="*" element={<PageNotFound />} /> */}
                 <Route path="*" element={<Navigate to="home" />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />
-                <Route path="favorites" element={<FavoritesPage />} />
                 <Route path="show/:category" element={<PopularPage />} />
                 <Route path="search/:searchTerm" element={<SearchPage />} />
                 <Route path="/:categoryType/:idMovie" element={<MovieDetailContainer />} />
