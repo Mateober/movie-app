@@ -5,7 +5,7 @@ import './index.css';
 import '../src/sass/containers.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
+    
         <MovieApp />
-    </React.StrictMode>
+    
 );

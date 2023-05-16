@@ -1,32 +1,21 @@
 import { useEffect, useState } from 'react';
 import { FavoriteCard } from '../components/favorites/FavoriteCard';
 import { backendApi } from '../api';
+import { useFavorites } from '../hooks/useFavorites';
 export const FavoritesPage = () => {
     const [activeType, setActiveType] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [favorites, setFavorites] = useState([]);
 
-    const startGetFavorites = async () => {
-        setIsLoading(true);
-        const token = localStorage.getItem('token');
-        try {
-            const { data } = await backendApi.get('/favorite', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            setFavorites(data);
-            setIsLoading(false);
-        } catch (error) {
-            setIsLoading(false);
-            console.log(error);
-        }
-    };
-    useEffect(() => {
-        startGetFavorites();
-    }, []);
+    const { startGetFavorites } = useFavorites();
 
-    console.log(favorites)
+    useEffect(() => {
+        const fetchData = async () => {
+            setFavorites(await startGetFavorites());
+        };
+        fetchData();
+    }, []);
+    
 
     return (
         <>
@@ -43,10 +32,9 @@ export const FavoritesPage = () => {
                 </div>
 
                 <div className="favoritesCatalog">
-                    {favorites.map((movie)=>(
-                        <FavoriteCard key={movie.id} movie={movie}/>
+                    {favorites.map((movie) => (
+                        <FavoriteCard key={movie.id} movie={movie} />
                     ))}
-                    
                 </div>
             </div>
         </>

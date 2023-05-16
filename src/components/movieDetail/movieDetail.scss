@@ -99,9 +99,29 @@
                 background-color: white;
                 border-radius: 50px;
                 cursor: pointer;
+                &:hover {
+                    .iconFav {
+                        color: red;
+                    }
+                    .iconList {
+                        color: #ff8000;
+                    }
+                    .iconWatched {
+                        color: #1e9212;
+                    }
+                }
                 svg {
                     color: #032541;
                     font-size: 18px;
+                }
+                .iconActiveFav {
+                    color: red;
+                }
+                .iconActiveList {
+                    color: #ff8000;
+                }
+                .iconActiveWatched {
+                    color: #1e9212;
                 }
             }
         }

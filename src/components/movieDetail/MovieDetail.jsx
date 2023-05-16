@@ -3,24 +3,11 @@ import { Circle } from '../circle/Circle';
 import './movieDetail.scss';
 import { ActorsCard } from './ActorsCard';
 import noImage from '../../assets/noImage.png';
-
-import { ImBookmark, ImHeart, ImCheckmark } from 'react-icons/im';
+import { ButtonsFunctions } from './ButtonsFunctions';
 
 export const MovieDetail = ({ movie }) => {
     const { details, actors } = movie;
-    const {
-        genres,
-        runtime,
-        release_date,
-        first_air_date,
-        vote_average,
-        title,
-        name,
-        backdrop_path,
-        number_of_seasons,
-        poster_path,
-        overview,
-    } = details;
+    const { genres, runtime, release_date, first_air_date, vote_average, title, name, backdrop_path, number_of_seasons, poster_path, overview } = details;
 
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
     const backdropImageBaseUrl = 'https://image.tmdb.org/t/p/original/';
@@ -51,10 +38,7 @@ export const MovieDetail = ({ movie }) => {
     return (
         <>
             <div className="movieDetailPage">
-                <div
-                    className="movieDetailContainer"
-                    style={{ backgroundImage: `url(${backdropImageBaseUrl}${backdropImage || posterPath})` }}
-                >
+                <div className="movieDetailContainer" style={{ backgroundImage: `url(${backdropImageBaseUrl}${backdropImage || posterPath})` }}>
                     <div className="movieDetailContainer-black">
                         <div className="movie__image">{renderImage()}</div>
                         <div className="movieDetail">
@@ -72,16 +56,12 @@ export const MovieDetail = ({ movie }) => {
                                     </p>
                                 )}
                             </div>
-                            <div className='movieDetail__scoreandbuttons'>
+                            <div className="movieDetail__scoreandbuttons">
                                 <div className="movieDetail__circle">
                                     <Circle vote_average={score} />
                                     <p className="movieDetail__circle--text">User Score</p>
                                 </div>
-                                <div className='movieDetail__buttons'>
-                                    <div><ImHeart></ImHeart></div>
-                                    <div><ImBookmark></ImBookmark></div>
-                                    <div><ImCheckmark></ImCheckmark></div>
-                                </div>
+                                <ButtonsFunctions details={details}/>
                             </div>
 
                             <div className="movieDetail__resumen">
