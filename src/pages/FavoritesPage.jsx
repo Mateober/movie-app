@@ -5,6 +5,7 @@ export const FavoritesPage = () => {
     const [activeType, setActiveType] = useState(false);
     const [favorites, setFavorites] = useState([]);
     const { startGetFavorites, startDeleteFavorite } = useFavorites();
+    console.log(favorites)
 
     useEffect(() => {
         const fetchData = async () => {

@@ -15,6 +15,7 @@ export const useAuthStore = () => {
             clearErrorMessage();
             checkAuthToken()
         } catch (error) {
+            console.log(error)
             dispatch(onLogout(error.response.data?.message || ''));
         }
     };
