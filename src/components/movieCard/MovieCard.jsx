@@ -9,8 +9,6 @@ const MovieCard = ({ movie }) => {
     const { release_date, first_air_date, poster_path, title, name, vote_average, id } = movie;
     const imageBaseUrl = 'https://image.tmdb.org/t/p/w500/';
 
-    const { categoryType } = useSelector((state) => state.movies);
-
     const releaseDate = new Date(release_date || first_air_date);
 
     let formattedReleaseDate = releaseDate.toLocaleDateString('en', {
@@ -34,6 +32,9 @@ const MovieCard = ({ movie }) => {
             );
         }
     };
+
+
+    const categoryType = movie.title ? "movie" : "tv"
 
     return (
         <Link to={`/${categoryType}/${id}`} onClick={windowScrollUp}>
