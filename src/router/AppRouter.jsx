@@ -32,6 +32,7 @@ export const AppRouter = () => {
                 )}
                 {status === 'authenticated' && <Route path="favorites" element={<FavoritesPage />} />}
                 {/* <Route path="*" element={<PageNotFound />} /> */}
+                {/* <Route path="favorites" element={<FavoritesPage />} /> */}
                 <Route path="*" element={<Navigate to="home" />} />
                 <Route path="/" element={<Navigate to="home" />} />
                 <Route path="home" element={<HomePage />} />

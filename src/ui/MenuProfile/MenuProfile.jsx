@@ -3,6 +3,7 @@ import { useAuthStore } from '../../hooks/useAuthStore';
 import { ImHeart, ImCheckmark, ImCog, ImBookmark, ImExit } from 'react-icons/im';
 import './menuProfile.scss';
 import { NavLink } from 'react-router-dom';
+import { windowScrollUp } from '../../helpers/windowScrollUp';
 
 export const MenuProfile = ({ profileMenu, setprofileMenu }) => {
     const { user } = useSelector((state) => state.auth);
@@ -12,6 +13,7 @@ export const MenuProfile = ({ profileMenu, setprofileMenu }) => {
     };
     const onClickFavorites = () => {
         setprofileMenu(false);
+        windowScrollUp()
     };
     return (
         <>

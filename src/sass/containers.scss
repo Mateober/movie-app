@@ -51,7 +51,7 @@ $screen-height: calc(var(--vh, 1vh) * 100);
 //SEARCH PAGE
 .container-searchpage {
     padding-top: 20px;
-    height: calc(#{$screen-height} - 60px);
+    min-height: calc(#{$screen-height} - 60px);
 }
 
 .noSearch {

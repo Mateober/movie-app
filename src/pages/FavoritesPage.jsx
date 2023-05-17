@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { FavoriteCard } from '../components/favorites/FavoriteCard';
 import { useFavorites } from '../hooks/useFavorites';
+import { LoadingFavorites } from '../ui/Loading/LoadingFavorites';
 export const FavoritesPage = () => {
     const [activeType, setActiveType] = useState(false);
     const [favorites, setFavorites] = useState([]);
     const { startGetFavorites, startDeleteFavorite } = useFavorites();
-    console.log(favorites)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
+            setIsLoading(true);
             setFavorites(await startGetFavorites());
+            setIsLoading(false)
         };
         fetchData();
     }, []);
@@ -32,10 +35,16 @@ export const FavoritesPage = () => {
                         <p>Recently Watched</p>
                     </div>
                 </div>
-                {favorites.length == 0 && (
-                    <div className="noFav">
-                        <p>You have not added anything to favorites</p>
-                    </div>
+                {isLoading ? (
+                    <LoadingFavorites />
+                ) : (
+                    <>
+                        {favorites.length === 0 && (
+                            <div className="noFav">
+                                <p>You have not added anything to favorites</p>
+                            </div>
+                        )}
+                    </>
                 )}
 
                 <div className="favoritesCatalog">
