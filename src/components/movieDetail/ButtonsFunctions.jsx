@@ -7,7 +7,7 @@ export const ButtonsFunctions = ({ details }) => {
     const { status } = useSelector((state) => state.auth);
     const { categoryType, idMovie } = useParams();
     const [favInfo, setFavInfo] = useState({
-        media_type: categoryType == 'Movies' ? 'movie' : 'tv',
+        media_type: categoryType == 'movie' ? 'movie' : 'tv',
         media_id: idMovie,
         backdrop: details.backdrop_path || null,
         poster: details.poster_path || null,
