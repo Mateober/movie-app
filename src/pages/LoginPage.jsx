@@ -3,11 +3,11 @@ import '../sass/loginPage.scss';
 import { FcGoogle } from 'react-icons/fc';
 import { ImFacebook2 } from 'react-icons/im';
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs';
+import { FaExclamationCircle } from 'react-icons/fa';
 import { useForm } from '../hooks/useForm';
 import { useSelector } from 'react-redux';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { loginValidator, signUpValidator } from '../helpers/validateForm';
-import { windowScrollUp } from '../helpers/windowScrollUp';
 
 const loginFormFields = {
     loginEmail: '',
@@ -72,6 +72,14 @@ export const LoginPage = () => {
         }
     }, [errorMessage]);
 
+    const [menuInfo, setMenuInfo] = useState(false);
+
+    const onClickIconInfo = () => {
+        setMenuInfo(!menuInfo);
+        setTimeout(() => {
+            setMenuInfo(false);
+        }, 4000);
+    };
     return (
         <div className="LoginPage">
             <div className="LoginPage2">
@@ -82,10 +90,21 @@ export const LoginPage = () => {
                             <p>Email</p>
                             <input type="text" name="loginEmail" value={loginEmail} onChange={onLoginInputChange} />
                         </div>
-                        <div className="inputLoginPage">
-                            <p>
-                                Password <span>Did you forget your password?</span>
-                            </p>
+                        <div className="inputLoginPage inputPassword">
+                            <div className="passwordInfo">
+                                <div className="passwordTitleIcon">
+                                    <p className="passwordTitle">Password</p>
+                                    <FaExclamationCircle className="iconExclamation" onClick={onClickIconInfo} />
+                                </div>
+
+                                <ul className={`passwordInfoInfo ${menuInfo ? 'menuInfoTrue' : ''}`}>
+                                    <li>Password must contain:</li>
+                                    <li>Minimum 8 characters</li>
+                                    <li>Minimum 1 lowercase and uppercase</li>
+                                    <li>Minimum 1 special character</li>
+                                </ul>
+                            </div>
+
                             <div className="eyeDiv">
                                 <input type={`${eyeIcon1 ? 'password' : 'text'}`} name="loginPassword" value={loginPassword} onChange={onLoginInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon1(!eyeIcon1)}>
@@ -93,6 +112,8 @@ export const LoginPage = () => {
                                     <BsFillEyeSlashFill className={`eyeIcon ${eyeIcon1 ? 'hidden' : ''}`} />
                                 </div>
                             </div>
+
+                            <p className="forget">Did you forget your password?</p>
                         </div>
                         <div className="errorMessage">{errorLoginForm !== '' ? errorLoginForm : errorApi}</div>
                         <div className="inputLoginPage 3">
@@ -134,7 +155,19 @@ export const LoginPage = () => {
                             <input type="text" name="registerEmail" value={registerEmail} onChange={onRegisterInputChange} />
                         </div>
                         <div className="inputLoginPage">
-                            <p>Password</p>
+                            <div className="passwordInfo">
+                                <div className="passwordTitleIcon">
+                                    <p className="passwordTitle">Password</p>
+                                    <FaExclamationCircle className="iconExclamation" onClick={onClickIconInfo} />
+                                </div>
+
+                                <ul className={`passwordInfoInfo ${menuInfo ? 'menuInfoTrue' : ''}`}>
+                                    <li>Password must contain:</li>
+                                    <li>Minimum 8 characters</li>
+                                    <li>Minimum 1 lowercase and uppercase</li>
+                                    <li>Minimum 1 special character</li>
+                                </ul>
+                            </div>
                             <div className="eyeDiv">
                                 <input type={`${eyeIcon2 ? 'password' : 'text'}`} name="registerPassword" value={registerPassword} onChange={onRegisterInputChange} />
                                 <div className="eyeDiv2" onClick={() => setEyeIcon2(!eyeIcon2)}>

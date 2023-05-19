@@ -64,19 +64,56 @@ $screen-height: calc(var(--vh, 1vh) * 100);
     }
 }
 
+.inputPassword {
+    input {
+        margin-bottom: 5px !important;
+    }
+}
+
+.passwordInfo {
+    margin-bottom: 10px;
+    .passwordTitleIcon {
+        display: flex;
+        align-items: center;
+    }
+    .passwordTitle {
+        margin-bottom: 0 !important;
+        margin-right: 5px;
+    }
+    .iconExclamation {
+        color: #6a7171;
+        cursor: pointer;
+    }
+    .passwordInfoInfo {
+        display: none;
+        background-color: #d2d2d2;
+        border-radius: 10px;
+        padding: 10px;
+        position: absolute;
+        margin-left: 100px;
+        margin-top: -20px;
+        z-index: 1;
+        font-weight: 400;
+    }
+    .menuInfoTrue {
+        display: block;
+    }
+}
+
 .inputLoginPage {
     p {
         font-size: 17px;
         font-weight: 400;
         margin-bottom: 10px;
         cursor: default;
-        span {
-            font-size: 13px;
-            color: #7d7d7d;
-            border-bottom: 1px solid #b5b4b4;
-            cursor: pointer;
-            margin-left: 3px;
-        }
+    }
+    .forget {
+        font-size: 13px;
+        color: #7d7d7d;
+        border-bottom: 1px solid #b5b4b4;
+        cursor: pointer;
+        margin-left: 3px;
+        display: inline-block;
     }
     input {
         border-radius: 7px;
