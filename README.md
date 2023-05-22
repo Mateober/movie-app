@@ -49,8 +49,10 @@ VITE_API_URL= Agrega la url de tu base de datos
 5. Inicia la aplicación
 
 ## Base de datos de usuario
-La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.  
-Funcionalidades:  
+La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.
+
+Funcionalidades:
+
 - POST signUp
 - POST login
 - GET user data
