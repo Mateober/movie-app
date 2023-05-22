@@ -63,7 +63,7 @@ Funcionalidades:
 [Repositorio de la base de datos](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
 ## Derechos de autor
-Proyecto creado por Mateo Bertello
+Proyecto creado por Mateo Bertello  
 [Github](https://github.com/Mateober)  
 [Linkedin](https://www.linkedin.com/in/mateo-bertello/)  
 [API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
