@@ -46,7 +46,7 @@ VITE_API_KEY= Agrega tu clave de API de TMDb
 VITE_API_URL= Agrega la url de tu base de datos
 ```
 
-5. Inicia la aplicación
+5. Inicia la aplicación ```npm run dev```
 
 ## Base de datos de usuario
 La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.
