@@ -51,17 +51,17 @@ VITE_API_URL= Agrega la url de tu base de datos
 ## Base de datos de usuario
 La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.
 Funcionalidades:
-1. SignUp
-2. Login
-3. Get user data
-4. ADD favorite
-5. DELETE favorite
-6. GET user favs
+1. POST signUp
+2. POST login
+3. GET user data
+4. GET user favs
+5. POST favorite
+6. DELETE favorite
 
 [Repositorio de la base de datos](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
 ## Derechos de autor
 Proyecto creado por Mateo Bertello
-[Github](https://github.com/Mateober).
-[Linkedin](https://www.linkedin.com/in/mateo-bertello/)
-[API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
+![Github](https://github.com/Mateober).
+![Linkedin](https://www.linkedin.com/in/mateo-bertello/)
+![API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
