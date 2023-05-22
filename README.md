@@ -50,13 +50,13 @@ VITE_API_URL= Agrega la url de tu base de datos
 
 ## Base de datos de usuario
 La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.  
-Funcionalidades:
-1. POST signUp
-2. POST login
-3. GET user data
-4. GET user favs
-5. POST favorite
-6. DELETE favorite
+Funcionalidades:  
+- POST signUp
+- POST login
+- GET user data
+- GET user favs
+- POST favorite
+- DELETE favorite
 
 [Repositorio de la base de datos](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
