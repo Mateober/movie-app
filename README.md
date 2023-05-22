@@ -44,4 +44,4 @@ VITE_API_URL= Agrega la url de tu base de datos
 
 ## Licencia
 
-Este proyecto está bajo la licencia [MIT](https://github.com/Mateober/movie-app/blob/main/LICENSE).
+Este proyecto está bajo la licencia [MIT a](https://github.com/Mateober/movie-app/blob/main/LICENSE).
