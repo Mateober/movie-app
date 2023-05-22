@@ -53,7 +53,7 @@ La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel 
 
 Funcionalidades:
 
-- POST signUp
+- POST sign up
 - POST login
 - GET user data
 - GET user favs
