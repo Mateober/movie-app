@@ -50,7 +50,7 @@ VITE_API_URL= Agrega la url de tu base de datos
 
 ## Base de datos de usuario
 La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.
-Funcionalidades:
+\n Funcionalidades:
 1. POST signUp
 2. POST login
 3. GET user data
@@ -62,6 +62,6 @@ Funcionalidades:
 
 ## Derechos de autor
 Proyecto creado por Mateo Bertello
-![Github](https://github.com/Mateober).
-![Linkedin](https://www.linkedin.com/in/mateo-bertello/)
-![API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
+[Github](https://github.com/Mateober) \n
+[Linkedin](https://www.linkedin.com/in/mateo-bertello/) \n
+[API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
