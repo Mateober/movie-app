@@ -40,11 +40,16 @@ Movie App is a web application that allows users to search for information about
 1. Clone this repository to your local machine: ```git clone https://github.com/Mateober/movie-app.git```
 
 2. Navigate to the project directory: ```cd movie-app```
+2. Navigate to the project directory: ```cd movie-app```
 
+3. Install the dependencies: ```npm install```
 3. Install the dependencies: ```npm install```
 
 4. Rename the env.template file to .env and make the necessary changes to the environment variables:
+4. Rename the env.template file to .env and make the necessary changes to the environment variables:
 ```
+VITE_API_KEY= Add your TMDb API key
+VITE_API_URL= Add your database URL
 VITE_API_KEY= Add your TMDb API key
 VITE_API_URL= Add your database URL
 ```
