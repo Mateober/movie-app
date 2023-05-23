@@ -63,7 +63,7 @@ Functionalities:
 [Database repository](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
 ## Copyright
-Project created by Mateo Bertello
+Project created by Mateo Bertello  
 [Github](https://github.com/Mateober)  
 [Linkedin](https://www.linkedin.com/in/mateo-bertello/)
 
