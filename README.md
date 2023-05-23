@@ -1,6 +1,6 @@
 # Movie App
 
-![Movie App](./src/assets/pc-home.png)
+![Movie App](./src/assets/pc-homee.png)
 
 ## Description
 
@@ -8,8 +8,8 @@ Movie App is a web application that allows users to search for information about
 
 ## Screenshots
 
-![Screenshot 1](./src/assets/pc-movie.png)
-![Screenshot 2](./src/assets/pc-detail.png)
+![Screenshot 1](./src/assets/pc-movies.png)
+![Screenshot 2](./src/assets/pc-details.png)
 
 ## Features
 
