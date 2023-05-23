@@ -10,9 +10,6 @@ Movie App is a web application that allows users to search for information about
 
 ![Screenshot 1](./src/assets/pc-movie.png)
 ![Screenshot 2](./src/assets/pc-detail.png)
-![Screenshot 3](./src/assets/mobile-home.png)
-![Screenshot 4](./src/assets/mobile-movie.png)
-![Screenshot 5](./src/assets/mobile-detail.png)
 
 ## Features
 
