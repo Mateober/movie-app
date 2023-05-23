@@ -2,24 +2,24 @@
 
 ![Movie App](https://github.com/Mateober/movie-app/blob/main/images/movie_app_banner.png)
 
-## Descripción
+## Description
 
-Movie App es una aplicación web que permite a los usuarios buscar información sobre películas y series. Utiliza la API de The Movie Database (TMDb) para obtener datos actualizados sobre películas, como detalles de la trama, calificaciones, reparto y más. Los usuarios pueden realizar búsquedas, ver detalles de películas y guardar sus películas favoritas.
+Movie App is a web application that allows users to search for information about movies and TV shows. It utilizes The Movie Database (TMDb) API to fetch updated movie data, such as plot details, ratings, cast, and more. Users can perform searches, view movie details, and save their favorite movies.
 
-## Capturas de pantalla
+## Screenshots
 
 ![Screenshot 1](https://github.com/Mateober/movie-app/blob/main/images/screenshot1.png)
 ![Screenshot 2](https://github.com/Mateober/movie-app/blob/main/images/screenshot2.png)
 
-## Características
+## Features
 
-- Búsqueda de películas y series por título.
-- Visualización de detalles de películas, como sinopsis, calificación, reparto, géneros, trailers, etc.
-- Interfaz de usuario intuitiva y amigable.
-- Posibilidad de ordenar las peliculas y series por Popularidad, Calificacion Fecha de lanzamiento y Titulo.
-- Posibilidad de filtrar las peliculas y series por generos.
-- Crear una cuenta e iniciar sesion.
-- Guardado de películas favoritas.
+- Search for movies and TV shows by title.
+- View movie details, such as plot, rating, cast, genres, trailers, etc.
+- Intuitive and user-friendly interface.
+- Ability to sort movies and TV shows by Popularity, Rating, Release Date, and Title.
+- Ability to filter movies and TV shows by genres.
+- Create an account and log in.
+- Save favorite movies.
 
 ## Tecnologías utilizadas
 
@@ -32,26 +32,26 @@ Movie App es una aplicación web que permite a los usuarios buscar información 
 - React Router
 - API de The Movie Database (TMDb)
 
-## Instalación
+## Installation
 
-1. Clona este repositorio en tu máquina local: ```git clone https://github.com/Mateober/movie-app.git```
+1. Clone this repository to your local machine: ```git clone https://github.com/Mateober/movie-app.git```
 
-2. Ve al directorio del proyecto: ```cd movie-app```
+2. Navigate to the project directory: ```cd movie-app```
 
-3. Instala las dependencias: ```npm install```
+3. Install the dependencies: ```npm install```
 
-4. Renombrar el archivo env.template por .env y haz los cambios respectivos en las variables de entorno
+4. Rename the env.template file to .env and make the necessary changes to the environment variables:
 ```
-VITE_API_KEY= Agrega tu clave de API de TMDb
-VITE_API_URL= Agrega la url de tu base de datos
+VITE_API_KEY= Add your TMDb API key
+VITE_API_URL= Add your database URL
 ```
 
-5. Inicia la aplicación ```npm run dev```
+5. Start the application: ```npm run dev```
 
-## Base de datos de usuario
-La base de datos de usuario ha sido desarrollada por mi compañero [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). Es responsable de diseñar la estructura de la base de datos.
+## User Database
+The user database has been developed by my colleague [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). He is responsible for designing the database structure.
 
-Funcionalidades:
+Functionalities:
 
 - POST sign up
 - POST login
@@ -60,11 +60,11 @@ Funcionalidades:
 - POST favorite
 - DELETE favorite
 
-[Repositorio de la base de datos](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
+[Database repository](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
-## Derechos de autor
-Proyecto creado por Mateo Bertello  
+## Copyright
+Project created by Mateo Bertello
 [Github](https://github.com/Mateober)  
 [Linkedin](https://www.linkedin.com/in/mateo-bertello/)
 
-[API de The Movie Database (TMDb)](https://www.themoviedb.org/?language=es)
+[The Movie Database (TMDb) API](https://www.themoviedb.org/?language=es)
