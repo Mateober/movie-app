@@ -30,7 +30,7 @@ Movie App is a web application that allows users to search for information about
 - Redux
 - Axios
 - React Router
-- API de The Movie Database (TMDb)
+- The Movie Database (TMDb) API
 
 ## Installation
 
