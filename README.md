@@ -16,7 +16,7 @@ Movie App is a web application that allows users to search for information about
 - Search for movies and TV shows by title.
 - View movie details, such as plot, rating, cast, genres, trailers, etc.
 - Intuitive and user-friendly interface.
-- Ability to sort movies and TV shows by Popularity, Rating, Release Date, and Title.
+- Ability to sort movies and TV shows by Popularity, Rating, Release date, and Title.
 - Ability to filter movies and TV shows by genres.
 - Create an account and log in.
 - Save favorite movies.
