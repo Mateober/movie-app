@@ -60,7 +60,7 @@ Features:
 - Get user data (GET)
 - Get user favorites (GET)
 - Add favorite (POST)
--Remove favorite (DELETE)
+- Remove favorite (DELETE)
 
 [Database repository](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
