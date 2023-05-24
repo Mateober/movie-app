@@ -25,8 +25,7 @@ Movie App is a web application that allows users to search for information about
 
 ## Technologies Used
 
-- HTML
-- CSS
+- Sass
 - JavaScript
 - React.js
 - Redux
