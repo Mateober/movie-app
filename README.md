@@ -1,6 +1,6 @@
 # Movie App
 
-[Web application deployed in Vercel](https://movie-app-mateober.vercel.app/home)
+Check out the [Movie App web application deployed in Vercel](https://movie-app-mateober.vercel.app/home)
 
 ![Movie App](./src/assets/pc-homee.png)
 
@@ -18,12 +18,12 @@ Movie App is a web application that allows users to search for information about
 - Search for movies and TV shows by title.
 - View movie details, such as plot, rating, cast, genres, trailers, etc.
 - Intuitive and user-friendly interface.
-- Ability to sort movies and TV shows by Popularity, Rating, Release date, and Title.
-- Ability to filter movies and TV shows by genres.
+- Sort movies and TV shows by popularity, rating, release date, and title.
+- Filter movies and TV shows by genres.
 - Create an account and log in.
 - Save favorite movies.
 
-## Tecnologías utilizadas
+## Technologies Used
 
 - HTML
 - CSS
@@ -53,18 +53,19 @@ VITE_API_URL= Add your database URL
 ## User Database
 The user database has been developed by my colleague [Juan Manuel Gomez Omil](https://github.com/JuanchiiGomezZ). He is responsible for designing the database structure.
 
-Functionalities:
+Features:
 
-- POST sign up
-- POST login
-- GET user data
-- GET user favs
-- POST favorite
-- DELETE favorite
+- Sign up (POST)
+- Login (POST)
+- Get user data (GET)
+- Get user favorites (GET)
+- Add favorite (POST)
+-Remove favorite (DELETE)
 
 [Database repository](https://github.com/JuanchiiGomezZ/FlexMoviesBackend)
 
 ## Copyright
+
 Project created by Mateo Bertello  
 [Github](https://github.com/Mateober)  
 [Linkedin](https://www.linkedin.com/in/mateo-bertello/)
