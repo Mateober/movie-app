@@ -35,7 +35,10 @@ Movie App is a web application that allows users to search for information about
 
 ## Installation
 
-1. Clone this repository to your local machine: ```git clone https://github.com/Mateober/movie-app.git```
+1. Clone this repository to your local machine: 
+```
+git clone https://github.com/Mateober/movie-app.git
+```
 
 2. Navigate to the project directory: ```cd movie-app```
 
