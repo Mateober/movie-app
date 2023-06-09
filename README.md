@@ -68,8 +68,7 @@ Features:
 
 ## Copyright
 
-Project created by Mateo Bertello  
-[Github](https://github.com/Mateober)  
+Project created by [Mateo Bertello](https://www.linkedin.com/in/mateo-bertello/)  
 [Linkedin](https://www.linkedin.com/in/mateo-bertello/)
 
 [The Movie Database (TMDb) API](https://www.themoviedb.org/?language=es)
