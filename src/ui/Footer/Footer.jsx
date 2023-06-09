@@ -7,10 +7,10 @@ export const Footer = () => {
         <div className="footer">
             <p>© 2023 Copyright | Proyecto creado por Mateo Bertello</p>
             <div>
-                <a className="logos" href="https://www.linkedin.com/in/mateo-bertello/">
+                <a className="logos" target="_blank" href="https://www.linkedin.com/in/mateo-bertello/">
                     <AiFillLinkedin />
                 </a>
-                <a className="logos" href="https://github.com/Mateober">
+                <a className="logos" target="_blank" href="https://github.com/Mateober">
                     <AiFillGithub />
                 </a>
             </div>
